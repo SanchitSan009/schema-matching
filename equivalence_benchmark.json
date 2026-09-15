@@ -1,0 +1,47 @@
+{
+  "description": "Provisional equivalence labels for the name-only experiment. Missing versus explicit qualifiers are treated as different scope. Wheel/tyre position equivalence follows the user's example and is not universal. These labels are evaluation-only.",
+  "columns": [
+    {"name": "input_voltage", "base": "voltage", "qualifiers": ["input"]},
+    {"name": "incoming_voltage", "base": "voltage", "qualifiers": ["incoming"]},
+    {"name": "output_voltage", "base": "voltage", "qualifiers": ["output"]},
+    {"name": "wheel_position", "base": "position", "qualifiers": ["wheel"]},
+    {"name": "tyre_position", "base": "position", "qualifiers": ["tyre"]},
+    {"name": "front_left_wheel_position", "base": "position", "qualifiers": ["front", "left", "wheel"]},
+    {"name": "front_right_wheel_position", "base": "position", "qualifiers": ["front", "right", "wheel"]},
+    {"name": "front_left_tyre_position", "base": "position", "qualifiers": ["front", "left", "tyre"]},
+    {"name": "customer_colour", "base": "colour", "qualifiers": ["customer"]},
+    {"name": "customer_color", "base": "color", "qualifiers": ["customer"]},
+    {"name": "ambient_temperature", "base": "temperature", "qualifiers": ["ambient"]},
+    {"name": "ambient_temprature", "base": "temprature", "qualifiers": ["ambient"]},
+    {"name": "ambient_temp", "base": "temp", "qualifiers": ["ambient"]},
+    {"name": "billing_address", "base": "address", "qualifiers": ["billing"]},
+    {"name": "shipping_address", "base": "address", "qualifiers": ["shipping"]},
+    {"name": "input_current", "base": "current", "qualifiers": ["input"]},
+    {"name": "incoming_current", "base": "current", "qualifiers": ["incoming"]},
+    {"name": "output_current", "base": "current", "qualifiers": ["output"]},
+    {"name": "voltage", "base": "voltage", "qualifiers": []},
+    {"name": "manufacturer", "base": "manufacturer", "qualifiers": []}
+  ],
+  "pairs": [
+    {"left_id": 0, "right_id": 1, "equivalent": true},
+    {"left_id": 0, "right_id": 2, "equivalent": false},
+    {"left_id": 1, "right_id": 2, "equivalent": false},
+    {"left_id": 3, "right_id": 4, "equivalent": true},
+    {"left_id": 5, "right_id": 6, "equivalent": false},
+    {"left_id": 5, "right_id": 7, "equivalent": true},
+    {"left_id": 3, "right_id": 5, "equivalent": false},
+    {"left_id": 8, "right_id": 9, "equivalent": true},
+    {"left_id": 10, "right_id": 11, "equivalent": true},
+    {"left_id": 10, "right_id": 12, "equivalent": true},
+    {"left_id": 13, "right_id": 14, "equivalent": false},
+    {"left_id": 15, "right_id": 16, "equivalent": true},
+    {"left_id": 15, "right_id": 17, "equivalent": false},
+    {"left_id": 0, "right_id": 18, "equivalent": false},
+    {"left_id": 0, "right_id": 19, "equivalent": false}
+  ],
+  "rankings": [
+    {"name": "voltage synonym above opposite direction", "positive": [0, 1], "negative": [0, 2]},
+    {"name": "position synonym above opposite location", "positive": [5, 7], "negative": [5, 6]},
+    {"name": "current synonym above opposite direction", "positive": [15, 16], "negative": [15, 17]}
+  ]
+}

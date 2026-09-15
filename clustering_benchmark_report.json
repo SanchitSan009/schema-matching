@@ -1,0 +1,661 @@
+{
+  "synthetic": true,
+  "passed": true,
+  "cases": [
+    {
+      "name": "complete_clique",
+      "passed": true,
+      "generated": {
+        "stage": "confirmed_clusters",
+        "clusters": [
+          {
+            "member_ids": [
+              0,
+              1,
+              2
+            ],
+            "members": [
+              "A",
+              "B",
+              "C"
+            ],
+            "status": "CONSISTENT",
+            "checked_pair_count": 3,
+            "confirmed_pair_count": 3,
+            "pair_evidence": [
+              {
+                "left_id": 0,
+                "right_id": 1,
+                "status": "EQUIVALENT",
+                "decision": null,
+                "relation": null
+              },
+              {
+                "left_id": 0,
+                "right_id": 2,
+                "status": "EQUIVALENT",
+                "decision": null,
+                "relation": null
+              },
+              {
+                "left_id": 1,
+                "right_id": 2,
+                "status": "EQUIVALENT",
+                "decision": null,
+                "relation": null
+              }
+            ],
+            "problems": [],
+            "chaining_witnesses": []
+          }
+        ],
+        "consistency_passed": true,
+        "blocked_merges": [],
+        "policy": "all pairs must be HIGH_CONFIDENCE_MATCH; missing evidence blocks merge",
+        "column_count": 3,
+        "cluster_count": 1,
+        "non_singleton_count": 1
+      },
+      "proposed_cluster_audit": {
+        "passed": true,
+        "clusters": [
+          {
+            "member_ids": [
+              0,
+              1,
+              2
+            ],
+            "members": [
+              "A",
+              "B",
+              "C"
+            ],
+            "status": "CONSISTENT",
+            "checked_pair_count": 3,
+            "confirmed_pair_count": 3,
+            "pair_evidence": [
+              {
+                "left_id": 0,
+                "right_id": 1,
+                "status": "EQUIVALENT",
+                "decision": null,
+                "relation": null
+              },
+              {
+                "left_id": 0,
+                "right_id": 2,
+                "status": "EQUIVALENT",
+                "decision": null,
+                "relation": null
+              },
+              {
+                "left_id": 1,
+                "right_id": 2,
+                "status": "EQUIVALENT",
+                "decision": null,
+                "relation": null
+              }
+            ],
+            "problems": [],
+            "chaining_witnesses": []
+          }
+        ],
+        "unassigned_ids": []
+      }
+    },
+    {
+      "name": "conflicting_chain",
+      "passed": true,
+      "generated": {
+        "stage": "confirmed_clusters",
+        "clusters": [
+          {
+            "member_ids": [
+              0,
+              1
+            ],
+            "members": [
+              "A",
+              "B"
+            ],
+            "status": "CONSISTENT",
+            "checked_pair_count": 1,
+            "confirmed_pair_count": 1,
+            "pair_evidence": [
+              {
+                "left_id": 0,
+                "right_id": 1,
+                "status": "EQUIVALENT",
+                "decision": null,
+                "relation": null
+              }
+            ],
+            "problems": [],
+            "chaining_witnesses": []
+          },
+          {
+            "member_ids": [
+              2
+            ],
+            "members": [
+              "C"
+            ],
+            "status": "SINGLETON",
+            "checked_pair_count": 0,
+            "confirmed_pair_count": 0,
+            "pair_evidence": [],
+            "problems": [],
+            "chaining_witnesses": []
+          }
+        ],
+        "consistency_passed": true,
+        "blocked_merges": [
+          {
+            "trigger_pair": [
+              1,
+              2
+            ],
+            "left_group": [
+              0,
+              1
+            ],
+            "right_group": [
+              2
+            ],
+            "blocking_pair": {
+              "left_id": 0,
+              "right_id": 2,
+              "status": "CONFLICTING",
+              "decision": null,
+              "relation": null
+            }
+          }
+        ],
+        "policy": "all pairs must be HIGH_CONFIDENCE_MATCH; missing evidence blocks merge",
+        "column_count": 3,
+        "cluster_count": 2,
+        "non_singleton_count": 1
+      },
+      "proposed_cluster_audit": {
+        "passed": false,
+        "clusters": [
+          {
+            "member_ids": [
+              0,
+              1,
+              2
+            ],
+            "members": [
+              "A",
+              "B",
+              "C"
+            ],
+            "status": "FLAGGED",
+            "checked_pair_count": 3,
+            "confirmed_pair_count": 2,
+            "pair_evidence": [
+              {
+                "left_id": 0,
+                "right_id": 1,
+                "status": "EQUIVALENT",
+                "decision": null,
+                "relation": null
+              },
+              {
+                "left_id": 0,
+                "right_id": 2,
+                "status": "CONFLICTING",
+                "decision": null,
+                "relation": null
+              },
+              {
+                "left_id": 1,
+                "right_id": 2,
+                "status": "EQUIVALENT",
+                "decision": null,
+                "relation": null
+              }
+            ],
+            "problems": [
+              {
+                "left_id": 0,
+                "right_id": 2,
+                "status": "CONFLICTING",
+                "decision": null,
+                "relation": null
+              }
+            ],
+            "chaining_witnesses": [
+              {
+                "path": [
+                  0,
+                  1,
+                  2
+                ],
+                "closing_pair": {
+                  "left_id": 0,
+                  "right_id": 2,
+                  "status": "CONFLICTING",
+                  "decision": null,
+                  "relation": null
+                }
+              }
+            ]
+          }
+        ],
+        "unassigned_ids": []
+      }
+    },
+    {
+      "name": "missing_closing_edge",
+      "passed": true,
+      "generated": {
+        "stage": "confirmed_clusters",
+        "clusters": [
+          {
+            "member_ids": [
+              0,
+              1
+            ],
+            "members": [
+              "A",
+              "B"
+            ],
+            "status": "CONSISTENT",
+            "checked_pair_count": 1,
+            "confirmed_pair_count": 1,
+            "pair_evidence": [
+              {
+                "left_id": 0,
+                "right_id": 1,
+                "status": "EQUIVALENT",
+                "decision": null,
+                "relation": null
+              }
+            ],
+            "problems": [],
+            "chaining_witnesses": []
+          },
+          {
+            "member_ids": [
+              2
+            ],
+            "members": [
+              "C"
+            ],
+            "status": "SINGLETON",
+            "checked_pair_count": 0,
+            "confirmed_pair_count": 0,
+            "pair_evidence": [],
+            "problems": [],
+            "chaining_witnesses": []
+          }
+        ],
+        "consistency_passed": true,
+        "blocked_merges": [
+          {
+            "trigger_pair": [
+              1,
+              2
+            ],
+            "left_group": [
+              0,
+              1
+            ],
+            "right_group": [
+              2
+            ],
+            "blocking_pair": {
+              "left_id": 0,
+              "right_id": 2,
+              "status": "MISSING",
+              "decision": null,
+              "relation": null
+            }
+          }
+        ],
+        "policy": "all pairs must be HIGH_CONFIDENCE_MATCH; missing evidence blocks merge",
+        "column_count": 3,
+        "cluster_count": 2,
+        "non_singleton_count": 1
+      },
+      "proposed_cluster_audit": {
+        "passed": false,
+        "clusters": [
+          {
+            "member_ids": [
+              0,
+              1,
+              2
+            ],
+            "members": [
+              "A",
+              "B",
+              "C"
+            ],
+            "status": "FLAGGED",
+            "checked_pair_count": 3,
+            "confirmed_pair_count": 2,
+            "pair_evidence": [
+              {
+                "left_id": 0,
+                "right_id": 1,
+                "status": "EQUIVALENT",
+                "decision": null,
+                "relation": null
+              },
+              {
+                "left_id": 0,
+                "right_id": 2,
+                "status": "MISSING",
+                "decision": null,
+                "relation": null
+              },
+              {
+                "left_id": 1,
+                "right_id": 2,
+                "status": "EQUIVALENT",
+                "decision": null,
+                "relation": null
+              }
+            ],
+            "problems": [
+              {
+                "left_id": 0,
+                "right_id": 2,
+                "status": "MISSING",
+                "decision": null,
+                "relation": null
+              }
+            ],
+            "chaining_witnesses": [
+              {
+                "path": [
+                  0,
+                  1,
+                  2
+                ],
+                "closing_pair": {
+                  "left_id": 0,
+                  "right_id": 2,
+                  "status": "MISSING",
+                  "decision": null,
+                  "relation": null
+                }
+              }
+            ]
+          }
+        ],
+        "unassigned_ids": []
+      }
+    },
+    {
+      "name": "uncertain_closing_edge",
+      "passed": true,
+      "generated": {
+        "stage": "confirmed_clusters",
+        "clusters": [
+          {
+            "member_ids": [
+              0,
+              1
+            ],
+            "members": [
+              "A",
+              "B"
+            ],
+            "status": "CONSISTENT",
+            "checked_pair_count": 1,
+            "confirmed_pair_count": 1,
+            "pair_evidence": [
+              {
+                "left_id": 0,
+                "right_id": 1,
+                "status": "EQUIVALENT",
+                "decision": null,
+                "relation": null
+              }
+            ],
+            "problems": [],
+            "chaining_witnesses": []
+          },
+          {
+            "member_ids": [
+              2
+            ],
+            "members": [
+              "C"
+            ],
+            "status": "SINGLETON",
+            "checked_pair_count": 0,
+            "confirmed_pair_count": 0,
+            "pair_evidence": [],
+            "problems": [],
+            "chaining_witnesses": []
+          }
+        ],
+        "consistency_passed": true,
+        "blocked_merges": [
+          {
+            "trigger_pair": [
+              1,
+              2
+            ],
+            "left_group": [
+              0,
+              1
+            ],
+            "right_group": [
+              2
+            ],
+            "blocking_pair": {
+              "left_id": 0,
+              "right_id": 2,
+              "status": "UNCERTAIN",
+              "decision": null,
+              "relation": null
+            }
+          }
+        ],
+        "policy": "all pairs must be HIGH_CONFIDENCE_MATCH; missing evidence blocks merge",
+        "column_count": 3,
+        "cluster_count": 2,
+        "non_singleton_count": 1
+      },
+      "proposed_cluster_audit": {
+        "passed": false,
+        "clusters": [
+          {
+            "member_ids": [
+              0,
+              1,
+              2
+            ],
+            "members": [
+              "A",
+              "B",
+              "C"
+            ],
+            "status": "FLAGGED",
+            "checked_pair_count": 3,
+            "confirmed_pair_count": 2,
+            "pair_evidence": [
+              {
+                "left_id": 0,
+                "right_id": 1,
+                "status": "EQUIVALENT",
+                "decision": null,
+                "relation": null
+              },
+              {
+                "left_id": 0,
+                "right_id": 2,
+                "status": "UNCERTAIN",
+                "decision": null,
+                "relation": null
+              },
+              {
+                "left_id": 1,
+                "right_id": 2,
+                "status": "EQUIVALENT",
+                "decision": null,
+                "relation": null
+              }
+            ],
+            "problems": [
+              {
+                "left_id": 0,
+                "right_id": 2,
+                "status": "UNCERTAIN",
+                "decision": null,
+                "relation": null
+              }
+            ],
+            "chaining_witnesses": [
+              {
+                "path": [
+                  0,
+                  1,
+                  2
+                ],
+                "closing_pair": {
+                  "left_id": 0,
+                  "right_id": 2,
+                  "status": "UNCERTAIN",
+                  "decision": null,
+                  "relation": null
+                }
+              }
+            ]
+          }
+        ],
+        "unassigned_ids": []
+      }
+    },
+    {
+      "name": "singletons",
+      "passed": true,
+      "generated": {
+        "stage": "confirmed_clusters",
+        "clusters": [
+          {
+            "member_ids": [
+              0
+            ],
+            "members": [
+              "A"
+            ],
+            "status": "SINGLETON",
+            "checked_pair_count": 0,
+            "confirmed_pair_count": 0,
+            "pair_evidence": [],
+            "problems": [],
+            "chaining_witnesses": []
+          },
+          {
+            "member_ids": [
+              1
+            ],
+            "members": [
+              "B"
+            ],
+            "status": "SINGLETON",
+            "checked_pair_count": 0,
+            "confirmed_pair_count": 0,
+            "pair_evidence": [],
+            "problems": [],
+            "chaining_witnesses": []
+          },
+          {
+            "member_ids": [
+              2
+            ],
+            "members": [
+              "C"
+            ],
+            "status": "SINGLETON",
+            "checked_pair_count": 0,
+            "confirmed_pair_count": 0,
+            "pair_evidence": [],
+            "problems": [],
+            "chaining_witnesses": []
+          }
+        ],
+        "consistency_passed": true,
+        "blocked_merges": [],
+        "policy": "all pairs must be HIGH_CONFIDENCE_MATCH; missing evidence blocks merge",
+        "column_count": 3,
+        "cluster_count": 3,
+        "non_singleton_count": 0
+      },
+      "proposed_cluster_audit": {
+        "passed": false,
+        "clusters": [
+          {
+            "member_ids": [
+              0,
+              1,
+              2
+            ],
+            "members": [
+              "A",
+              "B",
+              "C"
+            ],
+            "status": "FLAGGED",
+            "checked_pair_count": 3,
+            "confirmed_pair_count": 0,
+            "pair_evidence": [
+              {
+                "left_id": 0,
+                "right_id": 1,
+                "status": "MISSING",
+                "decision": null,
+                "relation": null
+              },
+              {
+                "left_id": 0,
+                "right_id": 2,
+                "status": "MISSING",
+                "decision": null,
+                "relation": null
+              },
+              {
+                "left_id": 1,
+                "right_id": 2,
+                "status": "MISSING",
+                "decision": null,
+                "relation": null
+              }
+            ],
+            "problems": [
+              {
+                "left_id": 0,
+                "right_id": 1,
+                "status": "MISSING",
+                "decision": null,
+                "relation": null
+              },
+              {
+                "left_id": 0,
+                "right_id": 2,
+                "status": "MISSING",
+                "decision": null,
+                "relation": null
+              },
+              {
+                "left_id": 1,
+                "right_id": 2,
+                "status": "MISSING",
+                "decision": null,
+                "relation": null
+              }
+            ],
+            "chaining_witnesses": []
+          }
+        ],
+        "unassigned_ids": []
+      }
+    }
+  ]
+}

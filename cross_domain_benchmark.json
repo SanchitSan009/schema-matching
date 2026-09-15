@@ -1,0 +1,841 @@
+{
+  "domain_holdout_status": "Not established: several requested domains overlap prior development examples. These are fresh development stress cases, not a certified unseen-domain test.",
+  "cases": [
+    {
+      "id": "case_00",
+      "domain": "finance",
+      "phenomenon": "synonym",
+      "expected_relation": "EQUIVALENT",
+      "columns": [
+        {
+          "name": "paid_amount",
+          "base": "amount",
+          "qualifiers": [
+            "paid"
+          ],
+          "table": "stress_0",
+          "description": "Both fields record the amount of the payment after settlement."
+        },
+        {
+          "name": "settled_amount",
+          "base": "amount",
+          "qualifiers": [
+            "settled"
+          ],
+          "table": "stress_0",
+          "description": "Both fields record the amount of the payment after settlement."
+        }
+      ]
+    },
+    {
+      "id": "case_01",
+      "domain": "finance",
+      "phenomenon": "contrast",
+      "expected_relation": "CONTRASTING",
+      "columns": [
+        {
+          "name": "debit_amount",
+          "base": "amount",
+          "qualifiers": [
+            "debit"
+          ],
+          "table": "stress_1",
+          "description": "Ledger transaction direction is represented by debit or credit."
+        },
+        {
+          "name": "credit_amount",
+          "base": "amount",
+          "qualifiers": [
+            "credit"
+          ],
+          "table": "stress_1",
+          "description": "Ledger transaction direction is represented by debit or credit."
+        }
+      ]
+    },
+    {
+      "id": "case_02",
+      "domain": "finance",
+      "phenomenon": "abbreviation",
+      "expected_relation": "EQUIVALENT",
+      "columns": [
+        {
+          "name": "net_present_value",
+          "base": "value",
+          "qualifiers": [
+            "net",
+            "present"
+          ],
+          "table": "stress_2",
+          "description": "The metric is net present value of projected cash flows."
+        },
+        {
+          "name": "npv_value",
+          "base": "value",
+          "qualifiers": [
+            "npv"
+          ],
+          "table": "stress_2",
+          "description": "The metric is net present value of projected cash flows."
+        }
+      ]
+    },
+    {
+      "id": "case_03",
+      "domain": "finance",
+      "phenomenon": "context",
+      "expected_relation": "RELATED_BUT_DIFFERENT",
+      "columns": [
+        {
+          "name": "effective_rate",
+          "base": "rate",
+          "qualifiers": [
+            "effective"
+          ],
+          "table": "stress_3",
+          "description": "Effective rate includes compounding; nominal rate is the quoted annual rate."
+        },
+        {
+          "name": "nominal_rate",
+          "base": "rate",
+          "qualifiers": [
+            "nominal"
+          ],
+          "table": "stress_3",
+          "description": "Effective rate includes compounding; nominal rate is the quoted annual rate."
+        }
+      ]
+    },
+    {
+      "id": "case_04",
+      "domain": "healthcare",
+      "phenomenon": "synonym",
+      "expected_relation": "EQUIVALENT",
+      "columns": [
+        {
+          "name": "body_temperature",
+          "base": "temperature",
+          "qualifiers": [
+            "body"
+          ],
+          "table": "stress_4",
+          "description": "Both fields record the measured body temperature of this patient, in degrees Celsius."
+        },
+        {
+          "name": "patient_temperature",
+          "base": "temperature",
+          "qualifiers": [
+            "patient"
+          ],
+          "table": "stress_4",
+          "description": "Both fields record the measured body temperature of this patient, in degrees Celsius."
+        }
+      ]
+    },
+    {
+      "id": "case_05",
+      "domain": "healthcare",
+      "phenomenon": "contrast",
+      "expected_relation": "CONTRASTING",
+      "columns": [
+        {
+          "name": "systolic_pressure",
+          "base": "pressure",
+          "qualifiers": [
+            "systolic"
+          ],
+          "table": "stress_5",
+          "description": "These are the two blood pressure phases."
+        },
+        {
+          "name": "diastolic_pressure",
+          "base": "pressure",
+          "qualifiers": [
+            "diastolic"
+          ],
+          "table": "stress_5",
+          "description": "These are the two blood pressure phases."
+        }
+      ]
+    },
+    {
+      "id": "case_06",
+      "domain": "healthcare",
+      "phenomenon": "abbreviation",
+      "expected_relation": "EQUIVALENT",
+      "columns": [
+        {
+          "name": "heart_rate",
+          "base": "rate",
+          "qualifiers": [
+            "heart"
+          ],
+          "table": "stress_6",
+          "description": "HR denotes heart rate measured in beats per minute."
+        },
+        {
+          "name": "hr_rate",
+          "base": "rate",
+          "qualifiers": [
+            "hr"
+          ],
+          "table": "stress_6",
+          "description": "HR denotes heart rate measured in beats per minute."
+        }
+      ]
+    },
+    {
+      "id": "case_07",
+      "domain": "healthcare",
+      "phenomenon": "context",
+      "expected_relation": "RELATED_BUT_DIFFERENT",
+      "columns": [
+        {
+          "name": "ordered_dose",
+          "base": "dose",
+          "qualifiers": [
+            "ordered"
+          ],
+          "table": "stress_7",
+          "description": "An ordered dose is prescribed; an administered dose records what was actually given."
+        },
+        {
+          "name": "administered_dose",
+          "base": "dose",
+          "qualifiers": [
+            "administered"
+          ],
+          "table": "stress_7",
+          "description": "An ordered dose is prescribed; an administered dose records what was actually given."
+        }
+      ]
+    },
+    {
+      "id": "case_08",
+      "domain": "e-commerce",
+      "phenomenon": "synonym",
+      "expected_relation": "EQUIVALENT",
+      "columns": [
+        {
+          "name": "delivery_cost",
+          "base": "cost",
+          "qualifiers": [
+            "delivery"
+          ],
+          "table": "stress_8",
+          "description": "Both fields record the fee charged to deliver the purchased goods."
+        },
+        {
+          "name": "shipping_cost",
+          "base": "cost",
+          "qualifiers": [
+            "shipping"
+          ],
+          "table": "stress_8",
+          "description": "Both fields record the fee charged to deliver the purchased goods."
+        }
+      ]
+    },
+    {
+      "id": "case_09",
+      "domain": "e-commerce",
+      "phenomenon": "contrast",
+      "expected_relation": "CONTRASTING",
+      "columns": [
+        {
+          "name": "ordered_quantity",
+          "base": "quantity",
+          "qualifiers": [
+            "ordered"
+          ],
+          "table": "stress_9",
+          "description": "These fields count goods ordered versus goods returned by customers."
+        },
+        {
+          "name": "returned_quantity",
+          "base": "quantity",
+          "qualifiers": [
+            "returned"
+          ],
+          "table": "stress_9",
+          "description": "These fields count goods ordered versus goods returned by customers."
+        }
+      ]
+    },
+    {
+      "id": "case_10",
+      "domain": "e-commerce",
+      "phenomenon": "typo",
+      "expected_relation": "EQUIVALENT",
+      "columns": [
+        {
+          "name": "discounted_price",
+          "base": "price",
+          "qualifiers": [
+            "discounted"
+          ],
+          "table": "stress_10",
+          "description": "Both record the sale price after discount."
+        },
+        {
+          "name": "disconted_price",
+          "base": "price",
+          "qualifiers": [
+            "disconted"
+          ],
+          "table": "stress_10",
+          "description": "Both record the sale price after discount."
+        }
+      ]
+    },
+    {
+      "id": "case_11",
+      "domain": "e-commerce",
+      "phenomenon": "context",
+      "expected_relation": "RELATED_BUT_DIFFERENT",
+      "columns": [
+        {
+          "name": "product_identifier",
+          "base": "identifier",
+          "qualifiers": [
+            "product"
+          ],
+          "table": "stress_11",
+          "description": "A product has multiple variants, each with a separate identifier."
+        },
+        {
+          "name": "variant_identifier",
+          "base": "identifier",
+          "qualifiers": [
+            "variant"
+          ],
+          "table": "stress_11",
+          "description": "A product has multiple variants, each with a separate identifier."
+        }
+      ]
+    },
+    {
+      "id": "case_12",
+      "domain": "industrial",
+      "phenomenon": "synonym",
+      "expected_relation": "EQUIVALENT",
+      "columns": [
+        {
+          "name": "supply_pressure",
+          "base": "pressure",
+          "qualifiers": [
+            "supply"
+          ],
+          "table": "stress_12",
+          "description": "Both sensors name the same supply pressure at the inlet of this valve."
+        },
+        {
+          "name": "inlet_pressure",
+          "base": "pressure",
+          "qualifiers": [
+            "inlet"
+          ],
+          "table": "stress_12",
+          "description": "Both sensors name the same supply pressure at the inlet of this valve."
+        }
+      ]
+    },
+    {
+      "id": "case_13",
+      "domain": "industrial",
+      "phenomenon": "contrast",
+      "expected_relation": "CONTRASTING",
+      "columns": [
+        {
+          "name": "clockwise_torque",
+          "base": "torque",
+          "qualifiers": [
+            "clockwise"
+          ],
+          "table": "stress_13",
+          "description": "Torque direction is defined relative to a fixed viewing axis."
+        },
+        {
+          "name": "counterclockwise_torque",
+          "base": "torque",
+          "qualifiers": [
+            "counterclockwise"
+          ],
+          "table": "stress_13",
+          "description": "Torque direction is defined relative to a fixed viewing axis."
+        }
+      ]
+    },
+    {
+      "id": "case_14",
+      "domain": "industrial",
+      "phenomenon": "typo",
+      "expected_relation": "EQUIVALENT",
+      "columns": [
+        {
+          "name": "resonant_frequency",
+          "base": "frequency",
+          "qualifiers": [
+            "resonant"
+          ],
+          "table": "stress_14",
+          "description": "Both fields represent the resonance frequency of this assembly."
+        },
+        {
+          "name": "resonent_frequency",
+          "base": "frequency",
+          "qualifiers": [
+            "resonent"
+          ],
+          "table": "stress_14",
+          "description": "Both fields represent the resonance frequency of this assembly."
+        }
+      ]
+    },
+    {
+      "id": "case_15",
+      "domain": "industrial",
+      "phenomenon": "context",
+      "expected_relation": "RELATED_BUT_DIFFERENT",
+      "columns": [
+        {
+          "name": "cold_clearance",
+          "base": "clearance",
+          "qualifiers": [
+            "cold"
+          ],
+          "table": "stress_15",
+          "description": "Cold clearance is measured before running; operating clearance is measured at working temperature."
+        },
+        {
+          "name": "operating_clearance",
+          "base": "clearance",
+          "qualifiers": [
+            "operating"
+          ],
+          "table": "stress_15",
+          "description": "Cold clearance is measured before running; operating clearance is measured at working temperature."
+        }
+      ]
+    },
+    {
+      "id": "case_16",
+      "domain": "telecom",
+      "phenomenon": "synonym",
+      "expected_relation": "EQUIVALENT",
+      "columns": [
+        {
+          "name": "received_power",
+          "base": "power",
+          "qualifiers": [
+            "received"
+          ],
+          "table": "stress_16",
+          "description": "RX denotes reception, and both fields record received signal power."
+        },
+        {
+          "name": "rx_power",
+          "base": "power",
+          "qualifiers": [
+            "rx"
+          ],
+          "table": "stress_16",
+          "description": "RX denotes reception, and both fields record received signal power."
+        }
+      ]
+    },
+    {
+      "id": "case_17",
+      "domain": "telecom",
+      "phenomenon": "contrast",
+      "expected_relation": "CONTRASTING",
+      "columns": [
+        {
+          "name": "uplink_throughput",
+          "base": "throughput",
+          "qualifiers": [
+            "uplink"
+          ],
+          "table": "stress_17",
+          "description": "Traffic direction is relative to the mobile subscriber."
+        },
+        {
+          "name": "downlink_throughput",
+          "base": "throughput",
+          "qualifiers": [
+            "downlink"
+          ],
+          "table": "stress_17",
+          "description": "Traffic direction is relative to the mobile subscriber."
+        }
+      ]
+    },
+    {
+      "id": "case_18",
+      "domain": "telecom",
+      "phenomenon": "abbreviation",
+      "expected_relation": "EQUIVALENT",
+      "columns": [
+        {
+          "name": "signal_noise_ratio",
+          "base": "ratio",
+          "qualifiers": [
+            "signal",
+            "noise"
+          ],
+          "table": "stress_18",
+          "description": "SNR is the signal-to-noise ratio of the channel."
+        },
+        {
+          "name": "snr_ratio",
+          "base": "ratio",
+          "qualifiers": [
+            "snr"
+          ],
+          "table": "stress_18",
+          "description": "SNR is the signal-to-noise ratio of the channel."
+        }
+      ]
+    },
+    {
+      "id": "case_19",
+      "domain": "telecom",
+      "phenomenon": "context",
+      "expected_relation": "RELATED_BUT_DIFFERENT",
+      "columns": [
+        {
+          "name": "channel_bandwidth",
+          "base": "bandwidth",
+          "qualifiers": [
+            "channel"
+          ],
+          "table": "stress_19",
+          "description": "Allocated channel bandwidth can exceed the bandwidth occupied by the transmitted signal."
+        },
+        {
+          "name": "occupied_bandwidth",
+          "base": "bandwidth",
+          "qualifiers": [
+            "occupied"
+          ],
+          "table": "stress_19",
+          "description": "Allocated channel bandwidth can exceed the bandwidth occupied by the transmitted signal."
+        }
+      ]
+    },
+    {
+      "id": "case_20",
+      "domain": "software telemetry",
+      "phenomenon": "synonym",
+      "expected_relation": "EQUIVALENT",
+      "columns": [
+        {
+          "name": "failures_count",
+          "base": "count",
+          "qualifiers": [
+            "failures"
+          ],
+          "table": "stress_20",
+          "description": "Both count requests that ended with the same failed-request status."
+        },
+        {
+          "name": "errors_count",
+          "base": "count",
+          "qualifiers": [
+            "errors"
+          ],
+          "table": "stress_20",
+          "description": "Both count requests that ended with the same failed-request status."
+        }
+      ]
+    },
+    {
+      "id": "case_21",
+      "domain": "software telemetry",
+      "phenomenon": "contrast",
+      "expected_relation": "CONTRASTING",
+      "columns": [
+        {
+          "name": "sent_bytes",
+          "base": "bytes",
+          "qualifiers": [
+            "sent"
+          ],
+          "table": "stress_21",
+          "description": "Network direction is relative to this service instance."
+        },
+        {
+          "name": "received_bytes",
+          "base": "bytes",
+          "qualifiers": [
+            "received"
+          ],
+          "table": "stress_21",
+          "description": "Network direction is relative to this service instance."
+        }
+      ]
+    },
+    {
+      "id": "case_22",
+      "domain": "software telemetry",
+      "phenomenon": "typo",
+      "expected_relation": "EQUIVALENT",
+      "columns": [
+        {
+          "name": "execution_duration",
+          "base": "duration",
+          "qualifiers": [
+            "execution"
+          ],
+          "table": "stress_22",
+          "description": "Both record execution duration for the same operation."
+        },
+        {
+          "name": "execuiton_duration",
+          "base": "duration",
+          "qualifiers": [
+            "execuiton"
+          ],
+          "table": "stress_22",
+          "description": "Both record execution duration for the same operation."
+        }
+      ]
+    },
+    {
+      "id": "case_23",
+      "domain": "software telemetry",
+      "phenomenon": "context",
+      "expected_relation": "RELATED_BUT_DIFFERENT",
+      "columns": [
+        {
+          "name": "p95_latency",
+          "base": "latency",
+          "qualifiers": [
+            "p95"
+          ],
+          "table": "stress_23",
+          "description": "One statistic is the 95th percentile and the other is the arithmetic mean."
+        },
+        {
+          "name": "average_latency",
+          "base": "latency",
+          "qualifiers": [
+            "average"
+          ],
+          "table": "stress_23",
+          "description": "One statistic is the 95th percentile and the other is the arithmetic mean."
+        }
+      ]
+    },
+    {
+      "id": "case_24",
+      "domain": "HR",
+      "phenomenon": "synonym",
+      "expected_relation": "EQUIVALENT",
+      "columns": [
+        {
+          "name": "hire_date",
+          "base": "date",
+          "qualifiers": [
+            "hire"
+          ],
+          "table": "stress_24",
+          "description": "Both represent the first day of employment under the current contract."
+        },
+        {
+          "name": "employment_start_date",
+          "base": "date",
+          "qualifiers": [
+            "employment",
+            "start"
+          ],
+          "table": "stress_24",
+          "description": "Both represent the first day of employment under the current contract."
+        }
+      ]
+    },
+    {
+      "id": "case_25",
+      "domain": "HR",
+      "phenomenon": "contrast",
+      "expected_relation": "CONTRASTING",
+      "columns": [
+        {
+          "name": "minimum_salary",
+          "base": "salary",
+          "qualifiers": [
+            "minimum"
+          ],
+          "table": "stress_25",
+          "description": "These define lower and upper salary limits for the same position."
+        },
+        {
+          "name": "maximum_salary",
+          "base": "salary",
+          "qualifiers": [
+            "maximum"
+          ],
+          "table": "stress_25",
+          "description": "These define lower and upper salary limits for the same position."
+        }
+      ]
+    },
+    {
+      "id": "case_26",
+      "domain": "HR",
+      "phenomenon": "abbreviation",
+      "expected_relation": "EQUIVALENT",
+      "columns": [
+        {
+          "name": "full_time_equivalent",
+          "base": "equivalent",
+          "qualifiers": [
+            "full",
+            "time"
+          ],
+          "table": "stress_26",
+          "description": "FT denotes full time; these represent the full-time equivalent staffing measure."
+        },
+        {
+          "name": "ft_equivalent",
+          "base": "equivalent",
+          "qualifiers": [
+            "ft"
+          ],
+          "table": "stress_26",
+          "description": "FT denotes full time; these represent the full-time equivalent staffing measure."
+        }
+      ]
+    },
+    {
+      "id": "case_27",
+      "domain": "HR",
+      "phenomenon": "context",
+      "expected_relation": "UNCERTAIN",
+      "columns": [
+        {
+          "name": "active_status",
+          "base": "status",
+          "qualifiers": [
+            "active"
+          ],
+          "table": "stress_27",
+          "description": ""
+        },
+        {
+          "name": "current_status",
+          "base": "status",
+          "qualifiers": [
+            "current"
+          ],
+          "table": "stress_27",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": "case_28",
+      "domain": "logistics",
+      "phenomenon": "synonym",
+      "expected_relation": "EQUIVALENT",
+      "columns": [
+        {
+          "name": "dispatch_date",
+          "base": "date",
+          "qualifiers": [
+            "dispatch"
+          ],
+          "table": "stress_28",
+          "description": "Both record when this consignment left the origin warehouse."
+        },
+        {
+          "name": "shipment_date",
+          "base": "date",
+          "qualifiers": [
+            "shipment"
+          ],
+          "table": "stress_28",
+          "description": "Both record when this consignment left the origin warehouse."
+        }
+      ]
+    },
+    {
+      "id": "case_29",
+      "domain": "logistics",
+      "phenomenon": "contrast",
+      "expected_relation": "CONTRASTING",
+      "columns": [
+        {
+          "name": "loaded_weight",
+          "base": "weight",
+          "qualifiers": [
+            "loaded"
+          ],
+          "table": "stress_29",
+          "description": "The same vehicle is weighed loaded and empty."
+        },
+        {
+          "name": "empty_weight",
+          "base": "weight",
+          "qualifiers": [
+            "empty"
+          ],
+          "table": "stress_29",
+          "description": "The same vehicle is weighed loaded and empty."
+        }
+      ]
+    },
+    {
+      "id": "case_30",
+      "domain": "logistics",
+      "phenomenon": "typo",
+      "expected_relation": "EQUIVALENT",
+      "columns": [
+        {
+          "name": "arrival_time",
+          "base": "time",
+          "qualifiers": [
+            "arrival"
+          ],
+          "table": "stress_30",
+          "description": "Both represent actual arrival time at the destination."
+        },
+        {
+          "name": "arival_time",
+          "base": "time",
+          "qualifiers": [
+            "arival"
+          ],
+          "table": "stress_30",
+          "description": "Both represent actual arrival time at the destination."
+        }
+      ]
+    },
+    {
+      "id": "case_31",
+      "domain": "logistics",
+      "phenomenon": "context",
+      "expected_relation": "RELATED_BUT_DIFFERENT",
+      "columns": [
+        {
+          "name": "estimated_time",
+          "base": "time",
+          "qualifiers": [
+            "estimated"
+          ],
+          "table": "stress_31",
+          "description": "Estimated time is a forecast; actual time is measured after the event."
+        },
+        {
+          "name": "actual_time",
+          "base": "time",
+          "qualifiers": [
+            "actual"
+          ],
+          "table": "stress_31",
+          "description": "Estimated time is a forecast; actual time is measured after the event."
+        }
+      ]
+    }
+  ]
+}

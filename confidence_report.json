@@ -1,0 +1,531 @@
+{
+  "stage": "confidence_bands",
+  "columns": [
+    {
+      "id": 0,
+      "original": "input_voltage",
+      "normalized": "input voltage",
+      "base": "voltage",
+      "qualifiers": [
+        "input"
+      ],
+      "ambiguous": false,
+      "reason": ""
+    },
+    {
+      "id": 1,
+      "original": "incoming_voltage",
+      "normalized": "incoming voltage",
+      "base": "voltage",
+      "qualifiers": [
+        "incoming"
+      ],
+      "ambiguous": false,
+      "reason": ""
+    },
+    {
+      "id": 2,
+      "original": "output_voltage",
+      "normalized": "output voltage",
+      "base": "voltage",
+      "qualifiers": [
+        "output"
+      ],
+      "ambiguous": false,
+      "reason": ""
+    },
+    {
+      "id": 3,
+      "original": "ambient_temp",
+      "normalized": "ambient temp",
+      "base": "temp",
+      "qualifiers": [
+        "ambient"
+      ],
+      "ambiguous": false,
+      "reason": ""
+    },
+    {
+      "id": 4,
+      "original": "ambient_temperature",
+      "normalized": "ambient temperature",
+      "base": "temperature",
+      "qualifiers": [
+        "ambient"
+      ],
+      "ambiguous": false,
+      "reason": ""
+    },
+    {
+      "id": 5,
+      "original": "vehicle_speed",
+      "normalized": "vehicle speed",
+      "base": "speed",
+      "qualifiers": [
+        "vehicle"
+      ],
+      "ambiguous": false,
+      "reason": ""
+    },
+    {
+      "id": 6,
+      "original": "vehicle_velocity",
+      "normalized": "vehicle velocity",
+      "base": "velocity",
+      "qualifiers": [
+        "vehicle"
+      ],
+      "ambiguous": false,
+      "reason": ""
+    },
+    {
+      "id": 7,
+      "original": "wheel_position",
+      "normalized": "wheel position",
+      "base": "position",
+      "qualifiers": [
+        "wheel"
+      ],
+      "ambiguous": false,
+      "reason": ""
+    },
+    {
+      "id": 8,
+      "original": "tyre_position",
+      "normalized": "tyre position",
+      "base": "position",
+      "qualifiers": [
+        "tyre"
+      ],
+      "ambiguous": false,
+      "reason": ""
+    },
+    {
+      "id": 9,
+      "original": "manufacturer",
+      "normalized": "manufacturer",
+      "base": "manufacturer",
+      "qualifiers": [],
+      "ambiguous": false,
+      "reason": ""
+    },
+    {
+      "id": 10,
+      "original": "housing_material",
+      "normalized": "housing material",
+      "base": "material",
+      "qualifiers": [
+        "housing"
+      ],
+      "ambiguous": false,
+      "reason": ""
+    },
+    {
+      "id": 11,
+      "original": "order_amount",
+      "normalized": "order amount",
+      "base": "amount",
+      "qualifiers": [
+        "order"
+      ],
+      "ambiguous": false,
+      "reason": ""
+    }
+  ],
+  "pairs": [
+    {
+      "left_id": 0,
+      "right_id": 1,
+      "left": "input_voltage",
+      "right": "incoming_voltage",
+      "base_similarity": 1.0,
+      "retrieval_reason": "exact_base",
+      "decomposition_ambiguous": false,
+      "qualifier_contexts": [
+        {
+          "base": "voltage",
+          "left_text": "Attribute property: voltage\nQualifiers: [\"input\"]",
+          "right_text": "Attribute property: voltage\nQualifiers: [\"incoming\"]",
+          "cosine": 0.9593218564987183
+        }
+      ],
+      "qualifier_cosine": 0.9593218564987183,
+      "signals": {
+        "base": 1.0,
+        "qualifier": 0.9593218564987183,
+        "lexical": 0.6896551724137931
+      },
+      "weighted_contributions": {
+        "base": 0.25,
+        "qualifier": 0.6235592067241669,
+        "lexical": 0.06896551724137932
+      },
+      "equivalence_score": 0.9425247239655462,
+      "qualifier_presence_mismatch": false,
+      "relation": {
+        "relation": "EQUIVALENT",
+        "base_relation": "COMPATIBLE",
+        "reason": "The qualifiers 'incoming' and 'input' both describe voltage entering a system, making them semantically interchangeable.",
+        "base_reason": "Both attributes refer to the electrical potential difference, which is voltage.",
+        "generated_at": "2026-09-15T09:37:56.427969+00:00",
+        "source": "cache"
+      },
+      "decision": "ACCEPT",
+      "decision_rule": "equivalent_relation_with_support",
+      "confidence_band": "UNCERTAIN",
+      "confidence_reason": "insufficient_calibration_evidence",
+      "calibration_evidence": {
+        "count": 2,
+        "correct": 2,
+        "empirical_correctness": 1.0,
+        "correctness_interval": [
+          0.3423802275066532,
+          1.0
+        ],
+        "eligible_for_high_confidence": false
+      }
+    },
+    {
+      "left_id": 0,
+      "right_id": 2,
+      "left": "input_voltage",
+      "right": "output_voltage",
+      "base_similarity": 1.0,
+      "retrieval_reason": "exact_base",
+      "decomposition_ambiguous": false,
+      "qualifier_contexts": [
+        {
+          "base": "voltage",
+          "left_text": "Attribute property: voltage\nQualifiers: [\"input\"]",
+          "right_text": "Attribute property: voltage\nQualifiers: [\"output\"]",
+          "cosine": 0.96247798204422
+        }
+      ],
+      "qualifier_cosine": 0.96247798204422,
+      "signals": {
+        "base": 1.0,
+        "qualifier": 0.96247798204422,
+        "lexical": 0.8148148148148148
+      },
+      "weighted_contributions": {
+        "base": 0.25,
+        "qualifier": 0.625610688328743,
+        "lexical": 0.08148148148148149
+      },
+      "equivalence_score": 0.9570921698102245,
+      "qualifier_presence_mismatch": false,
+      "relation": {
+        "relation": "CONTRASTING",
+        "base_relation": "COMPATIBLE",
+        "reason": "The qualifiers 'input' and 'output' describe opposing directions of voltage flow relative to a system.",
+        "base_reason": "Both attributes refer to the electrical potential difference, which is voltage.",
+        "generated_at": "2026-09-15T09:37:56.429102+00:00",
+        "source": "cache"
+      },
+      "decision": "REJECT",
+      "decision_rule": "contrasting_qualifiers",
+      "confidence_band": "UNCERTAIN",
+      "confidence_reason": "insufficient_calibration_evidence",
+      "calibration_evidence": {
+        "count": 3,
+        "correct": 3,
+        "empirical_correctness": 1.0,
+        "correctness_interval": [
+          0.4385029682449546,
+          1.0
+        ],
+        "eligible_for_high_confidence": false
+      }
+    },
+    {
+      "left_id": 1,
+      "right_id": 2,
+      "left": "incoming_voltage",
+      "right": "output_voltage",
+      "base_similarity": 1.0,
+      "retrieval_reason": "exact_base",
+      "decomposition_ambiguous": false,
+      "qualifier_contexts": [
+        {
+          "base": "voltage",
+          "left_text": "Attribute property: voltage\nQualifiers: [\"incoming\"]",
+          "right_text": "Attribute property: voltage\nQualifiers: [\"output\"]",
+          "cosine": 0.9342948794364929
+        }
+      ],
+      "qualifier_cosine": 0.9342948794364929,
+      "signals": {
+        "base": 1.0,
+        "qualifier": 0.9342948794364929,
+        "lexical": 0.6
+      },
+      "weighted_contributions": {
+        "base": 0.25,
+        "qualifier": 0.6072916716337204,
+        "lexical": 0.06
+      },
+      "equivalence_score": 0.9172916716337205,
+      "qualifier_presence_mismatch": false,
+      "relation": {
+        "relation": "CONTRASTING",
+        "base_relation": "COMPATIBLE",
+        "reason": "The qualifiers 'incoming' and 'output' represent opposing directions or states for the voltage.",
+        "base_reason": "Both attributes refer to the electrical potential difference, which is the same base property.",
+        "generated_at": "2026-09-15T09:40:05.349821+00:00",
+        "source": "cache"
+      },
+      "decision": "REJECT",
+      "decision_rule": "contrasting_qualifiers",
+      "confidence_band": "UNCERTAIN",
+      "confidence_reason": "insufficient_calibration_evidence",
+      "calibration_evidence": {
+        "count": 1,
+        "correct": 1,
+        "empirical_correctness": 1.0,
+        "correctness_interval": [
+          0.20654931437723745,
+          1.0
+        ],
+        "eligible_for_high_confidence": false
+      }
+    },
+    {
+      "left_id": 3,
+      "right_id": 4,
+      "left": "ambient_temp",
+      "right": "ambient_temperature",
+      "base_similarity": 0.9202582240104675,
+      "retrieval_reason": "semantic_base",
+      "decomposition_ambiguous": false,
+      "qualifier_contexts": [
+        {
+          "base": "temp",
+          "left_text": "Attribute property: temp\nQualifiers: [\"ambient\"]",
+          "right_text": "Attribute property: temp\nQualifiers: [\"ambient\"]",
+          "cosine": 1.0
+        },
+        {
+          "base": "temperature",
+          "left_text": "Attribute property: temperature\nQualifiers: [\"ambient\"]",
+          "right_text": "Attribute property: temperature\nQualifiers: [\"ambient\"]",
+          "cosine": 1.0
+        }
+      ],
+      "qualifier_cosine": 1.0,
+      "signals": {
+        "base": 0.9202582240104675,
+        "qualifier": 1.0,
+        "lexical": 0.7741935483870968
+      },
+      "weighted_contributions": {
+        "base": 0.23006455600261688,
+        "qualifier": 0.65,
+        "lexical": 0.07741935483870968
+      },
+      "equivalence_score": 0.9574839108413266,
+      "qualifier_presence_mismatch": false,
+      "relation": {
+        "relation": "EQUIVALENT",
+        "base_relation": "COMPATIBLE",
+        "reason": "The base properties are compatible, and the qualifier lists are identical, both referring to the ambient temperature.",
+        "base_reason": "'temp' is a common abbreviation for 'temperature'.",
+        "generated_at": "2026-09-15T09:40:18.159585+00:00",
+        "source": "cache"
+      },
+      "decision": "ACCEPT",
+      "decision_rule": "equivalent_relation_with_support",
+      "confidence_band": "UNCERTAIN",
+      "confidence_reason": "insufficient_calibration_evidence",
+      "calibration_evidence": {
+        "count": 3,
+        "correct": 3,
+        "empirical_correctness": 1.0,
+        "correctness_interval": [
+          0.4385029682449546,
+          1.0
+        ],
+        "eligible_for_high_confidence": false
+      }
+    },
+    {
+      "left_id": 5,
+      "right_id": 6,
+      "left": "vehicle_speed",
+      "right": "vehicle_velocity",
+      "base_similarity": 0.9552583694458008,
+      "retrieval_reason": "semantic_base",
+      "decomposition_ambiguous": false,
+      "qualifier_contexts": [
+        {
+          "base": "speed",
+          "left_text": "Attribute property: speed\nQualifiers: [\"vehicle\"]",
+          "right_text": "Attribute property: speed\nQualifiers: [\"vehicle\"]",
+          "cosine": 1.0
+        },
+        {
+          "base": "velocity",
+          "left_text": "Attribute property: velocity\nQualifiers: [\"vehicle\"]",
+          "right_text": "Attribute property: velocity\nQualifiers: [\"vehicle\"]",
+          "cosine": 1.0
+        }
+      ],
+      "qualifier_cosine": 1.0,
+      "signals": {
+        "base": 0.9552583694458008,
+        "qualifier": 1.0,
+        "lexical": 0.6206896551724138
+      },
+      "weighted_contributions": {
+        "base": 0.2388145923614502,
+        "qualifier": 0.65,
+        "lexical": 0.062068965517241385
+      },
+      "equivalence_score": 0.9508835578786916,
+      "qualifier_presence_mismatch": false,
+      "relation": {
+        "relation": "UNCERTAIN",
+        "base_relation": "INCOMPATIBLE",
+        "reason": "The base properties 'speed' and 'velocity' are incompatible, so the relation between their qualified forms cannot be determined.",
+        "base_reason": "Speed is a scalar quantity representing the rate of motion, while velocity is a vector quantity representing both the rate and direction of motion. They are distinct physical properties.",
+        "generated_at": "2026-09-15T09:38:19.784930+00:00",
+        "source": "cache"
+      },
+      "decision": "REJECT",
+      "decision_rule": "semantically_incompatible_bases",
+      "confidence_band": "UNCERTAIN",
+      "confidence_reason": "insufficient_calibration_evidence",
+      "calibration_evidence": null
+    },
+    {
+      "left_id": 7,
+      "right_id": 8,
+      "left": "wheel_position",
+      "right": "tyre_position",
+      "base_similarity": 1.0,
+      "retrieval_reason": "exact_base",
+      "decomposition_ambiguous": false,
+      "qualifier_contexts": [
+        {
+          "base": "position",
+          "left_text": "Attribute property: position\nQualifiers: [\"wheel\"]",
+          "right_text": "Attribute property: position\nQualifiers: [\"tyre\"]",
+          "cosine": 0.9426766633987427
+        }
+      ],
+      "qualifier_cosine": 0.9426766633987427,
+      "signals": {
+        "base": 1.0,
+        "qualifier": 0.9426766633987427,
+        "lexical": 0.7407407407407407
+      },
+      "weighted_contributions": {
+        "base": 0.25,
+        "qualifier": 0.6127398312091827,
+        "lexical": 0.07407407407407407
+      },
+      "equivalence_score": 0.9368139052832568,
+      "qualifier_presence_mismatch": false,
+      "relation": {
+        "relation": "UNCERTAIN",
+        "base_relation": "COMPATIBLE",
+        "reason": "Without context, it is uncertain if the 'position' of a 'tyre' and the 'position' of a 'wheel' refer to the same physical location or distinct reference points (e.g., contact patch vs. center).",
+        "base_reason": "Both attributes refer to the same underlying property of 'position'.",
+        "generated_at": "2026-09-15T09:38:09.228674+00:00",
+        "source": "cache"
+      },
+      "decision": "UNCERTAIN",
+      "decision_rule": "semantic_relation_unresolved",
+      "confidence_band": "UNCERTAIN",
+      "confidence_reason": "semantic_or_scope_uncertainty",
+      "calibration_evidence": null
+    }
+  ],
+  "calibration_profile": {
+    "version": "empirical-bands-v1",
+    "signature": "7efbf94f3953dac600a055eedab1c97268abde6e998818d87f3576eaf35135ff",
+    "score_edges": [
+      0.0,
+      0.8,
+      0.9,
+      0.95,
+      1.00000001
+    ],
+    "created_at": "2026-09-15T09:48:41.226288+00:00",
+    "min_samples": 20,
+    "target_precision": 0.9,
+    "interval_confidence": 0.95,
+    "bins": {
+      "ACCEPT|equivalent_relation_with_support|score_bin_2": {
+        "count": 2,
+        "correct": 2,
+        "empirical_correctness": 1.0,
+        "correctness_interval": [
+          0.3423802275066532,
+          1.0
+        ],
+        "eligible_for_high_confidence": false
+      },
+      "REJECT|contrasting_qualifiers|score_bin_3": {
+        "count": 3,
+        "correct": 3,
+        "empirical_correctness": 1.0,
+        "correctness_interval": [
+          0.4385029682449546,
+          1.0
+        ],
+        "eligible_for_high_confidence": false
+      },
+      "REJECT|contrasting_qualifiers|score_bin_2": {
+        "count": 1,
+        "correct": 1,
+        "empirical_correctness": 1.0,
+        "correctness_interval": [
+          0.20654931437723745,
+          1.0
+        ],
+        "eligible_for_high_confidence": false
+      },
+      "REJECT|related_but_different_qualifiers|score_bin_3": {
+        "count": 2,
+        "correct": 1,
+        "empirical_correctness": 0.5,
+        "correctness_interval": [
+          0.09453120573423074,
+          0.9054687942657693
+        ],
+        "eligible_for_high_confidence": false
+      },
+      "REJECT|related_but_different_qualifiers|score_bin_2": {
+        "count": 2,
+        "correct": 2,
+        "empirical_correctness": 1.0,
+        "correctness_interval": [
+          0.3423802275066532,
+          1.0
+        ],
+        "eligible_for_high_confidence": false
+      },
+      "ACCEPT|equivalent_relation_with_support|score_bin_3": {
+        "count": 3,
+        "correct": 3,
+        "empirical_correctness": 1.0,
+        "correctness_interval": [
+          0.4385029682449546,
+          1.0
+        ],
+        "eligible_for_high_confidence": false
+      }
+    },
+    "labeled_count": 15,
+    "not_retrieved": 1,
+    "uncertain_decisions": 1,
+    "high_confidence_bin_count": 0,
+    "labels_sha256": "80c4a16ec8096349b556f7a930870415d84d4f299e5beb7b65a07dc8196998eb",
+    "limitation": "Empirical development-data reliability, not an independently validated individual probability. Correlated labels and domain shift weaken coverage."
+  },
+  "profile_compatible": true,
+  "counts": {
+    "UNCERTAIN": 6
+  },
+  "source_signature": "7efbf94f3953dac600a055eedab1c97268abde6e998818d87f3576eaf35135ff"
+}

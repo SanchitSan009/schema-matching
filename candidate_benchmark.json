@@ -1,0 +1,17 @@
+{
+  "description": "Retrieval labels only: same candidate group means comparable base properties, not equivalent columns. All pairs across groups are negative in this small fixture.",
+  "columns": [
+    {"name": "input_voltage", "base": "voltage", "qualifiers": ["input"], "candidate_group": "voltage"},
+    {"name": "incoming_voltage", "base": "voltage", "qualifiers": ["incoming"], "candidate_group": "voltage"},
+    {"name": "output_voltage", "base": "voltage", "qualifiers": ["output"], "candidate_group": "voltage"},
+    {"name": "ambient_temp", "base": "temp", "qualifiers": ["ambient"], "candidate_group": "temperature"},
+    {"name": "ambient_temperature", "base": "temperature", "qualifiers": ["ambient"], "candidate_group": "temperature"},
+    {"name": "vehicle_speed", "base": "speed", "qualifiers": ["vehicle"], "candidate_group": "motion"},
+    {"name": "vehicle_velocity", "base": "velocity", "qualifiers": ["vehicle"], "candidate_group": "motion"},
+    {"name": "wheel_position", "base": "position", "qualifiers": ["wheel"], "candidate_group": "position"},
+    {"name": "tyre_position", "base": "position", "qualifiers": ["tyre"], "candidate_group": "position"},
+    {"name": "manufacturer", "base": "manufacturer", "qualifiers": [], "candidate_group": "manufacturer"},
+    {"name": "housing_material", "base": "material", "qualifiers": ["housing"], "candidate_group": "material"},
+    {"name": "order_amount", "base": "amount", "qualifiers": ["order"], "candidate_group": "amount"}
+  ]
+}

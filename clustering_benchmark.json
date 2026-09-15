@@ -1,0 +1,10 @@
+{
+  "description": "Synthetic confidence-band fixtures only. They verify clustering mechanics, not model accuracy or empirical calibration.",
+  "cases": [
+    {"name": "complete_clique", "size": 3, "matches": [[0,1],[1,2],[0,2]], "non_matches": [], "uncertain": [], "expected_group_sizes": [3], "proposed_cluster_passes": true},
+    {"name": "conflicting_chain", "size": 3, "matches": [[0,1],[1,2]], "non_matches": [[0,2]], "uncertain": [], "expected_group_sizes": [1,2], "proposed_cluster_passes": false},
+    {"name": "missing_closing_edge", "size": 3, "matches": [[0,1],[1,2]], "non_matches": [], "uncertain": [], "expected_group_sizes": [1,2], "proposed_cluster_passes": false},
+    {"name": "uncertain_closing_edge", "size": 3, "matches": [[0,1],[1,2]], "non_matches": [], "uncertain": [[0,2]], "expected_group_sizes": [1,2], "proposed_cluster_passes": false},
+    {"name": "singletons", "size": 3, "matches": [], "non_matches": [], "uncertain": [], "expected_group_sizes": [1,1,1], "proposed_cluster_passes": false}
+  ]
+}

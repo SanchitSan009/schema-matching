@@ -1,0 +1,19 @@
+{
+  "synthetic": true,
+  "columns": 10000,
+  "dimensions": 64,
+  "k": 15,
+  "seconds": 2.5632651330015506,
+  "pairs": 69970,
+  "final_edge_recall_at_k": 0.9080000000000001,
+  "queries_measured": 100,
+  "search": {
+    "method": "hnsw",
+    "directed_edges": 150000,
+    "degree_drops": 15795,
+    "max_final_degree": 15,
+    "theoretical_pair_bound": 75000,
+    "approximation": true
+  },
+  "scope": "Measures index build, search, and degree-capping on synthetic vectors; excludes embeddings, LLM calls, serialization and clustering. Million-column operation not verified."
+}

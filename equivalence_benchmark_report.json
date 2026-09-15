@@ -1,0 +1,1353 @@
+{
+  "stage": "experimental_equivalence_scores",
+  "timestamp": "2026-09-14T20:05:30.542363+00:00",
+  "score_interpretation": "Uncalibrated weighted similarity; not a probability or merge decision",
+  "weights": {
+    "base": 0.25,
+    "qualifier": 0.65,
+    "lexical": 0.1
+  },
+  "qualifier_embedding": {
+    "backend": "gemini",
+    "model": "gemini-embedding-001",
+    "input_format": "base-conditioned-qualifiers-v1",
+    "task": "SEMANTIC_SIMILARITY"
+  },
+  "qualifier_cache_hits": 0,
+  "qualifier_texts_embedded": 32,
+  "retrieval": {
+    "stage": "candidate_retrieval_only",
+    "timestamp": "2026-09-14T20:05:28.144031+00:00",
+    "embedding": {
+      "backend": "gemini",
+      "model": "gemini-embedding-001",
+      "input_format": "bare-base-v1",
+      "task": "SEMANTIC_SIMILARITY"
+    },
+    "threshold": 0.9,
+    "top_k": 5,
+    "column_count": 20,
+    "unique_base_count": 10,
+    "all_possible_pairs": 190,
+    "candidate_count": 24,
+    "pair_reduction": 0.8736842105263158,
+    "embedding_cache_hits": 5,
+    "bases_embedded": 5,
+    "base_neighbors": [
+      {
+        "left_base": "color",
+        "right_base": "colour",
+        "similarity": 0.9881436228752136
+      },
+      {
+        "left_base": "temp",
+        "right_base": "temperature",
+        "similarity": 0.9202582240104675
+      },
+      {
+        "left_base": "temp",
+        "right_base": "temprature",
+        "similarity": 0.9266430139541626
+      },
+      {
+        "left_base": "temperature",
+        "right_base": "temprature",
+        "similarity": 0.9926683306694031
+      }
+    ]
+  },
+  "columns": [
+    {
+      "id": 0,
+      "original": "input_voltage",
+      "normalized": "input voltage",
+      "base": "voltage",
+      "qualifiers": [
+        "input"
+      ],
+      "ambiguous": false,
+      "reason": "Manual evaluation decomposition"
+    },
+    {
+      "id": 1,
+      "original": "incoming_voltage",
+      "normalized": "incoming voltage",
+      "base": "voltage",
+      "qualifiers": [
+        "incoming"
+      ],
+      "ambiguous": false,
+      "reason": "Manual evaluation decomposition"
+    },
+    {
+      "id": 2,
+      "original": "output_voltage",
+      "normalized": "output voltage",
+      "base": "voltage",
+      "qualifiers": [
+        "output"
+      ],
+      "ambiguous": false,
+      "reason": "Manual evaluation decomposition"
+    },
+    {
+      "id": 3,
+      "original": "wheel_position",
+      "normalized": "wheel position",
+      "base": "position",
+      "qualifiers": [
+        "wheel"
+      ],
+      "ambiguous": false,
+      "reason": "Manual evaluation decomposition"
+    },
+    {
+      "id": 4,
+      "original": "tyre_position",
+      "normalized": "tyre position",
+      "base": "position",
+      "qualifiers": [
+        "tyre"
+      ],
+      "ambiguous": false,
+      "reason": "Manual evaluation decomposition"
+    },
+    {
+      "id": 5,
+      "original": "front_left_wheel_position",
+      "normalized": "front left wheel position",
+      "base": "position",
+      "qualifiers": [
+        "front",
+        "left",
+        "wheel"
+      ],
+      "ambiguous": false,
+      "reason": "Manual evaluation decomposition"
+    },
+    {
+      "id": 6,
+      "original": "front_right_wheel_position",
+      "normalized": "front right wheel position",
+      "base": "position",
+      "qualifiers": [
+        "front",
+        "right",
+        "wheel"
+      ],
+      "ambiguous": false,
+      "reason": "Manual evaluation decomposition"
+    },
+    {
+      "id": 7,
+      "original": "front_left_tyre_position",
+      "normalized": "front left tyre position",
+      "base": "position",
+      "qualifiers": [
+        "front",
+        "left",
+        "tyre"
+      ],
+      "ambiguous": false,
+      "reason": "Manual evaluation decomposition"
+    },
+    {
+      "id": 8,
+      "original": "customer_colour",
+      "normalized": "customer colour",
+      "base": "colour",
+      "qualifiers": [
+        "customer"
+      ],
+      "ambiguous": false,
+      "reason": "Manual evaluation decomposition"
+    },
+    {
+      "id": 9,
+      "original": "customer_color",
+      "normalized": "customer color",
+      "base": "color",
+      "qualifiers": [
+        "customer"
+      ],
+      "ambiguous": false,
+      "reason": "Manual evaluation decomposition"
+    },
+    {
+      "id": 10,
+      "original": "ambient_temperature",
+      "normalized": "ambient temperature",
+      "base": "temperature",
+      "qualifiers": [
+        "ambient"
+      ],
+      "ambiguous": false,
+      "reason": "Manual evaluation decomposition"
+    },
+    {
+      "id": 11,
+      "original": "ambient_temprature",
+      "normalized": "ambient temprature",
+      "base": "temprature",
+      "qualifiers": [
+        "ambient"
+      ],
+      "ambiguous": false,
+      "reason": "Manual evaluation decomposition"
+    },
+    {
+      "id": 12,
+      "original": "ambient_temp",
+      "normalized": "ambient temp",
+      "base": "temp",
+      "qualifiers": [
+        "ambient"
+      ],
+      "ambiguous": false,
+      "reason": "Manual evaluation decomposition"
+    },
+    {
+      "id": 13,
+      "original": "billing_address",
+      "normalized": "billing address",
+      "base": "address",
+      "qualifiers": [
+        "billing"
+      ],
+      "ambiguous": false,
+      "reason": "Manual evaluation decomposition"
+    },
+    {
+      "id": 14,
+      "original": "shipping_address",
+      "normalized": "shipping address",
+      "base": "address",
+      "qualifiers": [
+        "shipping"
+      ],
+      "ambiguous": false,
+      "reason": "Manual evaluation decomposition"
+    },
+    {
+      "id": 15,
+      "original": "input_current",
+      "normalized": "input current",
+      "base": "current",
+      "qualifiers": [
+        "input"
+      ],
+      "ambiguous": false,
+      "reason": "Manual evaluation decomposition"
+    },
+    {
+      "id": 16,
+      "original": "incoming_current",
+      "normalized": "incoming current",
+      "base": "current",
+      "qualifiers": [
+        "incoming"
+      ],
+      "ambiguous": false,
+      "reason": "Manual evaluation decomposition"
+    },
+    {
+      "id": 17,
+      "original": "output_current",
+      "normalized": "output current",
+      "base": "current",
+      "qualifiers": [
+        "output"
+      ],
+      "ambiguous": false,
+      "reason": "Manual evaluation decomposition"
+    },
+    {
+      "id": 18,
+      "original": "voltage",
+      "normalized": "voltage",
+      "base": "voltage",
+      "qualifiers": [],
+      "ambiguous": false,
+      "reason": "Manual evaluation decomposition"
+    },
+    {
+      "id": 19,
+      "original": "manufacturer",
+      "normalized": "manufacturer",
+      "base": "manufacturer",
+      "qualifiers": [],
+      "ambiguous": false,
+      "reason": "Manual evaluation decomposition"
+    }
+  ],
+  "scored_candidates": [
+    {
+      "left_id": 0,
+      "right_id": 1,
+      "left": "input_voltage",
+      "right": "incoming_voltage",
+      "base_similarity": 1.0,
+      "retrieval_reason": "exact_base",
+      "decomposition_ambiguous": false,
+      "qualifier_contexts": [
+        {
+          "base": "voltage",
+          "left_text": "Attribute property: voltage\nQualifiers: [\"input\"]",
+          "right_text": "Attribute property: voltage\nQualifiers: [\"incoming\"]",
+          "cosine": 0.9593218564987183
+        }
+      ],
+      "qualifier_cosine": 0.9593218564987183,
+      "signals": {
+        "base": 1.0,
+        "qualifier": 0.9593218564987183,
+        "lexical": 0.6896551724137931
+      },
+      "weighted_contributions": {
+        "base": 0.25,
+        "qualifier": 0.6235592067241669,
+        "lexical": 0.06896551724137932
+      },
+      "equivalence_score": 0.9425247239655462,
+      "qualifier_presence_mismatch": false,
+      "isolated_qualifier_cosine": 0.8881134986877441
+    },
+    {
+      "left_id": 0,
+      "right_id": 2,
+      "left": "input_voltage",
+      "right": "output_voltage",
+      "base_similarity": 1.0,
+      "retrieval_reason": "exact_base",
+      "decomposition_ambiguous": false,
+      "qualifier_contexts": [
+        {
+          "base": "voltage",
+          "left_text": "Attribute property: voltage\nQualifiers: [\"input\"]",
+          "right_text": "Attribute property: voltage\nQualifiers: [\"output\"]",
+          "cosine": 0.96247798204422
+        }
+      ],
+      "qualifier_cosine": 0.96247798204422,
+      "signals": {
+        "base": 1.0,
+        "qualifier": 0.96247798204422,
+        "lexical": 0.8148148148148148
+      },
+      "weighted_contributions": {
+        "base": 0.25,
+        "qualifier": 0.625610688328743,
+        "lexical": 0.08148148148148149
+      },
+      "equivalence_score": 0.9570921698102245,
+      "qualifier_presence_mismatch": false,
+      "isolated_qualifier_cosine": 0.9343079328536987
+    },
+    {
+      "left_id": 0,
+      "right_id": 18,
+      "left": "input_voltage",
+      "right": "voltage",
+      "base_similarity": 1.0,
+      "retrieval_reason": "exact_base",
+      "decomposition_ambiguous": false,
+      "qualifier_contexts": [
+        {
+          "base": "voltage",
+          "left_text": "Attribute property: voltage\nQualifiers: [\"input\"]",
+          "right_text": "Attribute property: voltage\nQualifiers: []",
+          "cosine": 0.9623940587043762
+        }
+      ],
+      "qualifier_cosine": 0.9623940587043762,
+      "signals": {
+        "base": 1.0,
+        "qualifier": 0.9623940587043762,
+        "lexical": 0.7
+      },
+      "weighted_contributions": {
+        "base": 0.25,
+        "qualifier": 0.6255561381578446,
+        "lexical": 0.06999999999999999
+      },
+      "equivalence_score": 0.9455561381578446,
+      "qualifier_presence_mismatch": true,
+      "isolated_qualifier_cosine": 0.9047814607620239
+    },
+    {
+      "left_id": 1,
+      "right_id": 2,
+      "left": "incoming_voltage",
+      "right": "output_voltage",
+      "base_similarity": 1.0,
+      "retrieval_reason": "exact_base",
+      "decomposition_ambiguous": false,
+      "qualifier_contexts": [
+        {
+          "base": "voltage",
+          "left_text": "Attribute property: voltage\nQualifiers: [\"incoming\"]",
+          "right_text": "Attribute property: voltage\nQualifiers: [\"output\"]",
+          "cosine": 0.9342948794364929
+        }
+      ],
+      "qualifier_cosine": 0.9342948794364929,
+      "signals": {
+        "base": 1.0,
+        "qualifier": 0.9342948794364929,
+        "lexical": 0.6
+      },
+      "weighted_contributions": {
+        "base": 0.25,
+        "qualifier": 0.6072916716337204,
+        "lexical": 0.06
+      },
+      "equivalence_score": 0.9172916716337205,
+      "qualifier_presence_mismatch": false,
+      "isolated_qualifier_cosine": 0.8530129194259644
+    },
+    {
+      "left_id": 1,
+      "right_id": 18,
+      "left": "incoming_voltage",
+      "right": "voltage",
+      "base_similarity": 1.0,
+      "retrieval_reason": "exact_base",
+      "decomposition_ambiguous": false,
+      "qualifier_contexts": [
+        {
+          "base": "voltage",
+          "left_text": "Attribute property: voltage\nQualifiers: [\"incoming\"]",
+          "right_text": "Attribute property: voltage\nQualifiers: []",
+          "cosine": 0.9526147246360779
+        }
+      ],
+      "qualifier_cosine": 0.9526147246360779,
+      "signals": {
+        "base": 1.0,
+        "qualifier": 0.9526147246360779,
+        "lexical": 0.6086956521739131
+      },
+      "weighted_contributions": {
+        "base": 0.25,
+        "qualifier": 0.6191995710134507,
+        "lexical": 0.060869565217391314
+      },
+      "equivalence_score": 0.930069136230842,
+      "qualifier_presence_mismatch": true,
+      "isolated_qualifier_cosine": 0.8720842599868774
+    },
+    {
+      "left_id": 2,
+      "right_id": 18,
+      "left": "output_voltage",
+      "right": "voltage",
+      "base_similarity": 1.0,
+      "retrieval_reason": "exact_base",
+      "decomposition_ambiguous": false,
+      "qualifier_contexts": [
+        {
+          "base": "voltage",
+          "left_text": "Attribute property: voltage\nQualifiers: [\"output\"]",
+          "right_text": "Attribute property: voltage\nQualifiers: []",
+          "cosine": 0.9739313721656799
+        }
+      ],
+      "qualifier_cosine": 0.9739313721656799,
+      "signals": {
+        "base": 1.0,
+        "qualifier": 0.9739313721656799,
+        "lexical": 0.6666666666666666
+      },
+      "weighted_contributions": {
+        "base": 0.25,
+        "qualifier": 0.633055391907692,
+        "lexical": 0.06666666666666667
+      },
+      "equivalence_score": 0.9497220585743587,
+      "qualifier_presence_mismatch": true,
+      "isolated_qualifier_cosine": 0.9011118412017822
+    },
+    {
+      "left_id": 3,
+      "right_id": 4,
+      "left": "wheel_position",
+      "right": "tyre_position",
+      "base_similarity": 1.0,
+      "retrieval_reason": "exact_base",
+      "decomposition_ambiguous": false,
+      "qualifier_contexts": [
+        {
+          "base": "position",
+          "left_text": "Attribute property: position\nQualifiers: [\"wheel\"]",
+          "right_text": "Attribute property: position\nQualifiers: [\"tyre\"]",
+          "cosine": 0.9426766633987427
+        }
+      ],
+      "qualifier_cosine": 0.9426766633987427,
+      "signals": {
+        "base": 1.0,
+        "qualifier": 0.9426766633987427,
+        "lexical": 0.7407407407407407
+      },
+      "weighted_contributions": {
+        "base": 0.25,
+        "qualifier": 0.6127398312091827,
+        "lexical": 0.07407407407407407
+      },
+      "equivalence_score": 0.9368139052832568,
+      "qualifier_presence_mismatch": false,
+      "isolated_qualifier_cosine": 0.9128783345222473
+    },
+    {
+      "left_id": 3,
+      "right_id": 5,
+      "left": "wheel_position",
+      "right": "front_left_wheel_position",
+      "base_similarity": 1.0,
+      "retrieval_reason": "exact_base",
+      "decomposition_ambiguous": false,
+      "qualifier_contexts": [
+        {
+          "base": "position",
+          "left_text": "Attribute property: position\nQualifiers: [\"wheel\"]",
+          "right_text": "Attribute property: position\nQualifiers: [\"front\", \"left\", \"wheel\"]",
+          "cosine": 0.9386222958564758
+        }
+      ],
+      "qualifier_cosine": 0.9386222958564758,
+      "signals": {
+        "base": 1.0,
+        "qualifier": 0.9386222958564758,
+        "lexical": 0.717948717948718
+      },
+      "weighted_contributions": {
+        "base": 0.25,
+        "qualifier": 0.6101044923067093,
+        "lexical": 0.0717948717948718
+      },
+      "equivalence_score": 0.931899364101581,
+      "qualifier_presence_mismatch": false,
+      "isolated_qualifier_cosine": 0.9187617301940918
+    },
+    {
+      "left_id": 3,
+      "right_id": 6,
+      "left": "wheel_position",
+      "right": "front_right_wheel_position",
+      "base_similarity": 1.0,
+      "retrieval_reason": "exact_base",
+      "decomposition_ambiguous": false,
+      "qualifier_contexts": [
+        {
+          "base": "position",
+          "left_text": "Attribute property: position\nQualifiers: [\"wheel\"]",
+          "right_text": "Attribute property: position\nQualifiers: [\"front\", \"right\", \"wheel\"]",
+          "cosine": 0.9390438199043274
+        }
+      ],
+      "qualifier_cosine": 0.9390438199043274,
+      "signals": {
+        "base": 1.0,
+        "qualifier": 0.9390438199043274,
+        "lexical": 0.7
+      },
+      "weighted_contributions": {
+        "base": 0.25,
+        "qualifier": 0.6103784829378128,
+        "lexical": 0.06999999999999999
+      },
+      "equivalence_score": 0.9303784829378128,
+      "qualifier_presence_mismatch": false,
+      "isolated_qualifier_cosine": 0.9234601259231567
+    },
+    {
+      "left_id": 3,
+      "right_id": 7,
+      "left": "wheel_position",
+      "right": "front_left_tyre_position",
+      "base_similarity": 1.0,
+      "retrieval_reason": "exact_base",
+      "decomposition_ambiguous": false,
+      "qualifier_contexts": [
+        {
+          "base": "position",
+          "left_text": "Attribute property: position\nQualifiers: [\"wheel\"]",
+          "right_text": "Attribute property: position\nQualifiers: [\"front\", \"left\", \"tyre\"]",
+          "cosine": 0.9026963710784912
+        }
+      ],
+      "qualifier_cosine": 0.9026963710784912,
+      "signals": {
+        "base": 1.0,
+        "qualifier": 0.9026963710784912,
+        "lexical": 0.5526315789473684
+      },
+      "weighted_contributions": {
+        "base": 0.25,
+        "qualifier": 0.5867526412010193,
+        "lexical": 0.05526315789473684
+      },
+      "equivalence_score": 0.8920157990957561,
+      "qualifier_presence_mismatch": false,
+      "isolated_qualifier_cosine": 0.8754451274871826
+    },
+    {
+      "left_id": 4,
+      "right_id": 5,
+      "left": "tyre_position",
+      "right": "front_left_wheel_position",
+      "base_similarity": 1.0,
+      "retrieval_reason": "exact_base",
+      "decomposition_ambiguous": false,
+      "qualifier_contexts": [
+        {
+          "base": "position",
+          "left_text": "Attribute property: position\nQualifiers: [\"tyre\"]",
+          "right_text": "Attribute property: position\nQualifiers: [\"front\", \"left\", \"wheel\"]",
+          "cosine": 0.904417872428894
+        }
+      ],
+      "qualifier_cosine": 0.904417872428894,
+      "signals": {
+        "base": 1.0,
+        "qualifier": 0.904417872428894,
+        "lexical": 0.5789473684210527
+      },
+      "weighted_contributions": {
+        "base": 0.25,
+        "qualifier": 0.5878716170787811,
+        "lexical": 0.05789473684210527
+      },
+      "equivalence_score": 0.8957663539208863,
+      "qualifier_presence_mismatch": false,
+      "isolated_qualifier_cosine": 0.8836237192153931
+    },
+    {
+      "left_id": 4,
+      "right_id": 6,
+      "left": "tyre_position",
+      "right": "front_right_wheel_position",
+      "base_similarity": 1.0,
+      "retrieval_reason": "exact_base",
+      "decomposition_ambiguous": false,
+      "qualifier_contexts": [
+        {
+          "base": "position",
+          "left_text": "Attribute property: position\nQualifiers: [\"tyre\"]",
+          "right_text": "Attribute property: position\nQualifiers: [\"front\", \"right\", \"wheel\"]",
+          "cosine": 0.9021821022033691
+        }
+      ],
+      "qualifier_cosine": 0.9021821022033691,
+      "signals": {
+        "base": 1.0,
+        "qualifier": 0.9021821022033691,
+        "lexical": 0.5897435897435898
+      },
+      "weighted_contributions": {
+        "base": 0.25,
+        "qualifier": 0.5864183664321899,
+        "lexical": 0.05897435897435898
+      },
+      "equivalence_score": 0.8953927254065489,
+      "qualifier_presence_mismatch": false,
+      "isolated_qualifier_cosine": 0.8854225873947144
+    },
+    {
+      "left_id": 4,
+      "right_id": 7,
+      "left": "tyre_position",
+      "right": "front_left_tyre_position",
+      "base_similarity": 1.0,
+      "retrieval_reason": "exact_base",
+      "decomposition_ambiguous": false,
+      "qualifier_contexts": [
+        {
+          "base": "position",
+          "left_text": "Attribute property: position\nQualifiers: [\"tyre\"]",
+          "right_text": "Attribute property: position\nQualifiers: [\"front\", \"left\", \"tyre\"]",
+          "cosine": 0.9404309988021851
+        }
+      ],
+      "qualifier_cosine": 0.9404309988021851,
+      "signals": {
+        "base": 1.0,
+        "qualifier": 0.9404309988021851,
+        "lexical": 0.7027027027027027
+      },
+      "weighted_contributions": {
+        "base": 0.25,
+        "qualifier": 0.6112801492214203,
+        "lexical": 0.07027027027027027
+      },
+      "equivalence_score": 0.9315504194916906,
+      "qualifier_presence_mismatch": false,
+      "isolated_qualifier_cosine": 0.9279567003250122
+    },
+    {
+      "left_id": 5,
+      "right_id": 6,
+      "left": "front_left_wheel_position",
+      "right": "front_right_wheel_position",
+      "base_similarity": 1.0,
+      "retrieval_reason": "exact_base",
+      "decomposition_ambiguous": false,
+      "qualifier_contexts": [
+        {
+          "base": "position",
+          "left_text": "Attribute property: position\nQualifiers: [\"front\", \"left\", \"wheel\"]",
+          "right_text": "Attribute property: position\nQualifiers: [\"front\", \"right\", \"wheel\"]",
+          "cosine": 0.9598296880722046
+        }
+      ],
+      "qualifier_cosine": 0.9598296880722046,
+      "signals": {
+        "base": 1.0,
+        "qualifier": 0.9598296880722046,
+        "lexical": 0.8627450980392157
+      },
+      "weighted_contributions": {
+        "base": 0.25,
+        "qualifier": 0.623889297246933,
+        "lexical": 0.08627450980392158
+      },
+      "equivalence_score": 0.9601638070508546,
+      "qualifier_presence_mismatch": false,
+      "isolated_qualifier_cosine": 0.954298198223114
+    },
+    {
+      "left_id": 5,
+      "right_id": 7,
+      "left": "front_left_wheel_position",
+      "right": "front_left_tyre_position",
+      "base_similarity": 1.0,
+      "retrieval_reason": "exact_base",
+      "decomposition_ambiguous": false,
+      "qualifier_contexts": [
+        {
+          "base": "position",
+          "left_text": "Attribute property: position\nQualifiers: [\"front\", \"left\", \"wheel\"]",
+          "right_text": "Attribute property: position\nQualifiers: [\"front\", \"left\", \"tyre\"]",
+          "cosine": 0.972517192363739
+        }
+      ],
+      "qualifier_cosine": 0.972517192363739,
+      "signals": {
+        "base": 1.0,
+        "qualifier": 0.972517192363739,
+        "lexical": 0.8571428571428571
+      },
+      "weighted_contributions": {
+        "base": 0.25,
+        "qualifier": 0.6321361750364304,
+        "lexical": 0.08571428571428572
+      },
+      "equivalence_score": 0.9678504607507161,
+      "qualifier_presence_mismatch": false,
+      "isolated_qualifier_cosine": 0.9720849990844727
+    },
+    {
+      "left_id": 6,
+      "right_id": 7,
+      "left": "front_right_wheel_position",
+      "right": "front_left_tyre_position",
+      "base_similarity": 1.0,
+      "retrieval_reason": "exact_base",
+      "decomposition_ambiguous": false,
+      "qualifier_contexts": [
+        {
+          "base": "position",
+          "left_text": "Attribute property: position\nQualifiers: [\"front\", \"right\", \"wheel\"]",
+          "right_text": "Attribute property: position\nQualifiers: [\"front\", \"left\", \"tyre\"]",
+          "cosine": 0.9326763153076172
+        }
+      ],
+      "qualifier_cosine": 0.9326763153076172,
+      "signals": {
+        "base": 1.0,
+        "qualifier": 0.9326763153076172,
+        "lexical": 0.72
+      },
+      "weighted_contributions": {
+        "base": 0.25,
+        "qualifier": 0.6062396049499512,
+        "lexical": 0.072
+      },
+      "equivalence_score": 0.9282396049499512,
+      "qualifier_presence_mismatch": false,
+      "isolated_qualifier_cosine": 0.929572582244873
+    },
+    {
+      "left_id": 8,
+      "right_id": 9,
+      "left": "customer_colour",
+      "right": "customer_color",
+      "base_similarity": 0.9881436228752136,
+      "retrieval_reason": "semantic_base",
+      "decomposition_ambiguous": false,
+      "qualifier_contexts": [
+        {
+          "base": "color",
+          "left_text": "Attribute property: color\nQualifiers: [\"customer\"]",
+          "right_text": "Attribute property: color\nQualifiers: [\"customer\"]",
+          "cosine": 1.0
+        },
+        {
+          "base": "colour",
+          "left_text": "Attribute property: colour\nQualifiers: [\"customer\"]",
+          "right_text": "Attribute property: colour\nQualifiers: [\"customer\"]",
+          "cosine": 1.0
+        }
+      ],
+      "qualifier_cosine": 1.0,
+      "signals": {
+        "base": 0.9881436228752136,
+        "qualifier": 1.0,
+        "lexical": 0.9655172413793104
+      },
+      "weighted_contributions": {
+        "base": 0.2470359057188034,
+        "qualifier": 0.65,
+        "lexical": 0.09655172413793105
+      },
+      "equivalence_score": 0.9935876298567344,
+      "qualifier_presence_mismatch": false,
+      "isolated_qualifier_cosine": 0.9999999403953552
+    },
+    {
+      "left_id": 10,
+      "right_id": 11,
+      "left": "ambient_temperature",
+      "right": "ambient_temprature",
+      "base_similarity": 0.9926683306694031,
+      "retrieval_reason": "semantic_base",
+      "decomposition_ambiguous": false,
+      "qualifier_contexts": [
+        {
+          "base": "temperature",
+          "left_text": "Attribute property: temperature\nQualifiers: [\"ambient\"]",
+          "right_text": "Attribute property: temperature\nQualifiers: [\"ambient\"]",
+          "cosine": 1.0
+        },
+        {
+          "base": "temprature",
+          "left_text": "Attribute property: temprature\nQualifiers: [\"ambient\"]",
+          "right_text": "Attribute property: temprature\nQualifiers: [\"ambient\"]",
+          "cosine": 0.9999999403953552
+        }
+      ],
+      "qualifier_cosine": 0.9999999701976776,
+      "signals": {
+        "base": 0.9926683306694031,
+        "qualifier": 0.9999999701976776,
+        "lexical": 0.972972972972973
+      },
+      "weighted_contributions": {
+        "base": 0.24816708266735077,
+        "qualifier": 0.6499999806284905,
+        "lexical": 0.0972972972972973
+      },
+      "equivalence_score": 0.9954643605931386,
+      "qualifier_presence_mismatch": false,
+      "isolated_qualifier_cosine": 1.0
+    },
+    {
+      "left_id": 10,
+      "right_id": 12,
+      "left": "ambient_temperature",
+      "right": "ambient_temp",
+      "base_similarity": 0.9202582240104675,
+      "retrieval_reason": "semantic_base",
+      "decomposition_ambiguous": false,
+      "qualifier_contexts": [
+        {
+          "base": "temp",
+          "left_text": "Attribute property: temp\nQualifiers: [\"ambient\"]",
+          "right_text": "Attribute property: temp\nQualifiers: [\"ambient\"]",
+          "cosine": 1.0
+        },
+        {
+          "base": "temperature",
+          "left_text": "Attribute property: temperature\nQualifiers: [\"ambient\"]",
+          "right_text": "Attribute property: temperature\nQualifiers: [\"ambient\"]",
+          "cosine": 1.0
+        }
+      ],
+      "qualifier_cosine": 1.0,
+      "signals": {
+        "base": 0.9202582240104675,
+        "qualifier": 1.0,
+        "lexical": 0.7741935483870968
+      },
+      "weighted_contributions": {
+        "base": 0.23006455600261688,
+        "qualifier": 0.65,
+        "lexical": 0.07741935483870968
+      },
+      "equivalence_score": 0.9574839108413266,
+      "qualifier_presence_mismatch": false,
+      "isolated_qualifier_cosine": 1.0
+    },
+    {
+      "left_id": 11,
+      "right_id": 12,
+      "left": "ambient_temprature",
+      "right": "ambient_temp",
+      "base_similarity": 0.9266430139541626,
+      "retrieval_reason": "semantic_base",
+      "decomposition_ambiguous": false,
+      "qualifier_contexts": [
+        {
+          "base": "temp",
+          "left_text": "Attribute property: temp\nQualifiers: [\"ambient\"]",
+          "right_text": "Attribute property: temp\nQualifiers: [\"ambient\"]",
+          "cosine": 1.0
+        },
+        {
+          "base": "temprature",
+          "left_text": "Attribute property: temprature\nQualifiers: [\"ambient\"]",
+          "right_text": "Attribute property: temprature\nQualifiers: [\"ambient\"]",
+          "cosine": 0.9999999403953552
+        }
+      ],
+      "qualifier_cosine": 0.9999999701976776,
+      "signals": {
+        "base": 0.9266430139541626,
+        "qualifier": 0.9999999701976776,
+        "lexical": 0.8
+      },
+      "weighted_contributions": {
+        "base": 0.23166075348854065,
+        "qualifier": 0.6499999806284905,
+        "lexical": 0.08000000000000002
+      },
+      "equivalence_score": 0.9616607341170311,
+      "qualifier_presence_mismatch": false,
+      "isolated_qualifier_cosine": 1.0
+    },
+    {
+      "left_id": 13,
+      "right_id": 14,
+      "left": "billing_address",
+      "right": "shipping_address",
+      "base_similarity": 1.0,
+      "retrieval_reason": "exact_base",
+      "decomposition_ambiguous": false,
+      "qualifier_contexts": [
+        {
+          "base": "address",
+          "left_text": "Attribute property: address\nQualifiers: [\"billing\"]",
+          "right_text": "Attribute property: address\nQualifiers: [\"shipping\"]",
+          "cosine": 0.9592869877815247
+        }
+      ],
+      "qualifier_cosine": 0.9592869877815247,
+      "signals": {
+        "base": 1.0,
+        "qualifier": 0.9592869877815247,
+        "lexical": 0.7741935483870968
+      },
+      "weighted_contributions": {
+        "base": 0.25,
+        "qualifier": 0.623536542057991,
+        "lexical": 0.07741935483870968
+      },
+      "equivalence_score": 0.9509558968967007,
+      "qualifier_presence_mismatch": false,
+      "isolated_qualifier_cosine": 0.8561365604400635
+    },
+    {
+      "left_id": 15,
+      "right_id": 16,
+      "left": "input_current",
+      "right": "incoming_current",
+      "base_similarity": 1.0,
+      "retrieval_reason": "exact_base",
+      "decomposition_ambiguous": false,
+      "qualifier_contexts": [
+        {
+          "base": "current",
+          "left_text": "Attribute property: current\nQualifiers: [\"input\"]",
+          "right_text": "Attribute property: current\nQualifiers: [\"incoming\"]",
+          "cosine": 0.9519240856170654
+        }
+      ],
+      "qualifier_cosine": 0.9519240856170654,
+      "signals": {
+        "base": 1.0,
+        "qualifier": 0.9519240856170654,
+        "lexical": 0.6896551724137931
+      },
+      "weighted_contributions": {
+        "base": 0.25,
+        "qualifier": 0.6187506556510926,
+        "lexical": 0.06896551724137932
+      },
+      "equivalence_score": 0.9377161728924719,
+      "qualifier_presence_mismatch": false,
+      "isolated_qualifier_cosine": 0.8881134986877441
+    },
+    {
+      "left_id": 15,
+      "right_id": 17,
+      "left": "input_current",
+      "right": "output_current",
+      "base_similarity": 1.0,
+      "retrieval_reason": "exact_base",
+      "decomposition_ambiguous": false,
+      "qualifier_contexts": [
+        {
+          "base": "current",
+          "left_text": "Attribute property: current\nQualifiers: [\"input\"]",
+          "right_text": "Attribute property: current\nQualifiers: [\"output\"]",
+          "cosine": 0.9655801057815552
+        }
+      ],
+      "qualifier_cosine": 0.9655801057815552,
+      "signals": {
+        "base": 1.0,
+        "qualifier": 0.9655801057815552,
+        "lexical": 0.8148148148148148
+      },
+      "weighted_contributions": {
+        "base": 0.25,
+        "qualifier": 0.6276270687580109,
+        "lexical": 0.08148148148148149
+      },
+      "equivalence_score": 0.9591085502394924,
+      "qualifier_presence_mismatch": false,
+      "isolated_qualifier_cosine": 0.9343079328536987
+    },
+    {
+      "left_id": 16,
+      "right_id": 17,
+      "left": "incoming_current",
+      "right": "output_current",
+      "base_similarity": 1.0,
+      "retrieval_reason": "exact_base",
+      "decomposition_ambiguous": false,
+      "qualifier_contexts": [
+        {
+          "base": "current",
+          "left_text": "Attribute property: current\nQualifiers: [\"incoming\"]",
+          "right_text": "Attribute property: current\nQualifiers: [\"output\"]",
+          "cosine": 0.9351193904876709
+        }
+      ],
+      "qualifier_cosine": 0.9351193904876709,
+      "signals": {
+        "base": 1.0,
+        "qualifier": 0.9351193904876709,
+        "lexical": 0.6
+      },
+      "weighted_contributions": {
+        "base": 0.25,
+        "qualifier": 0.6078276038169861,
+        "lexical": 0.06
+      },
+      "equivalence_score": 0.9178276038169861,
+      "qualifier_presence_mismatch": false,
+      "isolated_qualifier_cosine": 0.8530129194259644
+    }
+  ],
+  "evaluation_mode": "manual_decomposition",
+  "parser_model": null,
+  "benchmark_sha256": "0a271ff00978c62852a2f2743614c4d1275fc0ce5077d6a6cf7b1baa828da564",
+  "evaluation": {
+    "labeled_pairs": 15,
+    "labeled_pairs_retrieved": 14,
+    "positive_retrieval_recall": 1.0,
+    "retained_pair_auc": {
+      "contextual": 0.7142857142857143,
+      "isolated": 0.7142857142857143,
+      "equivalence_score": 0.6530612244897959
+    },
+    "diagnostic_cutoff": 0.9,
+    "true_positives": 7,
+    "false_positives": 7,
+    "false_negatives": 0,
+    "precision": 0.5,
+    "recall": 1.0,
+    "rows": [
+      {
+        "left_id": 0,
+        "right_id": 1,
+        "equivalent": true,
+        "left": "input_voltage",
+        "right": "incoming_voltage",
+        "retrieved": true,
+        "above_diagnostic_cutoff": true,
+        "equivalence_score": 0.9425247239655462,
+        "contextual": 0.9593218564987183,
+        "isolated": 0.8881134986877441,
+        "lexical": 0.6896551724137931,
+        "base": 1.0
+      },
+      {
+        "left_id": 0,
+        "right_id": 2,
+        "equivalent": false,
+        "left": "input_voltage",
+        "right": "output_voltage",
+        "retrieved": true,
+        "above_diagnostic_cutoff": true,
+        "equivalence_score": 0.9570921698102245,
+        "contextual": 0.96247798204422,
+        "isolated": 0.9343079328536987,
+        "lexical": 0.8148148148148148,
+        "base": 1.0
+      },
+      {
+        "left_id": 1,
+        "right_id": 2,
+        "equivalent": false,
+        "left": "incoming_voltage",
+        "right": "output_voltage",
+        "retrieved": true,
+        "above_diagnostic_cutoff": true,
+        "equivalence_score": 0.9172916716337205,
+        "contextual": 0.9342948794364929,
+        "isolated": 0.8530129194259644,
+        "lexical": 0.6,
+        "base": 1.0
+      },
+      {
+        "left_id": 3,
+        "right_id": 4,
+        "equivalent": true,
+        "left": "wheel_position",
+        "right": "tyre_position",
+        "retrieved": true,
+        "above_diagnostic_cutoff": true,
+        "equivalence_score": 0.9368139052832568,
+        "contextual": 0.9426766633987427,
+        "isolated": 0.9128783345222473,
+        "lexical": 0.7407407407407407,
+        "base": 1.0
+      },
+      {
+        "left_id": 5,
+        "right_id": 6,
+        "equivalent": false,
+        "left": "front_left_wheel_position",
+        "right": "front_right_wheel_position",
+        "retrieved": true,
+        "above_diagnostic_cutoff": true,
+        "equivalence_score": 0.9601638070508546,
+        "contextual": 0.9598296880722046,
+        "isolated": 0.954298198223114,
+        "lexical": 0.8627450980392157,
+        "base": 1.0
+      },
+      {
+        "left_id": 5,
+        "right_id": 7,
+        "equivalent": true,
+        "left": "front_left_wheel_position",
+        "right": "front_left_tyre_position",
+        "retrieved": true,
+        "above_diagnostic_cutoff": true,
+        "equivalence_score": 0.9678504607507161,
+        "contextual": 0.972517192363739,
+        "isolated": 0.9720849990844727,
+        "lexical": 0.8571428571428571,
+        "base": 1.0
+      },
+      {
+        "left_id": 3,
+        "right_id": 5,
+        "equivalent": false,
+        "left": "wheel_position",
+        "right": "front_left_wheel_position",
+        "retrieved": true,
+        "above_diagnostic_cutoff": true,
+        "equivalence_score": 0.931899364101581,
+        "contextual": 0.9386222958564758,
+        "isolated": 0.9187617301940918,
+        "lexical": 0.717948717948718,
+        "base": 1.0
+      },
+      {
+        "left_id": 8,
+        "right_id": 9,
+        "equivalent": true,
+        "left": "customer_colour",
+        "right": "customer_color",
+        "retrieved": true,
+        "above_diagnostic_cutoff": true,
+        "equivalence_score": 0.9935876298567344,
+        "contextual": 1.0,
+        "isolated": 0.9999999403953552,
+        "lexical": 0.9655172413793104,
+        "base": 0.9881436228752136
+      },
+      {
+        "left_id": 10,
+        "right_id": 11,
+        "equivalent": true,
+        "left": "ambient_temperature",
+        "right": "ambient_temprature",
+        "retrieved": true,
+        "above_diagnostic_cutoff": true,
+        "equivalence_score": 0.9954643605931386,
+        "contextual": 0.9999999701976776,
+        "isolated": 1.0,
+        "lexical": 0.972972972972973,
+        "base": 0.9926683306694031
+      },
+      {
+        "left_id": 10,
+        "right_id": 12,
+        "equivalent": true,
+        "left": "ambient_temperature",
+        "right": "ambient_temp",
+        "retrieved": true,
+        "above_diagnostic_cutoff": true,
+        "equivalence_score": 0.9574839108413266,
+        "contextual": 1.0,
+        "isolated": 1.0,
+        "lexical": 0.7741935483870968,
+        "base": 0.9202582240104675
+      },
+      {
+        "left_id": 13,
+        "right_id": 14,
+        "equivalent": false,
+        "left": "billing_address",
+        "right": "shipping_address",
+        "retrieved": true,
+        "above_diagnostic_cutoff": true,
+        "equivalence_score": 0.9509558968967007,
+        "contextual": 0.9592869877815247,
+        "isolated": 0.8561365604400635,
+        "lexical": 0.7741935483870968,
+        "base": 1.0
+      },
+      {
+        "left_id": 15,
+        "right_id": 16,
+        "equivalent": true,
+        "left": "input_current",
+        "right": "incoming_current",
+        "retrieved": true,
+        "above_diagnostic_cutoff": true,
+        "equivalence_score": 0.9377161728924719,
+        "contextual": 0.9519240856170654,
+        "isolated": 0.8881134986877441,
+        "lexical": 0.6896551724137931,
+        "base": 1.0
+      },
+      {
+        "left_id": 15,
+        "right_id": 17,
+        "equivalent": false,
+        "left": "input_current",
+        "right": "output_current",
+        "retrieved": true,
+        "above_diagnostic_cutoff": true,
+        "equivalence_score": 0.9591085502394924,
+        "contextual": 0.9655801057815552,
+        "isolated": 0.9343079328536987,
+        "lexical": 0.8148148148148148,
+        "base": 1.0
+      },
+      {
+        "left_id": 0,
+        "right_id": 18,
+        "equivalent": false,
+        "left": "input_voltage",
+        "right": "voltage",
+        "retrieved": true,
+        "above_diagnostic_cutoff": true,
+        "equivalence_score": 0.9455561381578446,
+        "contextual": 0.9623940587043762,
+        "isolated": 0.9047814607620239,
+        "lexical": 0.7,
+        "base": 1.0
+      },
+      {
+        "left_id": 0,
+        "right_id": 19,
+        "equivalent": false,
+        "left": "input_voltage",
+        "right": "manufacturer",
+        "retrieved": false,
+        "above_diagnostic_cutoff": false
+      }
+    ],
+    "rankings": [
+      {
+        "name": "voltage synonym above opposite direction",
+        "positive": [
+          0,
+          1
+        ],
+        "negative": [
+          0,
+          2
+        ],
+        "evaluated": true,
+        "qualifier_cosine": {
+          "margin": -0.003156125545501709,
+          "correct_order": false
+        },
+        "isolated_qualifier_cosine": {
+          "margin": -0.04619443416595459,
+          "correct_order": false
+        },
+        "equivalence_score": {
+          "margin": -0.014567445844678284,
+          "correct_order": false
+        }
+      },
+      {
+        "name": "position synonym above opposite location",
+        "positive": [
+          5,
+          7
+        ],
+        "negative": [
+          5,
+          6
+        ],
+        "evaluated": true,
+        "qualifier_cosine": {
+          "margin": 0.012687504291534424,
+          "correct_order": true
+        },
+        "isolated_qualifier_cosine": {
+          "margin": 0.017786800861358643,
+          "correct_order": true
+        },
+        "equivalence_score": {
+          "margin": 0.007686653699861545,
+          "correct_order": true
+        }
+      },
+      {
+        "name": "current synonym above opposite direction",
+        "positive": [
+          15,
+          16
+        ],
+        "negative": [
+          15,
+          17
+        ],
+        "evaluated": true,
+        "qualifier_cosine": {
+          "margin": -0.013656020164489746,
+          "correct_order": false
+        },
+        "isolated_qualifier_cosine": {
+          "margin": -0.04619443416595459,
+          "correct_order": false
+        },
+        "equivalence_score": {
+          "margin": -0.021392377347020486,
+          "correct_order": false
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,707 @@
+{
+  "timestamp": "2026-09-15T09:38:19.798706+00:00",
+  "classifier": {
+    "model": "gemini-2.5-flash",
+    "prompt_sha256": "b2973e9b4d2f9892bc6e3387732e582c9b52f0a38df2959ca019c5325a0803ba",
+    "temperature": 0
+  },
+  "fresh": true,
+  "benchmark_sha256": "9a07350692ed7e1c23ab32d71859b53314750441e6e3319f0d89d3725d6fa688",
+  "overall": {
+    "count": 24,
+    "correct": 21,
+    "accuracy": 0.875
+  },
+  "by_stratum": {
+    "context_dependent": {
+      "count": 8,
+      "correct": 5,
+      "accuracy": 0.625
+    },
+    "hard_negatives": {
+      "count": 10,
+      "correct": 10,
+      "accuracy": 1.0
+    },
+    "positives": {
+      "count": 6,
+      "correct": 6,
+      "accuracy": 1.0
+    }
+  },
+  "by_relation": {
+    "EQUIVALENT": {
+      "count": 7,
+      "correct": 7,
+      "accuracy": 1.0
+    },
+    "CONTRASTING": {
+      "count": 7,
+      "correct": 7,
+      "accuracy": 1.0
+    },
+    "RELATED_BUT_DIFFERENT": {
+      "count": 4,
+      "correct": 4,
+      "accuracy": 1.0
+    },
+    "UNCERTAIN": {
+      "count": 6,
+      "correct": 3,
+      "accuracy": 0.5
+    }
+  },
+  "base_accuracy": 0.9583333333333334,
+  "hard_negatives_called_equivalent": 0,
+  "uncertain_cases_forced_equivalent": 0,
+  "confusion_matrix": {
+    "EQUIVALENT": {
+      "EQUIVALENT": 7,
+      "CONTRASTING": 0,
+      "RELATED_BUT_DIFFERENT": 0,
+      "UNCERTAIN": 0
+    },
+    "CONTRASTING": {
+      "EQUIVALENT": 0,
+      "CONTRASTING": 7,
+      "RELATED_BUT_DIFFERENT": 0,
+      "UNCERTAIN": 0
+    },
+    "RELATED_BUT_DIFFERENT": {
+      "EQUIVALENT": 0,
+      "CONTRASTING": 0,
+      "RELATED_BUT_DIFFERENT": 4,
+      "UNCERTAIN": 0
+    },
+    "UNCERTAIN": {
+      "EQUIVALENT": 0,
+      "CONTRASTING": 0,
+      "RELATED_BUT_DIFFERENT": 3,
+      "UNCERTAIN": 3
+    }
+  },
+  "rows": [
+    {
+      "id": "voltage_synonym",
+      "stratum": "positives",
+      "input": {
+        "base_a": "voltage",
+        "base_b": "voltage",
+        "qualifiers_a": [
+          "input"
+        ],
+        "qualifiers_b": [
+          "incoming"
+        ]
+      },
+      "expected": "EQUIVALENT",
+      "expected_base": "COMPATIBLE",
+      "actual": {
+        "relation": "EQUIVALENT",
+        "base_relation": "COMPATIBLE",
+        "reason": "The qualifiers 'incoming' and 'input' both describe voltage entering a system, making them semantically interchangeable.",
+        "base_reason": "Both attributes refer to the electrical potential difference, which is voltage.",
+        "generated_at": "2026-09-15T09:37:56.427969+00:00",
+        "source": "model"
+      },
+      "correct": true,
+      "base_correct": true
+    },
+    {
+      "id": "current_synonym",
+      "stratum": "positives",
+      "input": {
+        "base_a": "current",
+        "base_b": "current",
+        "qualifiers_a": [
+          "input"
+        ],
+        "qualifiers_b": [
+          "incoming"
+        ]
+      },
+      "expected": "EQUIVALENT",
+      "expected_base": "COMPATIBLE",
+      "actual": {
+        "relation": "EQUIVALENT",
+        "base_relation": "COMPATIBLE",
+        "reason": "The qualifiers 'incoming' and 'input' both describe current entering a system, making them semantically interchangeable.",
+        "base_reason": "Both attributes refer to the flow of electrical charge, which is current.",
+        "generated_at": "2026-09-15T09:37:56.428891+00:00",
+        "source": "model"
+      },
+      "correct": true,
+      "base_correct": true
+    },
+    {
+      "id": "minimum_abbreviation",
+      "stratum": "positives",
+      "input": {
+        "base_a": "temperature",
+        "base_b": "temperature",
+        "qualifiers_a": [
+          "min"
+        ],
+        "qualifiers_b": [
+          "minimum"
+        ]
+      },
+      "expected": "EQUIVALENT",
+      "expected_base": "COMPATIBLE",
+      "actual": {
+        "relation": "EQUIVALENT",
+        "base_relation": "COMPATIBLE",
+        "reason": "The qualifier 'min' is an abbreviation for 'minimum', and both refer to the lowest temperature value.",
+        "base_reason": "Both attributes refer to the degree of hotness or coldness, which is temperature.",
+        "generated_at": "2026-09-15T09:37:56.428975+00:00",
+        "source": "model"
+      },
+      "correct": true,
+      "base_correct": true
+    },
+    {
+      "id": "maximum_abbreviation",
+      "stratum": "positives",
+      "input": {
+        "base_a": "speed",
+        "base_b": "speed",
+        "qualifiers_a": [
+          "max"
+        ],
+        "qualifiers_b": [
+          "maximum"
+        ]
+      },
+      "expected": "EQUIVALENT",
+      "expected_base": "COMPATIBLE",
+      "actual": {
+        "relation": "EQUIVALENT",
+        "base_relation": "COMPATIBLE",
+        "reason": "The qualifier 'max' is an abbreviation for 'maximum', and both refer to the highest speed value.",
+        "base_reason": "Both attributes refer to the rate at which something moves, which is speed.",
+        "generated_at": "2026-09-15T09:37:56.429012+00:00",
+        "source": "model"
+      },
+      "correct": true,
+      "base_correct": true
+    },
+    {
+      "id": "spelling_variant",
+      "stratum": "positives",
+      "input": {
+        "base_a": "color",
+        "base_b": "color",
+        "qualifiers_a": [
+          "grey"
+        ],
+        "qualifiers_b": [
+          "gray"
+        ]
+      },
+      "expected": "EQUIVALENT",
+      "expected_base": "COMPATIBLE",
+      "actual": {
+        "relation": "EQUIVALENT",
+        "base_relation": "COMPATIBLE",
+        "reason": "The qualifiers 'gray' and 'grey' are alternative spellings for the same color.",
+        "base_reason": "Both attributes refer to the property of an object that depends on the light it reflects, which is color.",
+        "generated_at": "2026-09-15T09:37:56.429044+00:00",
+        "source": "model"
+      },
+      "correct": true,
+      "base_correct": true
+    },
+    {
+      "id": "no_qualifiers",
+      "stratum": "positives",
+      "input": {
+        "base_a": "temperature",
+        "base_b": "temp",
+        "qualifiers_a": [],
+        "qualifiers_b": []
+      },
+      "expected": "EQUIVALENT",
+      "expected_base": "COMPATIBLE",
+      "actual": {
+        "relation": "EQUIVALENT",
+        "base_relation": "COMPATIBLE",
+        "reason": "Both qualifier lists are empty, and the base attributes are compatible.",
+        "base_reason": "The base attribute 'temp' is a common abbreviation for 'temperature', referring to the same physical property.",
+        "generated_at": "2026-09-15T09:37:56.429074+00:00",
+        "source": "model"
+      },
+      "correct": true,
+      "base_correct": true
+    },
+    {
+      "id": "voltage_direction",
+      "stratum": "hard_negatives",
+      "input": {
+        "base_a": "voltage",
+        "base_b": "voltage",
+        "qualifiers_a": [
+          "input"
+        ],
+        "qualifiers_b": [
+          "output"
+        ]
+      },
+      "expected": "CONTRASTING",
+      "expected_base": "COMPATIBLE",
+      "actual": {
+        "relation": "CONTRASTING",
+        "base_relation": "COMPATIBLE",
+        "reason": "The qualifiers 'input' and 'output' describe opposing directions of voltage flow relative to a system.",
+        "base_reason": "Both attributes refer to the electrical potential difference, which is voltage.",
+        "generated_at": "2026-09-15T09:37:56.429102+00:00",
+        "source": "model"
+      },
+      "correct": true,
+      "base_correct": true
+    },
+    {
+      "id": "current_direction",
+      "stratum": "hard_negatives",
+      "input": {
+        "base_a": "current",
+        "base_b": "current",
+        "qualifiers_a": [
+          "input"
+        ],
+        "qualifiers_b": [
+          "output"
+        ]
+      },
+      "expected": "CONTRASTING",
+      "expected_base": "COMPATIBLE",
+      "actual": {
+        "relation": "CONTRASTING",
+        "base_relation": "COMPATIBLE",
+        "reason": "The qualifiers 'input' and 'output' describe opposing directions of current flow relative to a system.",
+        "base_reason": "Both attributes refer to the flow of electrical charge, which is current.",
+        "generated_at": "2026-09-15T09:37:56.429130+00:00",
+        "source": "model"
+      },
+      "correct": true,
+      "base_correct": true
+    },
+    {
+      "id": "voltage_extrema",
+      "stratum": "hard_negatives",
+      "input": {
+        "base_a": "voltage",
+        "base_b": "voltage",
+        "qualifiers_a": [
+          "minimum"
+        ],
+        "qualifiers_b": [
+          "maximum"
+        ]
+      },
+      "expected": "CONTRASTING",
+      "expected_base": "COMPATIBLE",
+      "actual": {
+        "relation": "CONTRASTING",
+        "base_relation": "COMPATIBLE",
+        "reason": "The qualifiers 'maximum' and 'minimum' describe opposing extremes for the voltage value.",
+        "base_reason": "Both attributes refer to the electrical potential difference, which is voltage.",
+        "generated_at": "2026-09-15T09:37:56.429167+00:00",
+        "source": "model"
+      },
+      "correct": true,
+      "base_correct": true
+    },
+    {
+      "id": "temperature_extrema",
+      "stratum": "hard_negatives",
+      "input": {
+        "base_a": "temperature",
+        "base_b": "temperature",
+        "qualifiers_a": [
+          "minimum"
+        ],
+        "qualifiers_b": [
+          "maximum"
+        ]
+      },
+      "expected": "CONTRASTING",
+      "expected_base": "COMPATIBLE",
+      "actual": {
+        "relation": "CONTRASTING",
+        "base_relation": "COMPATIBLE",
+        "reason": "The qualifiers 'maximum' and 'minimum' describe opposing extremes for the temperature value.",
+        "base_reason": "Both attributes refer to the degree of hotness or coldness, which is temperature.",
+        "generated_at": "2026-09-15T09:37:56.429188+00:00",
+        "source": "model"
+      },
+      "correct": true,
+      "base_correct": true
+    },
+    {
+      "id": "left_right",
+      "stratum": "hard_negatives",
+      "input": {
+        "base_a": "position",
+        "base_b": "position",
+        "qualifiers_a": [
+          "left"
+        ],
+        "qualifiers_b": [
+          "right"
+        ]
+      },
+      "expected": "CONTRASTING",
+      "expected_base": "COMPATIBLE",
+      "actual": {
+        "relation": "CONTRASTING",
+        "base_relation": "COMPATIBLE",
+        "reason": "The qualifiers 'left' and 'right' describe opposing directions for the position.",
+        "base_reason": "Both attributes refer to the same underlying property of 'position'.",
+        "generated_at": "2026-09-15T09:38:09.227497+00:00",
+        "source": "model"
+      },
+      "correct": true,
+      "base_correct": true
+    },
+    {
+      "id": "front_rear",
+      "stratum": "hard_negatives",
+      "input": {
+        "base_a": "position",
+        "base_b": "position",
+        "qualifiers_a": [
+          "front"
+        ],
+        "qualifiers_b": [
+          "rear"
+        ]
+      },
+      "expected": "CONTRASTING",
+      "expected_base": "COMPATIBLE",
+      "actual": {
+        "relation": "CONTRASTING",
+        "base_relation": "COMPATIBLE",
+        "reason": "The qualifiers 'front' and 'rear' describe opposing directions for the position.",
+        "base_reason": "Both attributes refer to the same underlying property of 'position'.",
+        "generated_at": "2026-09-15T09:38:09.228480+00:00",
+        "source": "model"
+      },
+      "correct": true,
+      "base_correct": true
+    },
+    {
+      "id": "one_modifier_conflict",
+      "stratum": "hard_negatives",
+      "input": {
+        "base_a": "position",
+        "base_b": "position",
+        "qualifiers_a": [
+          "front",
+          "left",
+          "wheel"
+        ],
+        "qualifiers_b": [
+          "front",
+          "right",
+          "wheel"
+        ]
+      },
+      "expected": "CONTRASTING",
+      "expected_base": "COMPATIBLE",
+      "actual": {
+        "relation": "CONTRASTING",
+        "base_relation": "COMPATIBLE",
+        "reason": "The qualifiers 'left' and 'right' describe opposing directions for the wheel position at the front.",
+        "base_reason": "Both attributes refer to the same underlying property of 'position'.",
+        "generated_at": "2026-09-15T09:38:09.228550+00:00",
+        "source": "model"
+      },
+      "correct": true,
+      "base_correct": true
+    },
+    {
+      "id": "raw_actual_defined",
+      "stratum": "hard_negatives",
+      "input": {
+        "base_a": "value",
+        "base_b": "value",
+        "qualifiers_a": [
+          "raw"
+        ],
+        "qualifiers_b": [
+          "actual"
+        ],
+        "context": "Raw is the untouched sensor reading. Actual is the independently verified physical value. They are recorded separately and may differ."
+      },
+      "expected": "RELATED_BUT_DIFFERENT",
+      "expected_base": "COMPATIBLE",
+      "actual": {
+        "relation": "RELATED_BUT_DIFFERENT",
+        "base_relation": "COMPATIBLE",
+        "reason": "The context specifies that 'raw' is the untouched sensor reading and 'actual' is the independently verified physical value, indicating they are distinct but related forms of a value.",
+        "base_reason": "Both attributes refer to the same underlying property of 'value'.",
+        "generated_at": "2026-09-15T09:38:09.228585+00:00",
+        "source": "model"
+      },
+      "correct": true,
+      "base_correct": true
+    },
+    {
+      "id": "different_address_roles",
+      "stratum": "hard_negatives",
+      "input": {
+        "base_a": "address",
+        "base_b": "address",
+        "qualifiers_a": [
+          "billing"
+        ],
+        "qualifiers_b": [
+          "shipping"
+        ],
+        "context": "The billing address receives invoices; the shipping address receives goods. Both can coexist and can be different places."
+      },
+      "expected": "RELATED_BUT_DIFFERENT",
+      "expected_base": "COMPATIBLE",
+      "actual": {
+        "relation": "RELATED_BUT_DIFFERENT",
+        "base_relation": "COMPATIBLE",
+        "reason": "The context specifies that 'billing address' receives invoices and 'shipping address' receives goods, serving different purposes and potentially being different locations.",
+        "base_reason": "Both attributes refer to the same underlying property of 'address'.",
+        "generated_at": "2026-09-15T09:38:09.228616+00:00",
+        "source": "model"
+      },
+      "correct": true,
+      "base_correct": true
+    },
+    {
+      "id": "different_entities",
+      "stratum": "hard_negatives",
+      "input": {
+        "base_a": "material",
+        "base_b": "material",
+        "qualifiers_a": [
+          "housing"
+        ],
+        "qualifiers_b": [
+          "shaft"
+        ]
+      },
+      "expected": "RELATED_BUT_DIFFERENT",
+      "expected_base": "COMPATIBLE",
+      "actual": {
+        "relation": "RELATED_BUT_DIFFERENT",
+        "base_relation": "COMPATIBLE",
+        "reason": "The qualifiers 'housing' and 'shaft' refer to different components of an object, so their materials are distinct properties.",
+        "base_reason": "Both attributes refer to the same underlying property of 'material'.",
+        "generated_at": "2026-09-15T09:38:09.228646+00:00",
+        "source": "model"
+      },
+      "correct": true,
+      "base_correct": true
+    },
+    {
+      "id": "wheel_tyre_no_context",
+      "stratum": "context_dependent",
+      "input": {
+        "base_a": "position",
+        "base_b": "position",
+        "qualifiers_a": [
+          "wheel"
+        ],
+        "qualifiers_b": [
+          "tyre"
+        ]
+      },
+      "expected": "UNCERTAIN",
+      "expected_base": "COMPATIBLE",
+      "actual": {
+        "relation": "UNCERTAIN",
+        "base_relation": "COMPATIBLE",
+        "reason": "Without context, it is uncertain if the 'position' of a 'tyre' and the 'position' of a 'wheel' refer to the same physical location or distinct reference points (e.g., contact patch vs. center).",
+        "base_reason": "Both attributes refer to the same underlying property of 'position'.",
+        "generated_at": "2026-09-15T09:38:09.228674+00:00",
+        "source": "model"
+      },
+      "correct": true,
+      "base_correct": true
+    },
+    {
+      "id": "wheel_tyre_mounting_slot",
+      "stratum": "context_dependent",
+      "input": {
+        "base_a": "position",
+        "base_b": "position",
+        "qualifiers_a": [
+          "wheel"
+        ],
+        "qualifiers_b": [
+          "tyre"
+        ],
+        "context": "This vehicle table records the mounting slot, with values front-left, front-right, rear-left, rear-right. Both fields locate the mounted assembly at that slot, without tracking separate component coordinates."
+      },
+      "expected": "EQUIVALENT",
+      "expected_base": "COMPATIBLE",
+      "actual": {
+        "relation": "EQUIVALENT",
+        "base_relation": "COMPATIBLE",
+        "reason": "The context explicitly states that both fields locate the 'mounted assembly at that slot, without tracking separate component coordinates', indicating 'tyre position' and 'wheel position' are used interchangeably for the assembly's location.",
+        "base_reason": "Both attributes refer to the same underlying property of 'position'.",
+        "generated_at": "2026-09-15T09:38:09.228702+00:00",
+        "source": "model"
+      },
+      "correct": true,
+      "base_correct": true
+    },
+    {
+      "id": "wheel_tyre_distinct_geometry",
+      "stratum": "context_dependent",
+      "input": {
+        "base_a": "position",
+        "base_b": "position",
+        "qualifiers_a": [
+          "wheel"
+        ],
+        "qualifiers_b": [
+          "tyre"
+        ],
+        "context": "This geometry table tracks independent coordinates of the metal wheel center and a rubber tyre contact patch. The two fields locate those different reference points."
+      },
+      "expected": "RELATED_BUT_DIFFERENT",
+      "expected_base": "COMPATIBLE",
+      "actual": {
+        "relation": "RELATED_BUT_DIFFERENT",
+        "base_relation": "COMPATIBLE",
+        "reason": "The context explicitly states that the table tracks 'independent coordinates of the metal wheel center and a rubber tyre contact patch', and that the fields 'locate those different reference points'.",
+        "base_reason": "Both attributes refer to the same underlying property of 'position'.",
+        "generated_at": "2026-09-15T09:38:09.228735+00:00",
+        "source": "model"
+      },
+      "correct": true,
+      "base_correct": true
+    },
+    {
+      "id": "raw_actual_no_context",
+      "stratum": "context_dependent",
+      "input": {
+        "base_a": "value",
+        "base_b": "value",
+        "qualifiers_a": [
+          "raw"
+        ],
+        "qualifiers_b": [
+          "actual"
+        ]
+      },
+      "expected": "UNCERTAIN",
+      "expected_base": "COMPATIBLE",
+      "actual": {
+        "relation": "RELATED_BUT_DIFFERENT",
+        "base_relation": "COMPATIBLE",
+        "reason": "Without context, 'actual value' typically refers to a true or corrected measurement, while 'raw value' refers to unprocessed data, making them distinct but related forms of a value.",
+        "base_reason": "Both attributes refer to the same underlying property of 'value'.",
+        "generated_at": "2026-09-15T09:38:09.228835+00:00",
+        "source": "model"
+      },
+      "correct": false,
+      "base_correct": true
+    },
+    {
+      "id": "missing_scope",
+      "stratum": "context_dependent",
+      "input": {
+        "base_a": "voltage",
+        "base_b": "voltage",
+        "qualifiers_a": [],
+        "qualifiers_b": [
+          "input"
+        ]
+      },
+      "expected": "UNCERTAIN",
+      "expected_base": "COMPATIBLE",
+      "actual": {
+        "relation": "RELATED_BUT_DIFFERENT",
+        "base_relation": "COMPATIBLE",
+        "reason": "The attribute 'input voltage' specifies a particular role or type of voltage, whereas 'voltage' without qualifiers refers to the general concept or an unspecified type of voltage.",
+        "base_reason": "Both attributes refer to the electrical potential difference, which is voltage.",
+        "generated_at": "2026-09-15T09:38:19.784124+00:00",
+        "source": "model"
+      },
+      "correct": false,
+      "base_correct": true
+    },
+    {
+      "id": "overloaded_terms",
+      "stratum": "context_dependent",
+      "input": {
+        "base_a": "value",
+        "base_b": "value",
+        "qualifiers_a": [
+          "normal"
+        ],
+        "qualifiers_b": [
+          "standard"
+        ]
+      },
+      "expected": "UNCERTAIN",
+      "expected_base": "COMPATIBLE",
+      "actual": {
+        "relation": "RELATED_BUT_DIFFERENT",
+        "base_relation": "COMPATIBLE",
+        "reason": "The attribute 'normal value' refers to a typical or usual magnitude, while 'standard value' refers to an officially established or benchmark magnitude. These are distinct criteria for a value.",
+        "base_reason": "Both attributes refer to a quantitative measurement or assigned magnitude.",
+        "generated_at": "2026-09-15T09:38:19.784843+00:00",
+        "source": "model"
+      },
+      "correct": false,
+      "base_correct": true
+    },
+    {
+      "id": "quantity_type_ambiguous",
+      "stratum": "context_dependent",
+      "input": {
+        "base_a": "speed",
+        "base_b": "velocity",
+        "qualifiers_a": [
+          "vehicle"
+        ],
+        "qualifiers_b": [
+          "vehicle"
+        ]
+      },
+      "expected": "UNCERTAIN",
+      "expected_base": "UNCERTAIN",
+      "actual": {
+        "relation": "UNCERTAIN",
+        "base_relation": "INCOMPATIBLE",
+        "reason": "The base properties 'speed' and 'velocity' are incompatible, so the relation between their qualified forms cannot be determined.",
+        "base_reason": "Speed is a scalar quantity representing the rate of motion, while velocity is a vector quantity representing both the rate and direction of motion. They are distinct physical properties.",
+        "generated_at": "2026-09-15T09:38:19.784930+00:00",
+        "source": "model"
+      },
+      "correct": true,
+      "base_correct": false
+    },
+    {
+      "id": "incompatible_bases",
+      "stratum": "context_dependent",
+      "input": {
+        "base_a": "voltage",
+        "base_b": "manufacturer",
+        "qualifiers_a": [],
+        "qualifiers_b": []
+      },
+      "expected": "UNCERTAIN",
+      "expected_base": "INCOMPATIBLE",
+      "actual": {
+        "relation": "UNCERTAIN",
+        "base_relation": "INCOMPATIBLE",
+        "reason": "The base properties 'manufacturer' and 'voltage' are incompatible, so the relation between their qualified forms cannot be determined.",
+        "base_reason": "The attribute 'manufacturer' refers to an entity responsible for production, while 'voltage' refers to an electrical potential difference. These are fundamentally different types of properties.",
+        "generated_at": "2026-09-15T09:38:19.784962+00:00",
+        "source": "model"
+      },
+      "correct": true,
+      "base_correct": true
+    }
+  ]
+}

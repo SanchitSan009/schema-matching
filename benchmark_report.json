@@ -1,0 +1,569 @@
+{
+  "count": 25,
+  "base_accuracy": 0.84,
+  "qualifier_accuracy": 0.84,
+  "exact_accuracy": 0.84,
+  "ambiguous_count": 4,
+  "rows": [
+    {
+      "name": "input_voltage",
+      "expected": {
+        "base": "voltage",
+        "qualifiers": [
+          "input"
+        ]
+      },
+      "actual": {
+        "original": "input_voltage",
+        "normalized": "input voltage",
+        "base": "voltage",
+        "qualifiers": [
+          "input"
+        ],
+        "ambiguous": false,
+        "reason": ""
+      },
+      "base_correct": true,
+      "qualifiers_correct": true,
+      "exact_match": true
+    },
+    {
+      "name": "incoming_voltage",
+      "expected": {
+        "base": "voltage",
+        "qualifiers": [
+          "incoming"
+        ]
+      },
+      "actual": {
+        "original": "incoming_voltage",
+        "normalized": "incoming voltage",
+        "base": "voltage",
+        "qualifiers": [
+          "incoming"
+        ],
+        "ambiguous": false,
+        "reason": ""
+      },
+      "base_correct": true,
+      "qualifiers_correct": true,
+      "exact_match": true
+    },
+    {
+      "name": "output_voltage",
+      "expected": {
+        "base": "voltage",
+        "qualifiers": [
+          "output"
+        ]
+      },
+      "actual": {
+        "original": "output_voltage",
+        "normalized": "output voltage",
+        "base": "voltage",
+        "qualifiers": [
+          "output"
+        ],
+        "ambiguous": false,
+        "reason": ""
+      },
+      "base_correct": true,
+      "qualifiers_correct": true,
+      "exact_match": true
+    },
+    {
+      "name": "wheel_position",
+      "expected": {
+        "base": "position",
+        "qualifiers": [
+          "wheel"
+        ]
+      },
+      "actual": {
+        "original": "wheel_position",
+        "normalized": "wheel position",
+        "base": "position",
+        "qualifiers": [
+          "wheel"
+        ],
+        "ambiguous": false,
+        "reason": ""
+      },
+      "base_correct": true,
+      "qualifiers_correct": true,
+      "exact_match": true
+    },
+    {
+      "name": "tyre_position",
+      "expected": {
+        "base": "position",
+        "qualifiers": [
+          "tyre"
+        ]
+      },
+      "actual": {
+        "original": "tyre_position",
+        "normalized": "tyre position",
+        "base": "position",
+        "qualifiers": [
+          "tyre"
+        ],
+        "ambiguous": false,
+        "reason": ""
+      },
+      "base_correct": true,
+      "qualifiers_correct": true,
+      "exact_match": true
+    },
+    {
+      "name": "front_left_wheel_position",
+      "expected": {
+        "base": "position",
+        "qualifiers": [
+          "front",
+          "left",
+          "wheel"
+        ]
+      },
+      "actual": {
+        "original": "front_left_wheel_position",
+        "normalized": "front left wheel position",
+        "base": "position",
+        "qualifiers": [
+          "front",
+          "left",
+          "wheel"
+        ],
+        "ambiguous": false,
+        "reason": ""
+      },
+      "base_correct": true,
+      "qualifiers_correct": true,
+      "exact_match": true
+    },
+    {
+      "name": "InputVoltage",
+      "expected": {
+        "base": "voltage",
+        "qualifiers": [
+          "input"
+        ]
+      },
+      "actual": {
+        "original": "InputVoltage",
+        "normalized": "input voltage",
+        "base": "voltage",
+        "qualifiers": [
+          "input"
+        ],
+        "ambiguous": false,
+        "reason": ""
+      },
+      "base_correct": true,
+      "qualifiers_correct": true,
+      "exact_match": true
+    },
+    {
+      "name": "input-voltage",
+      "expected": {
+        "base": "voltage",
+        "qualifiers": [
+          "input"
+        ]
+      },
+      "actual": {
+        "original": "input-voltage",
+        "normalized": "input voltage",
+        "base": "voltage",
+        "qualifiers": [
+          "input"
+        ],
+        "ambiguous": false,
+        "reason": ""
+      },
+      "base_correct": true,
+      "qualifiers_correct": true,
+      "exact_match": true
+    },
+    {
+      "name": "  INPUT__VOLTAGE  ",
+      "expected": {
+        "base": "voltage",
+        "qualifiers": [
+          "input"
+        ]
+      },
+      "actual": {
+        "original": "  INPUT__VOLTAGE  ",
+        "normalized": "input voltage",
+        "base": "voltage",
+        "qualifiers": [
+          "input"
+        ],
+        "ambiguous": false,
+        "reason": ""
+      },
+      "base_correct": true,
+      "qualifiers_correct": true,
+      "exact_match": true
+    },
+    {
+      "name": "temperature",
+      "expected": {
+        "base": "temperature",
+        "qualifiers": []
+      },
+      "actual": {
+        "original": "temperature",
+        "normalized": "temperature",
+        "base": "temperature",
+        "qualifiers": [],
+        "ambiguous": false,
+        "reason": ""
+      },
+      "base_correct": true,
+      "qualifiers_correct": true,
+      "exact_match": true
+    },
+    {
+      "name": "ambient_temp",
+      "expected": {
+        "base": "temp",
+        "qualifiers": [
+          "ambient"
+        ]
+      },
+      "actual": {
+        "original": "ambient_temp",
+        "normalized": "ambient temp",
+        "base": "temp",
+        "qualifiers": [
+          "ambient"
+        ],
+        "ambiguous": false,
+        "reason": ""
+      },
+      "base_correct": true,
+      "qualifiers_correct": true,
+      "exact_match": true
+    },
+    {
+      "name": "maximum_operating_temperature",
+      "expected": {
+        "base": "temperature",
+        "qualifiers": [
+          "maximum",
+          "operating"
+        ]
+      },
+      "actual": {
+        "original": "maximum_operating_temperature",
+        "normalized": "maximum operating temperature",
+        "base": "temperature",
+        "qualifiers": [
+          "maximum",
+          "operating"
+        ],
+        "ambiguous": false,
+        "reason": ""
+      },
+      "base_correct": true,
+      "qualifiers_correct": true,
+      "exact_match": true
+    },
+    {
+      "name": "housing_material",
+      "expected": {
+        "base": "material",
+        "qualifiers": [
+          "housing"
+        ]
+      },
+      "actual": {
+        "original": "housing_material",
+        "normalized": "housing material",
+        "base": "material",
+        "qualifiers": [
+          "housing"
+        ],
+        "ambiguous": false,
+        "reason": ""
+      },
+      "base_correct": true,
+      "qualifiers_correct": true,
+      "exact_match": true
+    },
+    {
+      "name": "shipping_address",
+      "expected": {
+        "base": "address",
+        "qualifiers": [
+          "shipping"
+        ]
+      },
+      "actual": {
+        "original": "shipping_address",
+        "normalized": "shipping address",
+        "base": "address",
+        "qualifiers": [
+          "shipping"
+        ],
+        "ambiguous": false,
+        "reason": ""
+      },
+      "base_correct": true,
+      "qualifiers_correct": true,
+      "exact_match": true
+    },
+    {
+      "name": "billing_address",
+      "expected": {
+        "base": "address",
+        "qualifiers": [
+          "billing"
+        ]
+      },
+      "actual": {
+        "original": "billing_address",
+        "normalized": "billing address",
+        "base": "address",
+        "qualifiers": [
+          "billing"
+        ],
+        "ambiguous": false,
+        "reason": ""
+      },
+      "base_correct": true,
+      "qualifiers_correct": true,
+      "exact_match": true
+    },
+    {
+      "name": "employee_start_date",
+      "expected": {
+        "base": "date",
+        "qualifiers": [
+          "employee",
+          "start"
+        ]
+      },
+      "actual": {
+        "original": "employee_start_date",
+        "normalized": "employee start date",
+        "base": "start date",
+        "qualifiers": [
+          "employee"
+        ],
+        "ambiguous": true,
+        "reason": "start date can be interpreted as a compound base, or start can be a qualifier for date."
+      },
+      "base_correct": false,
+      "qualifiers_correct": false,
+      "exact_match": false
+    },
+    {
+      "name": "order_total_amount",
+      "expected": {
+        "base": "amount",
+        "qualifiers": [
+          "order",
+          "total"
+        ]
+      },
+      "actual": {
+        "original": "order_total_amount",
+        "normalized": "order total amount",
+        "base": "total amount",
+        "qualifiers": [
+          "order"
+        ],
+        "ambiguous": true,
+        "reason": "total amount can be interpreted as a compound base, or total can be a qualifier for amount."
+      },
+      "base_correct": false,
+      "qualifiers_correct": false,
+      "exact_match": false
+    },
+    {
+      "name": "patient_body_mass",
+      "expected": {
+        "base": "mass",
+        "qualifiers": [
+          "patient",
+          "body"
+        ]
+      },
+      "actual": {
+        "original": "patient_body_mass",
+        "normalized": "patient body mass",
+        "base": "body mass",
+        "qualifiers": [
+          "patient"
+        ],
+        "ambiguous": true,
+        "reason": "body mass can be interpreted as a compound base, or body can be a qualifier for mass."
+      },
+      "base_correct": false,
+      "qualifiers_correct": false,
+      "exact_match": false
+    },
+    {
+      "name": "soil_moisture",
+      "expected": {
+        "base": "moisture",
+        "qualifiers": [
+          "soil"
+        ]
+      },
+      "actual": {
+        "original": "soil_moisture",
+        "normalized": "soil moisture",
+        "base": "moisture",
+        "qualifiers": [
+          "soil"
+        ],
+        "ambiguous": false,
+        "reason": ""
+      },
+      "base_correct": true,
+      "qualifiers_correct": true,
+      "exact_match": true
+    },
+    {
+      "name": "average_wind_speed",
+      "expected": {
+        "base": "speed",
+        "qualifiers": [
+          "average",
+          "wind"
+        ]
+      },
+      "actual": {
+        "original": "average_wind_speed",
+        "normalized": "average wind speed",
+        "base": "wind speed",
+        "qualifiers": [
+          "average"
+        ],
+        "ambiguous": true,
+        "reason": "wind speed can be interpreted as a compound base, or wind can be a qualifier for speed."
+      },
+      "base_correct": false,
+      "qualifiers_correct": false,
+      "exact_match": false
+    },
+    {
+      "name": "network_packet_loss",
+      "expected": {
+        "base": "packet loss",
+        "qualifiers": [
+          "network"
+        ]
+      },
+      "actual": {
+        "original": "network_packet_loss",
+        "normalized": "network packet loss",
+        "base": "packet loss",
+        "qualifiers": [
+          "network"
+        ],
+        "ambiguous": false,
+        "reason": ""
+      },
+      "base_correct": true,
+      "qualifiers_correct": true,
+      "exact_match": true
+    },
+    {
+      "name": "motor_power_factor",
+      "expected": {
+        "base": "power factor",
+        "qualifiers": [
+          "motor"
+        ]
+      },
+      "actual": {
+        "original": "motor_power_factor",
+        "normalized": "motor power factor",
+        "base": "power factor",
+        "qualifiers": [
+          "motor"
+        ],
+        "ambiguous": false,
+        "reason": ""
+      },
+      "base_correct": true,
+      "qualifiers_correct": true,
+      "exact_match": true
+    },
+    {
+      "name": "engine_torque",
+      "expected": {
+        "base": "torque",
+        "qualifiers": [
+          "engine"
+        ]
+      },
+      "actual": {
+        "original": "engine_torque",
+        "normalized": "engine torque",
+        "base": "torque",
+        "qualifiers": [
+          "engine"
+        ],
+        "ambiguous": false,
+        "reason": ""
+      },
+      "base_correct": true,
+      "qualifiers_correct": true,
+      "exact_match": true
+    },
+    {
+      "name": "date_of_birth",
+      "expected": {
+        "base": "date",
+        "qualifiers": [
+          "of birth"
+        ]
+      },
+      "actual": {
+        "original": "date_of_birth",
+        "normalized": "date of birth",
+        "base": "date",
+        "qualifiers": [
+          "of birth"
+        ],
+        "ambiguous": false,
+        "reason": ""
+      },
+      "base_correct": true,
+      "qualifiers_correct": true,
+      "exact_match": true
+    },
+    {
+      "name": "account_balance",
+      "expected": {
+        "base": "balance",
+        "qualifiers": [
+          "account"
+        ]
+      },
+      "actual": {
+        "original": "account_balance",
+        "normalized": "account balance",
+        "base": "balance",
+        "qualifiers": [
+          "account"
+        ],
+        "ambiguous": false,
+        "reason": ""
+      },
+      "base_correct": true,
+      "qualifiers_correct": true,
+      "exact_match": true
+    }
+  ],
+  "model": "gemini-2.5-flash",
+  "timestamp": "2026-09-14T19:33:48.334743+00:00",
+  "prompt_sha256": "8677b8cad03600f23b8cdac42c5b76536397d1e74e7e7ab65a4cc6503f3db946",
+  "benchmark_sha256": "e8d120d995f7ae86e5c2de7412cba6d42873b91b44da824ee5efd113938a8a42"
+}

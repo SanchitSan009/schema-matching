@@ -1,0 +1,974 @@
+{
+  "stage": "candidate_retrieval_only",
+  "timestamp": "2026-09-14T19:51:36.773547+00:00",
+  "embedding": {
+    "backend": "gemini",
+    "model": "gemini-embedding-001",
+    "input_format": "bare-base-v1",
+    "task": "SEMANTIC_SIMILARITY"
+  },
+  "threshold": 0.65,
+  "top_k": 5,
+  "column_count": 12,
+  "unique_base_count": 9,
+  "all_possible_pairs": 66,
+  "candidate_count": 53,
+  "pair_reduction": 0.19696969696969702,
+  "embedding_cache_hits": 0,
+  "bases_embedded": 9,
+  "columns": [
+    {
+      "id": 0,
+      "original": "input_voltage",
+      "normalized": "input voltage",
+      "base": "voltage",
+      "qualifiers": [
+        "input"
+      ],
+      "ambiguous": false,
+      "reason": ""
+    },
+    {
+      "id": 1,
+      "original": "incoming_voltage",
+      "normalized": "incoming voltage",
+      "base": "voltage",
+      "qualifiers": [
+        "incoming"
+      ],
+      "ambiguous": false,
+      "reason": ""
+    },
+    {
+      "id": 2,
+      "original": "output_voltage",
+      "normalized": "output voltage",
+      "base": "voltage",
+      "qualifiers": [
+        "output"
+      ],
+      "ambiguous": false,
+      "reason": ""
+    },
+    {
+      "id": 3,
+      "original": "ambient_temp",
+      "normalized": "ambient temp",
+      "base": "temp",
+      "qualifiers": [
+        "ambient"
+      ],
+      "ambiguous": false,
+      "reason": ""
+    },
+    {
+      "id": 4,
+      "original": "ambient_temperature",
+      "normalized": "ambient temperature",
+      "base": "temperature",
+      "qualifiers": [
+        "ambient"
+      ],
+      "ambiguous": false,
+      "reason": ""
+    },
+    {
+      "id": 5,
+      "original": "vehicle_speed",
+      "normalized": "vehicle speed",
+      "base": "speed",
+      "qualifiers": [
+        "vehicle"
+      ],
+      "ambiguous": false,
+      "reason": ""
+    },
+    {
+      "id": 6,
+      "original": "vehicle_velocity",
+      "normalized": "vehicle velocity",
+      "base": "velocity",
+      "qualifiers": [
+        "vehicle"
+      ],
+      "ambiguous": false,
+      "reason": ""
+    },
+    {
+      "id": 7,
+      "original": "wheel_position",
+      "normalized": "wheel position",
+      "base": "position",
+      "qualifiers": [
+        "wheel"
+      ],
+      "ambiguous": false,
+      "reason": ""
+    },
+    {
+      "id": 8,
+      "original": "tyre_position",
+      "normalized": "tyre position",
+      "base": "position",
+      "qualifiers": [
+        "tyre"
+      ],
+      "ambiguous": false,
+      "reason": ""
+    },
+    {
+      "id": 9,
+      "original": "manufacturer",
+      "normalized": "manufacturer",
+      "base": "manufacturer",
+      "qualifiers": [],
+      "ambiguous": false,
+      "reason": ""
+    },
+    {
+      "id": 10,
+      "original": "housing_material",
+      "normalized": "housing material",
+      "base": "material",
+      "qualifiers": [
+        "housing"
+      ],
+      "ambiguous": false,
+      "reason": ""
+    },
+    {
+      "id": 11,
+      "original": "order_amount",
+      "normalized": "order amount",
+      "base": "amount",
+      "qualifiers": [
+        "order"
+      ],
+      "ambiguous": false,
+      "reason": ""
+    }
+  ],
+  "base_neighbors": [
+    {
+      "left_base": "amount",
+      "right_base": "manufacturer",
+      "similarity": 0.8412449955940247
+    },
+    {
+      "left_base": "amount",
+      "right_base": "material",
+      "similarity": 0.8689714074134827
+    },
+    {
+      "left_base": "amount",
+      "right_base": "position",
+      "similarity": 0.8574866056442261
+    },
+    {
+      "left_base": "amount",
+      "right_base": "temp",
+      "similarity": 0.8656153678894043
+    },
+    {
+      "left_base": "amount",
+      "right_base": "temperature",
+      "similarity": 0.850916862487793
+    },
+    {
+      "left_base": "amount",
+      "right_base": "velocity",
+      "similarity": 0.8475322723388672
+    },
+    {
+      "left_base": "manufacturer",
+      "right_base": "material",
+      "similarity": 0.8753917217254639
+    },
+    {
+      "left_base": "manufacturer",
+      "right_base": "position",
+      "similarity": 0.8433853387832642
+    },
+    {
+      "left_base": "manufacturer",
+      "right_base": "temp",
+      "similarity": 0.8447188138961792
+    },
+    {
+      "left_base": "manufacturer",
+      "right_base": "voltage",
+      "similarity": 0.841400146484375
+    },
+    {
+      "left_base": "material",
+      "right_base": "position",
+      "similarity": 0.8600814938545227
+    },
+    {
+      "left_base": "material",
+      "right_base": "temp",
+      "similarity": 0.8716580867767334
+    },
+    {
+      "left_base": "material",
+      "right_base": "temperature",
+      "similarity": 0.8506157398223877
+    },
+    {
+      "left_base": "material",
+      "right_base": "velocity",
+      "similarity": 0.8483943343162537
+    },
+    {
+      "left_base": "position",
+      "right_base": "speed",
+      "similarity": 0.8467912673950195
+    },
+    {
+      "left_base": "position",
+      "right_base": "temp",
+      "similarity": 0.8674347996711731
+    },
+    {
+      "left_base": "position",
+      "right_base": "velocity",
+      "similarity": 0.8562891483306885
+    },
+    {
+      "left_base": "position",
+      "right_base": "voltage",
+      "similarity": 0.8503626585006714
+    },
+    {
+      "left_base": "speed",
+      "right_base": "temp",
+      "similarity": 0.8545567989349365
+    },
+    {
+      "left_base": "speed",
+      "right_base": "temperature",
+      "similarity": 0.845338761806488
+    },
+    {
+      "left_base": "speed",
+      "right_base": "velocity",
+      "similarity": 0.9552583694458008
+    },
+    {
+      "left_base": "speed",
+      "right_base": "voltage",
+      "similarity": 0.8617397546768188
+    },
+    {
+      "left_base": "temp",
+      "right_base": "temperature",
+      "similarity": 0.9202582240104675
+    },
+    {
+      "left_base": "temp",
+      "right_base": "velocity",
+      "similarity": 0.8563571572303772
+    },
+    {
+      "left_base": "temp",
+      "right_base": "voltage",
+      "similarity": 0.8531703352928162
+    },
+    {
+      "left_base": "temperature",
+      "right_base": "velocity",
+      "similarity": 0.8479883074760437
+    },
+    {
+      "left_base": "temperature",
+      "right_base": "voltage",
+      "similarity": 0.8516200184822083
+    },
+    {
+      "left_base": "velocity",
+      "right_base": "voltage",
+      "similarity": 0.8744004368782043
+    }
+  ],
+  "candidates": [
+    {
+      "left_id": 0,
+      "right_id": 1,
+      "left": "input_voltage",
+      "right": "incoming_voltage",
+      "base_similarity": 1.0,
+      "retrieval_reason": "exact_base",
+      "decomposition_ambiguous": false
+    },
+    {
+      "left_id": 0,
+      "right_id": 2,
+      "left": "input_voltage",
+      "right": "output_voltage",
+      "base_similarity": 1.0,
+      "retrieval_reason": "exact_base",
+      "decomposition_ambiguous": false
+    },
+    {
+      "left_id": 0,
+      "right_id": 3,
+      "left": "input_voltage",
+      "right": "ambient_temp",
+      "base_similarity": 0.8531703352928162,
+      "retrieval_reason": "semantic_base",
+      "decomposition_ambiguous": false
+    },
+    {
+      "left_id": 0,
+      "right_id": 4,
+      "left": "input_voltage",
+      "right": "ambient_temperature",
+      "base_similarity": 0.8516200184822083,
+      "retrieval_reason": "semantic_base",
+      "decomposition_ambiguous": false
+    },
+    {
+      "left_id": 0,
+      "right_id": 5,
+      "left": "input_voltage",
+      "right": "vehicle_speed",
+      "base_similarity": 0.8617397546768188,
+      "retrieval_reason": "semantic_base",
+      "decomposition_ambiguous": false
+    },
+    {
+      "left_id": 0,
+      "right_id": 6,
+      "left": "input_voltage",
+      "right": "vehicle_velocity",
+      "base_similarity": 0.8744004368782043,
+      "retrieval_reason": "semantic_base",
+      "decomposition_ambiguous": false
+    },
+    {
+      "left_id": 0,
+      "right_id": 7,
+      "left": "input_voltage",
+      "right": "wheel_position",
+      "base_similarity": 0.8503626585006714,
+      "retrieval_reason": "semantic_base",
+      "decomposition_ambiguous": false
+    },
+    {
+      "left_id": 0,
+      "right_id": 8,
+      "left": "input_voltage",
+      "right": "tyre_position",
+      "base_similarity": 0.8503626585006714,
+      "retrieval_reason": "semantic_base",
+      "decomposition_ambiguous": false
+    },
+    {
+      "left_id": 0,
+      "right_id": 9,
+      "left": "input_voltage",
+      "right": "manufacturer",
+      "base_similarity": 0.841400146484375,
+      "retrieval_reason": "semantic_base",
+      "decomposition_ambiguous": false
+    },
+    {
+      "left_id": 1,
+      "right_id": 2,
+      "left": "incoming_voltage",
+      "right": "output_voltage",
+      "base_similarity": 1.0,
+      "retrieval_reason": "exact_base",
+      "decomposition_ambiguous": false
+    },
+    {
+      "left_id": 1,
+      "right_id": 3,
+      "left": "incoming_voltage",
+      "right": "ambient_temp",
+      "base_similarity": 0.8531703352928162,
+      "retrieval_reason": "semantic_base",
+      "decomposition_ambiguous": false
+    },
+    {
+      "left_id": 1,
+      "right_id": 4,
+      "left": "incoming_voltage",
+      "right": "ambient_temperature",
+      "base_similarity": 0.8516200184822083,
+      "retrieval_reason": "semantic_base",
+      "decomposition_ambiguous": false
+    },
+    {
+      "left_id": 1,
+      "right_id": 5,
+      "left": "incoming_voltage",
+      "right": "vehicle_speed",
+      "base_similarity": 0.8617397546768188,
+      "retrieval_reason": "semantic_base",
+      "decomposition_ambiguous": false
+    },
+    {
+      "left_id": 1,
+      "right_id": 6,
+      "left": "incoming_voltage",
+      "right": "vehicle_velocity",
+      "base_similarity": 0.8744004368782043,
+      "retrieval_reason": "semantic_base",
+      "decomposition_ambiguous": false
+    },
+    {
+      "left_id": 1,
+      "right_id": 7,
+      "left": "incoming_voltage",
+      "right": "wheel_position",
+      "base_similarity": 0.8503626585006714,
+      "retrieval_reason": "semantic_base",
+      "decomposition_ambiguous": false
+    },
+    {
+      "left_id": 1,
+      "right_id": 8,
+      "left": "incoming_voltage",
+      "right": "tyre_position",
+      "base_similarity": 0.8503626585006714,
+      "retrieval_reason": "semantic_base",
+      "decomposition_ambiguous": false
+    },
+    {
+      "left_id": 1,
+      "right_id": 9,
+      "left": "incoming_voltage",
+      "right": "manufacturer",
+      "base_similarity": 0.841400146484375,
+      "retrieval_reason": "semantic_base",
+      "decomposition_ambiguous": false
+    },
+    {
+      "left_id": 2,
+      "right_id": 3,
+      "left": "output_voltage",
+      "right": "ambient_temp",
+      "base_similarity": 0.8531703352928162,
+      "retrieval_reason": "semantic_base",
+      "decomposition_ambiguous": false
+    },
+    {
+      "left_id": 2,
+      "right_id": 4,
+      "left": "output_voltage",
+      "right": "ambient_temperature",
+      "base_similarity": 0.8516200184822083,
+      "retrieval_reason": "semantic_base",
+      "decomposition_ambiguous": false
+    },
+    {
+      "left_id": 2,
+      "right_id": 5,
+      "left": "output_voltage",
+      "right": "vehicle_speed",
+      "base_similarity": 0.8617397546768188,
+      "retrieval_reason": "semantic_base",
+      "decomposition_ambiguous": false
+    },
+    {
+      "left_id": 2,
+      "right_id": 6,
+      "left": "output_voltage",
+      "right": "vehicle_velocity",
+      "base_similarity": 0.8744004368782043,
+      "retrieval_reason": "semantic_base",
+      "decomposition_ambiguous": false
+    },
+    {
+      "left_id": 2,
+      "right_id": 7,
+      "left": "output_voltage",
+      "right": "wheel_position",
+      "base_similarity": 0.8503626585006714,
+      "retrieval_reason": "semantic_base",
+      "decomposition_ambiguous": false
+    },
+    {
+      "left_id": 2,
+      "right_id": 8,
+      "left": "output_voltage",
+      "right": "tyre_position",
+      "base_similarity": 0.8503626585006714,
+      "retrieval_reason": "semantic_base",
+      "decomposition_ambiguous": false
+    },
+    {
+      "left_id": 2,
+      "right_id": 9,
+      "left": "output_voltage",
+      "right": "manufacturer",
+      "base_similarity": 0.841400146484375,
+      "retrieval_reason": "semantic_base",
+      "decomposition_ambiguous": false
+    },
+    {
+      "left_id": 3,
+      "right_id": 4,
+      "left": "ambient_temp",
+      "right": "ambient_temperature",
+      "base_similarity": 0.9202582240104675,
+      "retrieval_reason": "semantic_base",
+      "decomposition_ambiguous": false
+    },
+    {
+      "left_id": 3,
+      "right_id": 5,
+      "left": "ambient_temp",
+      "right": "vehicle_speed",
+      "base_similarity": 0.8545567989349365,
+      "retrieval_reason": "semantic_base",
+      "decomposition_ambiguous": false
+    },
+    {
+      "left_id": 3,
+      "right_id": 6,
+      "left": "ambient_temp",
+      "right": "vehicle_velocity",
+      "base_similarity": 0.8563571572303772,
+      "retrieval_reason": "semantic_base",
+      "decomposition_ambiguous": false
+    },
+    {
+      "left_id": 3,
+      "right_id": 7,
+      "left": "ambient_temp",
+      "right": "wheel_position",
+      "base_similarity": 0.8674347996711731,
+      "retrieval_reason": "semantic_base",
+      "decomposition_ambiguous": false
+    },
+    {
+      "left_id": 3,
+      "right_id": 8,
+      "left": "ambient_temp",
+      "right": "tyre_position",
+      "base_similarity": 0.8674347996711731,
+      "retrieval_reason": "semantic_base",
+      "decomposition_ambiguous": false
+    },
+    {
+      "left_id": 3,
+      "right_id": 9,
+      "left": "ambient_temp",
+      "right": "manufacturer",
+      "base_similarity": 0.8447188138961792,
+      "retrieval_reason": "semantic_base",
+      "decomposition_ambiguous": false
+    },
+    {
+      "left_id": 3,
+      "right_id": 10,
+      "left": "ambient_temp",
+      "right": "housing_material",
+      "base_similarity": 0.8716580867767334,
+      "retrieval_reason": "semantic_base",
+      "decomposition_ambiguous": false
+    },
+    {
+      "left_id": 3,
+      "right_id": 11,
+      "left": "ambient_temp",
+      "right": "order_amount",
+      "base_similarity": 0.8656153678894043,
+      "retrieval_reason": "semantic_base",
+      "decomposition_ambiguous": false
+    },
+    {
+      "left_id": 4,
+      "right_id": 5,
+      "left": "ambient_temperature",
+      "right": "vehicle_speed",
+      "base_similarity": 0.845338761806488,
+      "retrieval_reason": "semantic_base",
+      "decomposition_ambiguous": false
+    },
+    {
+      "left_id": 4,
+      "right_id": 6,
+      "left": "ambient_temperature",
+      "right": "vehicle_velocity",
+      "base_similarity": 0.8479883074760437,
+      "retrieval_reason": "semantic_base",
+      "decomposition_ambiguous": false
+    },
+    {
+      "left_id": 4,
+      "right_id": 10,
+      "left": "ambient_temperature",
+      "right": "housing_material",
+      "base_similarity": 0.8506157398223877,
+      "retrieval_reason": "semantic_base",
+      "decomposition_ambiguous": false
+    },
+    {
+      "left_id": 4,
+      "right_id": 11,
+      "left": "ambient_temperature",
+      "right": "order_amount",
+      "base_similarity": 0.850916862487793,
+      "retrieval_reason": "semantic_base",
+      "decomposition_ambiguous": false
+    },
+    {
+      "left_id": 5,
+      "right_id": 6,
+      "left": "vehicle_speed",
+      "right": "vehicle_velocity",
+      "base_similarity": 0.9552583694458008,
+      "retrieval_reason": "semantic_base",
+      "decomposition_ambiguous": false
+    },
+    {
+      "left_id": 5,
+      "right_id": 7,
+      "left": "vehicle_speed",
+      "right": "wheel_position",
+      "base_similarity": 0.8467912673950195,
+      "retrieval_reason": "semantic_base",
+      "decomposition_ambiguous": false
+    },
+    {
+      "left_id": 5,
+      "right_id": 8,
+      "left": "vehicle_speed",
+      "right": "tyre_position",
+      "base_similarity": 0.8467912673950195,
+      "retrieval_reason": "semantic_base",
+      "decomposition_ambiguous": false
+    },
+    {
+      "left_id": 6,
+      "right_id": 7,
+      "left": "vehicle_velocity",
+      "right": "wheel_position",
+      "base_similarity": 0.8562891483306885,
+      "retrieval_reason": "semantic_base",
+      "decomposition_ambiguous": false
+    },
+    {
+      "left_id": 6,
+      "right_id": 8,
+      "left": "vehicle_velocity",
+      "right": "tyre_position",
+      "base_similarity": 0.8562891483306885,
+      "retrieval_reason": "semantic_base",
+      "decomposition_ambiguous": false
+    },
+    {
+      "left_id": 6,
+      "right_id": 10,
+      "left": "vehicle_velocity",
+      "right": "housing_material",
+      "base_similarity": 0.8483943343162537,
+      "retrieval_reason": "semantic_base",
+      "decomposition_ambiguous": false
+    },
+    {
+      "left_id": 6,
+      "right_id": 11,
+      "left": "vehicle_velocity",
+      "right": "order_amount",
+      "base_similarity": 0.8475322723388672,
+      "retrieval_reason": "semantic_base",
+      "decomposition_ambiguous": false
+    },
+    {
+      "left_id": 7,
+      "right_id": 8,
+      "left": "wheel_position",
+      "right": "tyre_position",
+      "base_similarity": 1.0,
+      "retrieval_reason": "exact_base",
+      "decomposition_ambiguous": false
+    },
+    {
+      "left_id": 7,
+      "right_id": 9,
+      "left": "wheel_position",
+      "right": "manufacturer",
+      "base_similarity": 0.8433853387832642,
+      "retrieval_reason": "semantic_base",
+      "decomposition_ambiguous": false
+    },
+    {
+      "left_id": 7,
+      "right_id": 10,
+      "left": "wheel_position",
+      "right": "housing_material",
+      "base_similarity": 0.8600814938545227,
+      "retrieval_reason": "semantic_base",
+      "decomposition_ambiguous": false
+    },
+    {
+      "left_id": 7,
+      "right_id": 11,
+      "left": "wheel_position",
+      "right": "order_amount",
+      "base_similarity": 0.8574866056442261,
+      "retrieval_reason": "semantic_base",
+      "decomposition_ambiguous": false
+    },
+    {
+      "left_id": 8,
+      "right_id": 9,
+      "left": "tyre_position",
+      "right": "manufacturer",
+      "base_similarity": 0.8433853387832642,
+      "retrieval_reason": "semantic_base",
+      "decomposition_ambiguous": false
+    },
+    {
+      "left_id": 8,
+      "right_id": 10,
+      "left": "tyre_position",
+      "right": "housing_material",
+      "base_similarity": 0.8600814938545227,
+      "retrieval_reason": "semantic_base",
+      "decomposition_ambiguous": false
+    },
+    {
+      "left_id": 8,
+      "right_id": 11,
+      "left": "tyre_position",
+      "right": "order_amount",
+      "base_similarity": 0.8574866056442261,
+      "retrieval_reason": "semantic_base",
+      "decomposition_ambiguous": false
+    },
+    {
+      "left_id": 9,
+      "right_id": 10,
+      "left": "manufacturer",
+      "right": "housing_material",
+      "base_similarity": 0.8753917217254639,
+      "retrieval_reason": "semantic_base",
+      "decomposition_ambiguous": false
+    },
+    {
+      "left_id": 9,
+      "right_id": 11,
+      "left": "manufacturer",
+      "right": "order_amount",
+      "base_similarity": 0.8412449955940247,
+      "retrieval_reason": "semantic_base",
+      "decomposition_ambiguous": false
+    },
+    {
+      "left_id": 10,
+      "right_id": 11,
+      "left": "housing_material",
+      "right": "order_amount",
+      "base_similarity": 0.8689714074134827,
+      "retrieval_reason": "semantic_base",
+      "decomposition_ambiguous": false
+    }
+  ],
+  "evaluation": {
+    "expected_candidates": 6,
+    "true_positives": 6,
+    "false_positives": 47,
+    "false_negatives": 0,
+    "precision": 0.11320754716981132,
+    "recall": 1.0,
+    "missed_pairs": [],
+    "unexpected_pairs": [
+      [
+        0,
+        3
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        0,
+        5
+      ],
+      [
+        0,
+        6
+      ],
+      [
+        0,
+        7
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        0,
+        9
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        1,
+        9
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        3,
+        10
+      ],
+      [
+        3,
+        11
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        10
+      ],
+      [
+        4,
+        11
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        6,
+        10
+      ],
+      [
+        6,
+        11
+      ],
+      [
+        7,
+        9
+      ],
+      [
+        7,
+        10
+      ],
+      [
+        7,
+        11
+      ],
+      [
+        8,
+        9
+      ],
+      [
+        8,
+        10
+      ],
+      [
+        8,
+        11
+      ],
+      [
+        9,
+        10
+      ],
+      [
+        9,
+        11
+      ],
+      [
+        10,
+        11
+      ]
+    ]
+  },
+  "evaluation_mode": "live_parser",
+  "parser_model": "gemini-2.5-flash",
+  "benchmark_sha256": "b7c815fbd33e9dafad873521b70db4a5a4dbd24751b2a3e763de6eb65457c636"
+}

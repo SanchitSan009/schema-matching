@@ -1,0 +1,1424 @@
+{
+  "stage": "pair_decisions",
+  "timestamp": "2026-09-15T09:40:18.174908+00:00",
+  "classifier": {
+    "model": "gemini-2.5-flash",
+    "prompt_sha256": "b2973e9b4d2f9892bc6e3387732e582c9b52f0a38df2959ca019c5325a0803ba",
+    "temperature": 0
+  },
+  "context": "",
+  "support_thresholds": {
+    "base_min": 0.9,
+    "qualifier_min": 0.85,
+    "lexical_min": 0.8
+  },
+  "decision_policy": "relation-led-v1",
+  "counts": {
+    "ACCEPT": 6,
+    "REJECT": 17,
+    "UNCERTAIN": 1
+  },
+  "pair_count": 24,
+  "classified_pairs": 24,
+  "scoring_provenance": {
+    "stage": "experimental_equivalence_scores",
+    "timestamp": "2026-09-14T20:05:30.542363+00:00",
+    "score_interpretation": "Uncalibrated weighted similarity; not a probability or merge decision",
+    "weights": {
+      "base": 0.25,
+      "qualifier": 0.65,
+      "lexical": 0.1
+    },
+    "qualifier_embedding": {
+      "backend": "gemini",
+      "model": "gemini-embedding-001",
+      "input_format": "base-conditioned-qualifiers-v1",
+      "task": "SEMANTIC_SIMILARITY"
+    },
+    "qualifier_cache_hits": 0,
+    "qualifier_texts_embedded": 32,
+    "retrieval": {
+      "stage": "candidate_retrieval_only",
+      "timestamp": "2026-09-14T20:05:28.144031+00:00",
+      "embedding": {
+        "backend": "gemini",
+        "model": "gemini-embedding-001",
+        "input_format": "bare-base-v1",
+        "task": "SEMANTIC_SIMILARITY"
+      },
+      "threshold": 0.9,
+      "top_k": 5,
+      "column_count": 20,
+      "unique_base_count": 10,
+      "all_possible_pairs": 190,
+      "candidate_count": 24,
+      "pair_reduction": 0.8736842105263158,
+      "embedding_cache_hits": 5,
+      "bases_embedded": 5,
+      "base_neighbors": [
+        {
+          "left_base": "color",
+          "right_base": "colour",
+          "similarity": 0.9881436228752136
+        },
+        {
+          "left_base": "temp",
+          "right_base": "temperature",
+          "similarity": 0.9202582240104675
+        },
+        {
+          "left_base": "temp",
+          "right_base": "temprature",
+          "similarity": 0.9266430139541626
+        },
+        {
+          "left_base": "temperature",
+          "right_base": "temprature",
+          "similarity": 0.9926683306694031
+        }
+      ]
+    },
+    "evaluation_mode": "manual_decomposition",
+    "parser_model": null,
+    "benchmark_sha256": "0a271ff00978c62852a2f2743614c4d1275fc0ce5077d6a6cf7b1baa828da564"
+  },
+  "columns": [
+    {
+      "id": 0,
+      "original": "input_voltage",
+      "normalized": "input voltage",
+      "base": "voltage",
+      "qualifiers": [
+        "input"
+      ],
+      "ambiguous": false,
+      "reason": "Manual evaluation decomposition"
+    },
+    {
+      "id": 1,
+      "original": "incoming_voltage",
+      "normalized": "incoming voltage",
+      "base": "voltage",
+      "qualifiers": [
+        "incoming"
+      ],
+      "ambiguous": false,
+      "reason": "Manual evaluation decomposition"
+    },
+    {
+      "id": 2,
+      "original": "output_voltage",
+      "normalized": "output voltage",
+      "base": "voltage",
+      "qualifiers": [
+        "output"
+      ],
+      "ambiguous": false,
+      "reason": "Manual evaluation decomposition"
+    },
+    {
+      "id": 3,
+      "original": "wheel_position",
+      "normalized": "wheel position",
+      "base": "position",
+      "qualifiers": [
+        "wheel"
+      ],
+      "ambiguous": false,
+      "reason": "Manual evaluation decomposition"
+    },
+    {
+      "id": 4,
+      "original": "tyre_position",
+      "normalized": "tyre position",
+      "base": "position",
+      "qualifiers": [
+        "tyre"
+      ],
+      "ambiguous": false,
+      "reason": "Manual evaluation decomposition"
+    },
+    {
+      "id": 5,
+      "original": "front_left_wheel_position",
+      "normalized": "front left wheel position",
+      "base": "position",
+      "qualifiers": [
+        "front",
+        "left",
+        "wheel"
+      ],
+      "ambiguous": false,
+      "reason": "Manual evaluation decomposition"
+    },
+    {
+      "id": 6,
+      "original": "front_right_wheel_position",
+      "normalized": "front right wheel position",
+      "base": "position",
+      "qualifiers": [
+        "front",
+        "right",
+        "wheel"
+      ],
+      "ambiguous": false,
+      "reason": "Manual evaluation decomposition"
+    },
+    {
+      "id": 7,
+      "original": "front_left_tyre_position",
+      "normalized": "front left tyre position",
+      "base": "position",
+      "qualifiers": [
+        "front",
+        "left",
+        "tyre"
+      ],
+      "ambiguous": false,
+      "reason": "Manual evaluation decomposition"
+    },
+    {
+      "id": 8,
+      "original": "customer_colour",
+      "normalized": "customer colour",
+      "base": "colour",
+      "qualifiers": [
+        "customer"
+      ],
+      "ambiguous": false,
+      "reason": "Manual evaluation decomposition"
+    },
+    {
+      "id": 9,
+      "original": "customer_color",
+      "normalized": "customer color",
+      "base": "color",
+      "qualifiers": [
+        "customer"
+      ],
+      "ambiguous": false,
+      "reason": "Manual evaluation decomposition"
+    },
+    {
+      "id": 10,
+      "original": "ambient_temperature",
+      "normalized": "ambient temperature",
+      "base": "temperature",
+      "qualifiers": [
+        "ambient"
+      ],
+      "ambiguous": false,
+      "reason": "Manual evaluation decomposition"
+    },
+    {
+      "id": 11,
+      "original": "ambient_temprature",
+      "normalized": "ambient temprature",
+      "base": "temprature",
+      "qualifiers": [
+        "ambient"
+      ],
+      "ambiguous": false,
+      "reason": "Manual evaluation decomposition"
+    },
+    {
+      "id": 12,
+      "original": "ambient_temp",
+      "normalized": "ambient temp",
+      "base": "temp",
+      "qualifiers": [
+        "ambient"
+      ],
+      "ambiguous": false,
+      "reason": "Manual evaluation decomposition"
+    },
+    {
+      "id": 13,
+      "original": "billing_address",
+      "normalized": "billing address",
+      "base": "address",
+      "qualifiers": [
+        "billing"
+      ],
+      "ambiguous": false,
+      "reason": "Manual evaluation decomposition"
+    },
+    {
+      "id": 14,
+      "original": "shipping_address",
+      "normalized": "shipping address",
+      "base": "address",
+      "qualifiers": [
+        "shipping"
+      ],
+      "ambiguous": false,
+      "reason": "Manual evaluation decomposition"
+    },
+    {
+      "id": 15,
+      "original": "input_current",
+      "normalized": "input current",
+      "base": "current",
+      "qualifiers": [
+        "input"
+      ],
+      "ambiguous": false,
+      "reason": "Manual evaluation decomposition"
+    },
+    {
+      "id": 16,
+      "original": "incoming_current",
+      "normalized": "incoming current",
+      "base": "current",
+      "qualifiers": [
+        "incoming"
+      ],
+      "ambiguous": false,
+      "reason": "Manual evaluation decomposition"
+    },
+    {
+      "id": 17,
+      "original": "output_current",
+      "normalized": "output current",
+      "base": "current",
+      "qualifiers": [
+        "output"
+      ],
+      "ambiguous": false,
+      "reason": "Manual evaluation decomposition"
+    },
+    {
+      "id": 18,
+      "original": "voltage",
+      "normalized": "voltage",
+      "base": "voltage",
+      "qualifiers": [],
+      "ambiguous": false,
+      "reason": "Manual evaluation decomposition"
+    },
+    {
+      "id": 19,
+      "original": "manufacturer",
+      "normalized": "manufacturer",
+      "base": "manufacturer",
+      "qualifiers": [],
+      "ambiguous": false,
+      "reason": "Manual evaluation decomposition"
+    }
+  ],
+  "decisions": [
+    {
+      "left_id": 0,
+      "right_id": 1,
+      "left": "input_voltage",
+      "right": "incoming_voltage",
+      "base_similarity": 1.0,
+      "retrieval_reason": "exact_base",
+      "decomposition_ambiguous": false,
+      "qualifier_contexts": [
+        {
+          "base": "voltage",
+          "left_text": "Attribute property: voltage\nQualifiers: [\"input\"]",
+          "right_text": "Attribute property: voltage\nQualifiers: [\"incoming\"]",
+          "cosine": 0.9593218564987183
+        }
+      ],
+      "qualifier_cosine": 0.9593218564987183,
+      "signals": {
+        "base": 1.0,
+        "qualifier": 0.9593218564987183,
+        "lexical": 0.6896551724137931
+      },
+      "weighted_contributions": {
+        "base": 0.25,
+        "qualifier": 0.6235592067241669,
+        "lexical": 0.06896551724137932
+      },
+      "equivalence_score": 0.9425247239655462,
+      "qualifier_presence_mismatch": false,
+      "isolated_qualifier_cosine": 0.8881134986877441,
+      "relation": {
+        "relation": "EQUIVALENT",
+        "base_relation": "COMPATIBLE",
+        "reason": "The qualifiers 'incoming' and 'input' both describe voltage entering a system, making them semantically interchangeable.",
+        "base_reason": "Both attributes refer to the electrical potential difference, which is voltage.",
+        "generated_at": "2026-09-15T09:37:56.427969+00:00",
+        "source": "cache"
+      },
+      "decision": "ACCEPT",
+      "decision_rule": "equivalent_relation_with_support"
+    },
+    {
+      "left_id": 0,
+      "right_id": 2,
+      "left": "input_voltage",
+      "right": "output_voltage",
+      "base_similarity": 1.0,
+      "retrieval_reason": "exact_base",
+      "decomposition_ambiguous": false,
+      "qualifier_contexts": [
+        {
+          "base": "voltage",
+          "left_text": "Attribute property: voltage\nQualifiers: [\"input\"]",
+          "right_text": "Attribute property: voltage\nQualifiers: [\"output\"]",
+          "cosine": 0.96247798204422
+        }
+      ],
+      "qualifier_cosine": 0.96247798204422,
+      "signals": {
+        "base": 1.0,
+        "qualifier": 0.96247798204422,
+        "lexical": 0.8148148148148148
+      },
+      "weighted_contributions": {
+        "base": 0.25,
+        "qualifier": 0.625610688328743,
+        "lexical": 0.08148148148148149
+      },
+      "equivalence_score": 0.9570921698102245,
+      "qualifier_presence_mismatch": false,
+      "isolated_qualifier_cosine": 0.9343079328536987,
+      "relation": {
+        "relation": "CONTRASTING",
+        "base_relation": "COMPATIBLE",
+        "reason": "The qualifiers 'input' and 'output' describe opposing directions of voltage flow relative to a system.",
+        "base_reason": "Both attributes refer to the electrical potential difference, which is voltage.",
+        "generated_at": "2026-09-15T09:37:56.429102+00:00",
+        "source": "cache"
+      },
+      "decision": "REJECT",
+      "decision_rule": "contrasting_qualifiers"
+    },
+    {
+      "left_id": 0,
+      "right_id": 18,
+      "left": "input_voltage",
+      "right": "voltage",
+      "base_similarity": 1.0,
+      "retrieval_reason": "exact_base",
+      "decomposition_ambiguous": false,
+      "qualifier_contexts": [
+        {
+          "base": "voltage",
+          "left_text": "Attribute property: voltage\nQualifiers: [\"input\"]",
+          "right_text": "Attribute property: voltage\nQualifiers: []",
+          "cosine": 0.9623940587043762
+        }
+      ],
+      "qualifier_cosine": 0.9623940587043762,
+      "signals": {
+        "base": 1.0,
+        "qualifier": 0.9623940587043762,
+        "lexical": 0.7
+      },
+      "weighted_contributions": {
+        "base": 0.25,
+        "qualifier": 0.6255561381578446,
+        "lexical": 0.06999999999999999
+      },
+      "equivalence_score": 0.9455561381578446,
+      "qualifier_presence_mismatch": true,
+      "isolated_qualifier_cosine": 0.9047814607620239,
+      "relation": {
+        "relation": "RELATED_BUT_DIFFERENT",
+        "base_relation": "COMPATIBLE",
+        "reason": "The attribute 'input voltage' specifies a particular role or type of voltage, whereas 'voltage' without qualifiers refers to the general concept or an unspecified type of voltage.",
+        "base_reason": "Both attributes refer to the electrical potential difference, which is voltage.",
+        "generated_at": "2026-09-15T09:38:19.784124+00:00",
+        "source": "cache"
+      },
+      "decision": "REJECT",
+      "decision_rule": "related_but_different_qualifiers"
+    },
+    {
+      "left_id": 1,
+      "right_id": 2,
+      "left": "incoming_voltage",
+      "right": "output_voltage",
+      "base_similarity": 1.0,
+      "retrieval_reason": "exact_base",
+      "decomposition_ambiguous": false,
+      "qualifier_contexts": [
+        {
+          "base": "voltage",
+          "left_text": "Attribute property: voltage\nQualifiers: [\"incoming\"]",
+          "right_text": "Attribute property: voltage\nQualifiers: [\"output\"]",
+          "cosine": 0.9342948794364929
+        }
+      ],
+      "qualifier_cosine": 0.9342948794364929,
+      "signals": {
+        "base": 1.0,
+        "qualifier": 0.9342948794364929,
+        "lexical": 0.6
+      },
+      "weighted_contributions": {
+        "base": 0.25,
+        "qualifier": 0.6072916716337204,
+        "lexical": 0.06
+      },
+      "equivalence_score": 0.9172916716337205,
+      "qualifier_presence_mismatch": false,
+      "isolated_qualifier_cosine": 0.8530129194259644,
+      "relation": {
+        "relation": "CONTRASTING",
+        "base_relation": "COMPATIBLE",
+        "reason": "The qualifiers 'incoming' and 'output' represent opposing directions or states for the voltage.",
+        "base_reason": "Both attributes refer to the electrical potential difference, which is the same base property.",
+        "generated_at": "2026-09-15T09:40:05.349821+00:00",
+        "source": "model"
+      },
+      "decision": "REJECT",
+      "decision_rule": "contrasting_qualifiers"
+    },
+    {
+      "left_id": 1,
+      "right_id": 18,
+      "left": "incoming_voltage",
+      "right": "voltage",
+      "base_similarity": 1.0,
+      "retrieval_reason": "exact_base",
+      "decomposition_ambiguous": false,
+      "qualifier_contexts": [
+        {
+          "base": "voltage",
+          "left_text": "Attribute property: voltage\nQualifiers: [\"incoming\"]",
+          "right_text": "Attribute property: voltage\nQualifiers: []",
+          "cosine": 0.9526147246360779
+        }
+      ],
+      "qualifier_cosine": 0.9526147246360779,
+      "signals": {
+        "base": 1.0,
+        "qualifier": 0.9526147246360779,
+        "lexical": 0.6086956521739131
+      },
+      "weighted_contributions": {
+        "base": 0.25,
+        "qualifier": 0.6191995710134507,
+        "lexical": 0.060869565217391314
+      },
+      "equivalence_score": 0.930069136230842,
+      "qualifier_presence_mismatch": true,
+      "isolated_qualifier_cosine": 0.8720842599868774,
+      "relation": {
+        "relation": "RELATED_BUT_DIFFERENT",
+        "base_relation": "COMPATIBLE",
+        "reason": "The qualifier 'incoming' specifies a particular type of voltage, while the absence of qualifiers means the voltage is unspecified, which is a broader concept.",
+        "base_reason": "Both attributes refer to the electrical potential difference, which is the same base property.",
+        "generated_at": "2026-09-15T09:40:05.350698+00:00",
+        "source": "model"
+      },
+      "decision": "REJECT",
+      "decision_rule": "related_but_different_qualifiers"
+    },
+    {
+      "left_id": 2,
+      "right_id": 18,
+      "left": "output_voltage",
+      "right": "voltage",
+      "base_similarity": 1.0,
+      "retrieval_reason": "exact_base",
+      "decomposition_ambiguous": false,
+      "qualifier_contexts": [
+        {
+          "base": "voltage",
+          "left_text": "Attribute property: voltage\nQualifiers: [\"output\"]",
+          "right_text": "Attribute property: voltage\nQualifiers: []",
+          "cosine": 0.9739313721656799
+        }
+      ],
+      "qualifier_cosine": 0.9739313721656799,
+      "signals": {
+        "base": 1.0,
+        "qualifier": 0.9739313721656799,
+        "lexical": 0.6666666666666666
+      },
+      "weighted_contributions": {
+        "base": 0.25,
+        "qualifier": 0.633055391907692,
+        "lexical": 0.06666666666666667
+      },
+      "equivalence_score": 0.9497220585743587,
+      "qualifier_presence_mismatch": true,
+      "isolated_qualifier_cosine": 0.9011118412017822,
+      "relation": {
+        "relation": "RELATED_BUT_DIFFERENT",
+        "base_relation": "COMPATIBLE",
+        "reason": "The qualifier 'output' specifies a particular type of voltage, while the absence of qualifiers means the voltage is unspecified, which is a broader concept.",
+        "base_reason": "Both attributes refer to the electrical potential difference, which is the same base property.",
+        "generated_at": "2026-09-15T09:40:05.350779+00:00",
+        "source": "model"
+      },
+      "decision": "REJECT",
+      "decision_rule": "related_but_different_qualifiers"
+    },
+    {
+      "left_id": 3,
+      "right_id": 4,
+      "left": "wheel_position",
+      "right": "tyre_position",
+      "base_similarity": 1.0,
+      "retrieval_reason": "exact_base",
+      "decomposition_ambiguous": false,
+      "qualifier_contexts": [
+        {
+          "base": "position",
+          "left_text": "Attribute property: position\nQualifiers: [\"wheel\"]",
+          "right_text": "Attribute property: position\nQualifiers: [\"tyre\"]",
+          "cosine": 0.9426766633987427
+        }
+      ],
+      "qualifier_cosine": 0.9426766633987427,
+      "signals": {
+        "base": 1.0,
+        "qualifier": 0.9426766633987427,
+        "lexical": 0.7407407407407407
+      },
+      "weighted_contributions": {
+        "base": 0.25,
+        "qualifier": 0.6127398312091827,
+        "lexical": 0.07407407407407407
+      },
+      "equivalence_score": 0.9368139052832568,
+      "qualifier_presence_mismatch": false,
+      "isolated_qualifier_cosine": 0.9128783345222473,
+      "relation": {
+        "relation": "UNCERTAIN",
+        "base_relation": "COMPATIBLE",
+        "reason": "Without context, it is uncertain if the 'position' of a 'tyre' and the 'position' of a 'wheel' refer to the same physical location or distinct reference points (e.g., contact patch vs. center).",
+        "base_reason": "Both attributes refer to the same underlying property of 'position'.",
+        "generated_at": "2026-09-15T09:38:09.228674+00:00",
+        "source": "cache"
+      },
+      "decision": "UNCERTAIN",
+      "decision_rule": "semantic_relation_unresolved"
+    },
+    {
+      "left_id": 3,
+      "right_id": 5,
+      "left": "wheel_position",
+      "right": "front_left_wheel_position",
+      "base_similarity": 1.0,
+      "retrieval_reason": "exact_base",
+      "decomposition_ambiguous": false,
+      "qualifier_contexts": [
+        {
+          "base": "position",
+          "left_text": "Attribute property: position\nQualifiers: [\"wheel\"]",
+          "right_text": "Attribute property: position\nQualifiers: [\"front\", \"left\", \"wheel\"]",
+          "cosine": 0.9386222958564758
+        }
+      ],
+      "qualifier_cosine": 0.9386222958564758,
+      "signals": {
+        "base": 1.0,
+        "qualifier": 0.9386222958564758,
+        "lexical": 0.717948717948718
+      },
+      "weighted_contributions": {
+        "base": 0.25,
+        "qualifier": 0.6101044923067093,
+        "lexical": 0.0717948717948718
+      },
+      "equivalence_score": 0.931899364101581,
+      "qualifier_presence_mismatch": false,
+      "isolated_qualifier_cosine": 0.9187617301940918,
+      "relation": {
+        "relation": "RELATED_BUT_DIFFERENT",
+        "base_relation": "COMPATIBLE",
+        "reason": "The qualifiers 'front', 'left', and 'wheel' specify a particular wheel's position, while the qualifier 'wheel' alone refers to the position of any wheel, making it a broader concept.",
+        "base_reason": "Both attributes refer to the spatial location, which is the same base property.",
+        "generated_at": "2026-09-15T09:40:05.350856+00:00",
+        "source": "model"
+      },
+      "decision": "REJECT",
+      "decision_rule": "related_but_different_qualifiers"
+    },
+    {
+      "left_id": 3,
+      "right_id": 6,
+      "left": "wheel_position",
+      "right": "front_right_wheel_position",
+      "base_similarity": 1.0,
+      "retrieval_reason": "exact_base",
+      "decomposition_ambiguous": false,
+      "qualifier_contexts": [
+        {
+          "base": "position",
+          "left_text": "Attribute property: position\nQualifiers: [\"wheel\"]",
+          "right_text": "Attribute property: position\nQualifiers: [\"front\", \"right\", \"wheel\"]",
+          "cosine": 0.9390438199043274
+        }
+      ],
+      "qualifier_cosine": 0.9390438199043274,
+      "signals": {
+        "base": 1.0,
+        "qualifier": 0.9390438199043274,
+        "lexical": 0.7
+      },
+      "weighted_contributions": {
+        "base": 0.25,
+        "qualifier": 0.6103784829378128,
+        "lexical": 0.06999999999999999
+      },
+      "equivalence_score": 0.9303784829378128,
+      "qualifier_presence_mismatch": false,
+      "isolated_qualifier_cosine": 0.9234601259231567,
+      "relation": {
+        "relation": "RELATED_BUT_DIFFERENT",
+        "base_relation": "COMPATIBLE",
+        "reason": "The qualifiers 'front', 'right', and 'wheel' specify a particular wheel's position, while the qualifier 'wheel' alone refers to the position of any wheel, making it a broader concept.",
+        "base_reason": "Both attributes refer to the spatial location, which is the same base property.",
+        "generated_at": "2026-09-15T09:40:05.350882+00:00",
+        "source": "model"
+      },
+      "decision": "REJECT",
+      "decision_rule": "related_but_different_qualifiers"
+    },
+    {
+      "left_id": 3,
+      "right_id": 7,
+      "left": "wheel_position",
+      "right": "front_left_tyre_position",
+      "base_similarity": 1.0,
+      "retrieval_reason": "exact_base",
+      "decomposition_ambiguous": false,
+      "qualifier_contexts": [
+        {
+          "base": "position",
+          "left_text": "Attribute property: position\nQualifiers: [\"wheel\"]",
+          "right_text": "Attribute property: position\nQualifiers: [\"front\", \"left\", \"tyre\"]",
+          "cosine": 0.9026963710784912
+        }
+      ],
+      "qualifier_cosine": 0.9026963710784912,
+      "signals": {
+        "base": 1.0,
+        "qualifier": 0.9026963710784912,
+        "lexical": 0.5526315789473684
+      },
+      "weighted_contributions": {
+        "base": 0.25,
+        "qualifier": 0.5867526412010193,
+        "lexical": 0.05526315789473684
+      },
+      "equivalence_score": 0.8920157990957561,
+      "qualifier_presence_mismatch": false,
+      "isolated_qualifier_cosine": 0.8754451274871826,
+      "relation": {
+        "relation": "RELATED_BUT_DIFFERENT",
+        "base_relation": "COMPATIBLE",
+        "reason": "The qualifiers refer to the position of a 'tyre' and a 'wheel' respectively. A tyre is a component of a wheel, making them related but distinct entities.",
+        "base_reason": "Both attributes refer to the spatial location, which is the same base property.",
+        "generated_at": "2026-09-15T09:40:05.350901+00:00",
+        "source": "model"
+      },
+      "decision": "REJECT",
+      "decision_rule": "related_but_different_qualifiers"
+    },
+    {
+      "left_id": 4,
+      "right_id": 5,
+      "left": "tyre_position",
+      "right": "front_left_wheel_position",
+      "base_similarity": 1.0,
+      "retrieval_reason": "exact_base",
+      "decomposition_ambiguous": false,
+      "qualifier_contexts": [
+        {
+          "base": "position",
+          "left_text": "Attribute property: position\nQualifiers: [\"tyre\"]",
+          "right_text": "Attribute property: position\nQualifiers: [\"front\", \"left\", \"wheel\"]",
+          "cosine": 0.904417872428894
+        }
+      ],
+      "qualifier_cosine": 0.904417872428894,
+      "signals": {
+        "base": 1.0,
+        "qualifier": 0.904417872428894,
+        "lexical": 0.5789473684210527
+      },
+      "weighted_contributions": {
+        "base": 0.25,
+        "qualifier": 0.5878716170787811,
+        "lexical": 0.05789473684210527
+      },
+      "equivalence_score": 0.8957663539208863,
+      "qualifier_presence_mismatch": false,
+      "isolated_qualifier_cosine": 0.8836237192153931,
+      "relation": {
+        "relation": "RELATED_BUT_DIFFERENT",
+        "base_relation": "COMPATIBLE",
+        "reason": "The qualifiers refer to the position of a 'wheel' and a 'tyre' respectively. A tyre is a component of a wheel, making them related but distinct entities.",
+        "base_reason": "Both attributes refer to the spatial location, which is the same base property.",
+        "generated_at": "2026-09-15T09:40:05.350919+00:00",
+        "source": "model"
+      },
+      "decision": "REJECT",
+      "decision_rule": "related_but_different_qualifiers"
+    },
+    {
+      "left_id": 4,
+      "right_id": 6,
+      "left": "tyre_position",
+      "right": "front_right_wheel_position",
+      "base_similarity": 1.0,
+      "retrieval_reason": "exact_base",
+      "decomposition_ambiguous": false,
+      "qualifier_contexts": [
+        {
+          "base": "position",
+          "left_text": "Attribute property: position\nQualifiers: [\"tyre\"]",
+          "right_text": "Attribute property: position\nQualifiers: [\"front\", \"right\", \"wheel\"]",
+          "cosine": 0.9021821022033691
+        }
+      ],
+      "qualifier_cosine": 0.9021821022033691,
+      "signals": {
+        "base": 1.0,
+        "qualifier": 0.9021821022033691,
+        "lexical": 0.5897435897435898
+      },
+      "weighted_contributions": {
+        "base": 0.25,
+        "qualifier": 0.5864183664321899,
+        "lexical": 0.05897435897435898
+      },
+      "equivalence_score": 0.8953927254065489,
+      "qualifier_presence_mismatch": false,
+      "isolated_qualifier_cosine": 0.8854225873947144,
+      "relation": {
+        "relation": "RELATED_BUT_DIFFERENT",
+        "base_relation": "COMPATIBLE",
+        "reason": "The qualifiers refer to the position of a 'wheel' and a 'tyre' respectively. A tyre is a component of a wheel, making them related but distinct entities.",
+        "base_reason": "Both attributes refer to the spatial location, which is the same base property.",
+        "generated_at": "2026-09-15T09:40:05.350936+00:00",
+        "source": "model"
+      },
+      "decision": "REJECT",
+      "decision_rule": "related_but_different_qualifiers"
+    },
+    {
+      "left_id": 4,
+      "right_id": 7,
+      "left": "tyre_position",
+      "right": "front_left_tyre_position",
+      "base_similarity": 1.0,
+      "retrieval_reason": "exact_base",
+      "decomposition_ambiguous": false,
+      "qualifier_contexts": [
+        {
+          "base": "position",
+          "left_text": "Attribute property: position\nQualifiers: [\"tyre\"]",
+          "right_text": "Attribute property: position\nQualifiers: [\"front\", \"left\", \"tyre\"]",
+          "cosine": 0.9404309988021851
+        }
+      ],
+      "qualifier_cosine": 0.9404309988021851,
+      "signals": {
+        "base": 1.0,
+        "qualifier": 0.9404309988021851,
+        "lexical": 0.7027027027027027
+      },
+      "weighted_contributions": {
+        "base": 0.25,
+        "qualifier": 0.6112801492214203,
+        "lexical": 0.07027027027027027
+      },
+      "equivalence_score": 0.9315504194916906,
+      "qualifier_presence_mismatch": false,
+      "isolated_qualifier_cosine": 0.9279567003250122,
+      "relation": {
+        "relation": "RELATED_BUT_DIFFERENT",
+        "base_relation": "COMPATIBLE",
+        "reason": "The qualifiers 'front', 'left', and 'tyre' specify a particular tyre's position, while the qualifier 'tyre' alone refers to the position of any tyre, making it a broader concept.",
+        "base_reason": "Both attributes refer to the spatial location, which is the same base property.",
+        "generated_at": "2026-09-15T09:40:05.350955+00:00",
+        "source": "model"
+      },
+      "decision": "REJECT",
+      "decision_rule": "related_but_different_qualifiers"
+    },
+    {
+      "left_id": 5,
+      "right_id": 6,
+      "left": "front_left_wheel_position",
+      "right": "front_right_wheel_position",
+      "base_similarity": 1.0,
+      "retrieval_reason": "exact_base",
+      "decomposition_ambiguous": false,
+      "qualifier_contexts": [
+        {
+          "base": "position",
+          "left_text": "Attribute property: position\nQualifiers: [\"front\", \"left\", \"wheel\"]",
+          "right_text": "Attribute property: position\nQualifiers: [\"front\", \"right\", \"wheel\"]",
+          "cosine": 0.9598296880722046
+        }
+      ],
+      "qualifier_cosine": 0.9598296880722046,
+      "signals": {
+        "base": 1.0,
+        "qualifier": 0.9598296880722046,
+        "lexical": 0.8627450980392157
+      },
+      "weighted_contributions": {
+        "base": 0.25,
+        "qualifier": 0.623889297246933,
+        "lexical": 0.08627450980392158
+      },
+      "equivalence_score": 0.9601638070508546,
+      "qualifier_presence_mismatch": false,
+      "isolated_qualifier_cosine": 0.954298198223114,
+      "relation": {
+        "relation": "CONTRASTING",
+        "base_relation": "COMPATIBLE",
+        "reason": "The qualifiers 'left' and 'right' describe opposing directions for the wheel position at the front.",
+        "base_reason": "Both attributes refer to the same underlying property of 'position'.",
+        "generated_at": "2026-09-15T09:38:09.228550+00:00",
+        "source": "cache"
+      },
+      "decision": "REJECT",
+      "decision_rule": "contrasting_qualifiers"
+    },
+    {
+      "left_id": 5,
+      "right_id": 7,
+      "left": "front_left_wheel_position",
+      "right": "front_left_tyre_position",
+      "base_similarity": 1.0,
+      "retrieval_reason": "exact_base",
+      "decomposition_ambiguous": false,
+      "qualifier_contexts": [
+        {
+          "base": "position",
+          "left_text": "Attribute property: position\nQualifiers: [\"front\", \"left\", \"wheel\"]",
+          "right_text": "Attribute property: position\nQualifiers: [\"front\", \"left\", \"tyre\"]",
+          "cosine": 0.972517192363739
+        }
+      ],
+      "qualifier_cosine": 0.972517192363739,
+      "signals": {
+        "base": 1.0,
+        "qualifier": 0.972517192363739,
+        "lexical": 0.8571428571428571
+      },
+      "weighted_contributions": {
+        "base": 0.25,
+        "qualifier": 0.6321361750364304,
+        "lexical": 0.08571428571428572
+      },
+      "equivalence_score": 0.9678504607507161,
+      "qualifier_presence_mismatch": false,
+      "isolated_qualifier_cosine": 0.9720849990844727,
+      "relation": {
+        "relation": "RELATED_BUT_DIFFERENT",
+        "base_relation": "COMPATIBLE",
+        "reason": "The qualifiers refer to the position of the 'front left tyre' and the 'front left wheel' respectively. A tyre is a component of a wheel, making them related but distinct entities, even when located in the same general area.",
+        "base_reason": "Both attributes refer to the spatial location, which is the same base property",
+        "generated_at": "2026-09-15T09:40:05.350972+00:00",
+        "source": "model"
+      },
+      "decision": "REJECT",
+      "decision_rule": "related_but_different_qualifiers"
+    },
+    {
+      "left_id": 6,
+      "right_id": 7,
+      "left": "front_right_wheel_position",
+      "right": "front_left_tyre_position",
+      "base_similarity": 1.0,
+      "retrieval_reason": "exact_base",
+      "decomposition_ambiguous": false,
+      "qualifier_contexts": [
+        {
+          "base": "position",
+          "left_text": "Attribute property: position\nQualifiers: [\"front\", \"right\", \"wheel\"]",
+          "right_text": "Attribute property: position\nQualifiers: [\"front\", \"left\", \"tyre\"]",
+          "cosine": 0.9326763153076172
+        }
+      ],
+      "qualifier_cosine": 0.9326763153076172,
+      "signals": {
+        "base": 1.0,
+        "qualifier": 0.9326763153076172,
+        "lexical": 0.72
+      },
+      "weighted_contributions": {
+        "base": 0.25,
+        "qualifier": 0.6062396049499512,
+        "lexical": 0.072
+      },
+      "equivalence_score": 0.9282396049499512,
+      "qualifier_presence_mismatch": false,
+      "isolated_qualifier_cosine": 0.929572582244873,
+      "relation": {
+        "relation": "CONTRASTING",
+        "base_relation": "COMPATIBLE",
+        "reason": "Both refer to a position on the front, but 'left' and 'right' are contrasting directions, and 'tyre' and 'wheel' are related but distinct components. The contrasting directions make the overall qualifier lists contrasting.",
+        "base_reason": "Both attributes refer to the general concept of position.",
+        "generated_at": "2026-09-15T09:40:18.158651+00:00",
+        "source": "model"
+      },
+      "decision": "REJECT",
+      "decision_rule": "contrasting_qualifiers"
+    },
+    {
+      "left_id": 8,
+      "right_id": 9,
+      "left": "customer_colour",
+      "right": "customer_color",
+      "base_similarity": 0.9881436228752136,
+      "retrieval_reason": "semantic_base",
+      "decomposition_ambiguous": false,
+      "qualifier_contexts": [
+        {
+          "base": "color",
+          "left_text": "Attribute property: color\nQualifiers: [\"customer\"]",
+          "right_text": "Attribute property: color\nQualifiers: [\"customer\"]",
+          "cosine": 1.0
+        },
+        {
+          "base": "colour",
+          "left_text": "Attribute property: colour\nQualifiers: [\"customer\"]",
+          "right_text": "Attribute property: colour\nQualifiers: [\"customer\"]",
+          "cosine": 1.0
+        }
+      ],
+      "qualifier_cosine": 1.0,
+      "signals": {
+        "base": 0.9881436228752136,
+        "qualifier": 1.0,
+        "lexical": 0.9655172413793104
+      },
+      "weighted_contributions": {
+        "base": 0.2470359057188034,
+        "qualifier": 0.65,
+        "lexical": 0.09655172413793105
+      },
+      "equivalence_score": 0.9935876298567344,
+      "qualifier_presence_mismatch": false,
+      "isolated_qualifier_cosine": 0.9999999403953552,
+      "relation": {
+        "relation": "EQUIVALENT",
+        "base_relation": "COMPATIBLE",
+        "reason": "The base properties are compatible, and the qualifier lists are identical, both referring to the customer's color/colour.",
+        "base_reason": "'color' and 'colour' are different spellings for the same property.",
+        "generated_at": "2026-09-15T09:40:18.159463+00:00",
+        "source": "model"
+      },
+      "decision": "ACCEPT",
+      "decision_rule": "equivalent_relation_with_support"
+    },
+    {
+      "left_id": 10,
+      "right_id": 11,
+      "left": "ambient_temperature",
+      "right": "ambient_temprature",
+      "base_similarity": 0.9926683306694031,
+      "retrieval_reason": "semantic_base",
+      "decomposition_ambiguous": false,
+      "qualifier_contexts": [
+        {
+          "base": "temperature",
+          "left_text": "Attribute property: temperature\nQualifiers: [\"ambient\"]",
+          "right_text": "Attribute property: temperature\nQualifiers: [\"ambient\"]",
+          "cosine": 1.0
+        },
+        {
+          "base": "temprature",
+          "left_text": "Attribute property: temprature\nQualifiers: [\"ambient\"]",
+          "right_text": "Attribute property: temprature\nQualifiers: [\"ambient\"]",
+          "cosine": 0.9999999403953552
+        }
+      ],
+      "qualifier_cosine": 0.9999999701976776,
+      "signals": {
+        "base": 0.9926683306694031,
+        "qualifier": 0.9999999701976776,
+        "lexical": 0.972972972972973
+      },
+      "weighted_contributions": {
+        "base": 0.24816708266735077,
+        "qualifier": 0.6499999806284905,
+        "lexical": 0.0972972972972973
+      },
+      "equivalence_score": 0.9954643605931386,
+      "qualifier_presence_mismatch": false,
+      "isolated_qualifier_cosine": 1.0,
+      "relation": {
+        "relation": "EQUIVALENT",
+        "base_relation": "COMPATIBLE",
+        "reason": "The base properties are compatible, and the qualifier lists are identical, both referring to the ambient temperature.",
+        "base_reason": "'temperature' and 'temprature' are a correct spelling and a common misspelling of the same property.",
+        "generated_at": "2026-09-15T09:40:18.159545+00:00",
+        "source": "model"
+      },
+      "decision": "ACCEPT",
+      "decision_rule": "equivalent_relation_with_support"
+    },
+    {
+      "left_id": 10,
+      "right_id": 12,
+      "left": "ambient_temperature",
+      "right": "ambient_temp",
+      "base_similarity": 0.9202582240104675,
+      "retrieval_reason": "semantic_base",
+      "decomposition_ambiguous": false,
+      "qualifier_contexts": [
+        {
+          "base": "temp",
+          "left_text": "Attribute property: temp\nQualifiers: [\"ambient\"]",
+          "right_text": "Attribute property: temp\nQualifiers: [\"ambient\"]",
+          "cosine": 1.0
+        },
+        {
+          "base": "temperature",
+          "left_text": "Attribute property: temperature\nQualifiers: [\"ambient\"]",
+          "right_text": "Attribute property: temperature\nQualifiers: [\"ambient\"]",
+          "cosine": 1.0
+        }
+      ],
+      "qualifier_cosine": 1.0,
+      "signals": {
+        "base": 0.9202582240104675,
+        "qualifier": 1.0,
+        "lexical": 0.7741935483870968
+      },
+      "weighted_contributions": {
+        "base": 0.23006455600261688,
+        "qualifier": 0.65,
+        "lexical": 0.07741935483870968
+      },
+      "equivalence_score": 0.9574839108413266,
+      "qualifier_presence_mismatch": false,
+      "isolated_qualifier_cosine": 1.0,
+      "relation": {
+        "relation": "EQUIVALENT",
+        "base_relation": "COMPATIBLE",
+        "reason": "The base properties are compatible, and the qualifier lists are identical, both referring to the ambient temperature.",
+        "base_reason": "'temp' is a common abbreviation for 'temperature'.",
+        "generated_at": "2026-09-15T09:40:18.159585+00:00",
+        "source": "model"
+      },
+      "decision": "ACCEPT",
+      "decision_rule": "equivalent_relation_with_support"
+    },
+    {
+      "left_id": 11,
+      "right_id": 12,
+      "left": "ambient_temprature",
+      "right": "ambient_temp",
+      "base_similarity": 0.9266430139541626,
+      "retrieval_reason": "semantic_base",
+      "decomposition_ambiguous": false,
+      "qualifier_contexts": [
+        {
+          "base": "temp",
+          "left_text": "Attribute property: temp\nQualifiers: [\"ambient\"]",
+          "right_text": "Attribute property: temp\nQualifiers: [\"ambient\"]",
+          "cosine": 1.0
+        },
+        {
+          "base": "temprature",
+          "left_text": "Attribute property: temprature\nQualifiers: [\"ambient\"]",
+          "right_text": "Attribute property: temprature\nQualifiers: [\"ambient\"]",
+          "cosine": 0.9999999403953552
+        }
+      ],
+      "qualifier_cosine": 0.9999999701976776,
+      "signals": {
+        "base": 0.9266430139541626,
+        "qualifier": 0.9999999701976776,
+        "lexical": 0.8
+      },
+      "weighted_contributions": {
+        "base": 0.23166075348854065,
+        "qualifier": 0.6499999806284905,
+        "lexical": 0.08000000000000002
+      },
+      "equivalence_score": 0.9616607341170311,
+      "qualifier_presence_mismatch": false,
+      "isolated_qualifier_cosine": 1.0,
+      "relation": {
+        "relation": "EQUIVALENT",
+        "base_relation": "COMPATIBLE",
+        "reason": "The base properties are compatible, and the qualifier lists are identical, both referring to the ambient temperature.",
+        "base_reason": "'temp' is an abbreviation for 'temperature', and 'temprature' is a misspelling of 'temperature', making both refer to the same property.",
+        "generated_at": "2026-09-15T09:40:18.159621+00:00",
+        "source": "model"
+      },
+      "decision": "ACCEPT",
+      "decision_rule": "equivalent_relation_with_support"
+    },
+    {
+      "left_id": 13,
+      "right_id": 14,
+      "left": "billing_address",
+      "right": "shipping_address",
+      "base_similarity": 1.0,
+      "retrieval_reason": "exact_base",
+      "decomposition_ambiguous": false,
+      "qualifier_contexts": [
+        {
+          "base": "address",
+          "left_text": "Attribute property: address\nQualifiers: [\"billing\"]",
+          "right_text": "Attribute property: address\nQualifiers: [\"shipping\"]",
+          "cosine": 0.9592869877815247
+        }
+      ],
+      "qualifier_cosine": 0.9592869877815247,
+      "signals": {
+        "base": 1.0,
+        "qualifier": 0.9592869877815247,
+        "lexical": 0.7741935483870968
+      },
+      "weighted_contributions": {
+        "base": 0.25,
+        "qualifier": 0.623536542057991,
+        "lexical": 0.07741935483870968
+      },
+      "equivalence_score": 0.9509558968967007,
+      "qualifier_presence_mismatch": false,
+      "isolated_qualifier_cosine": 0.8561365604400635,
+      "relation": {
+        "relation": "RELATED_BUT_DIFFERENT",
+        "base_relation": "COMPATIBLE",
+        "reason": "Both refer to an address, but 'billing' and 'shipping' specify different roles or types of addresses, which are related but distinct.",
+        "base_reason": "Both attributes refer to the general concept of an address.",
+        "generated_at": "2026-09-15T09:40:18.159654+00:00",
+        "source": "model"
+      },
+      "decision": "REJECT",
+      "decision_rule": "related_but_different_qualifiers"
+    },
+    {
+      "left_id": 15,
+      "right_id": 16,
+      "left": "input_current",
+      "right": "incoming_current",
+      "base_similarity": 1.0,
+      "retrieval_reason": "exact_base",
+      "decomposition_ambiguous": false,
+      "qualifier_contexts": [
+        {
+          "base": "current",
+          "left_text": "Attribute property: current\nQualifiers: [\"input\"]",
+          "right_text": "Attribute property: current\nQualifiers: [\"incoming\"]",
+          "cosine": 0.9519240856170654
+        }
+      ],
+      "qualifier_cosine": 0.9519240856170654,
+      "signals": {
+        "base": 1.0,
+        "qualifier": 0.9519240856170654,
+        "lexical": 0.6896551724137931
+      },
+      "weighted_contributions": {
+        "base": 0.25,
+        "qualifier": 0.6187506556510926,
+        "lexical": 0.06896551724137932
+      },
+      "equivalence_score": 0.9377161728924719,
+      "qualifier_presence_mismatch": false,
+      "isolated_qualifier_cosine": 0.8881134986877441,
+      "relation": {
+        "relation": "EQUIVALENT",
+        "base_relation": "COMPATIBLE",
+        "reason": "The qualifiers 'incoming' and 'input' both describe current entering a system, making them semantically interchangeable.",
+        "base_reason": "Both attributes refer to the flow of electrical charge, which is current.",
+        "generated_at": "2026-09-15T09:37:56.428891+00:00",
+        "source": "cache"
+      },
+      "decision": "ACCEPT",
+      "decision_rule": "equivalent_relation_with_support"
+    },
+    {
+      "left_id": 15,
+      "right_id": 17,
+      "left": "input_current",
+      "right": "output_current",
+      "base_similarity": 1.0,
+      "retrieval_reason": "exact_base",
+      "decomposition_ambiguous": false,
+      "qualifier_contexts": [
+        {
+          "base": "current",
+          "left_text": "Attribute property: current\nQualifiers: [\"input\"]",
+          "right_text": "Attribute property: current\nQualifiers: [\"output\"]",
+          "cosine": 0.9655801057815552
+        }
+      ],
+      "qualifier_cosine": 0.9655801057815552,
+      "signals": {
+        "base": 1.0,
+        "qualifier": 0.9655801057815552,
+        "lexical": 0.8148148148148148
+      },
+      "weighted_contributions": {
+        "base": 0.25,
+        "qualifier": 0.6276270687580109,
+        "lexical": 0.08148148148148149
+      },
+      "equivalence_score": 0.9591085502394924,
+      "qualifier_presence_mismatch": false,
+      "isolated_qualifier_cosine": 0.9343079328536987,
+      "relation": {
+        "relation": "CONTRASTING",
+        "base_relation": "COMPATIBLE",
+        "reason": "The qualifiers 'input' and 'output' describe opposing directions of current flow relative to a system.",
+        "base_reason": "Both attributes refer to the flow of electrical charge, which is current.",
+        "generated_at": "2026-09-15T09:37:56.429130+00:00",
+        "source": "cache"
+      },
+      "decision": "REJECT",
+      "decision_rule": "contrasting_qualifiers"
+    },
+    {
+      "left_id": 16,
+      "right_id": 17,
+      "left": "incoming_current",
+      "right": "output_current",
+      "base_similarity": 1.0,
+      "retrieval_reason": "exact_base",
+      "decomposition_ambiguous": false,
+      "qualifier_contexts": [
+        {
+          "base": "current",
+          "left_text": "Attribute property: current\nQualifiers: [\"incoming\"]",
+          "right_text": "Attribute property: current\nQualifiers: [\"output\"]",
+          "cosine": 0.9351193904876709
+        }
+      ],
+      "qualifier_cosine": 0.9351193904876709,
+      "signals": {
+        "base": 1.0,
+        "qualifier": 0.9351193904876709,
+        "lexical": 0.6
+      },
+      "weighted_contributions": {
+        "base": 0.25,
+        "qualifier": 0.6078276038169861,
+        "lexical": 0.06
+      },
+      "equivalence_score": 0.9178276038169861,
+      "qualifier_presence_mismatch": false,
+      "isolated_qualifier_cosine": 0.8530129194259644,
+      "relation": {
+        "relation": "CONTRASTING",
+        "base_relation": "COMPATIBLE",
+        "reason": "Both refer to current, but 'incoming' and 'output' describe opposing directions or states of that current.",
+        "base_reason": "Both attributes refer to the general concept of current.",
+        "generated_at": "2026-09-15T09:40:18.159688+00:00",
+        "source": "model"
+      },
+      "decision": "REJECT",
+      "decision_rule": "contrasting_qualifiers"
+    }
+  ],
+  "limitation": "Pair decisions only. No clustering, calibrated probabilities, or automatic stronger-model escalation.",
+  "evaluation": {
+    "labeled_pairs": 15,
+    "accepted_true_positives": 5,
+    "false_accepts": 0,
+    "accept_precision": 1.0,
+    "accept_recall": 0.7142857142857143,
+    "uncertain": 1,
+    "not_retrieved": 1,
+    "decision_coverage": 0.8666666666666667,
+    "determinate_accuracy": 0.9230769230769231,
+    "rows": [
+      {
+        "left_id": 0,
+        "right_id": 1,
+        "equivalent": true,
+        "decision": "ACCEPT"
+      },
+      {
+        "left_id": 0,
+        "right_id": 2,
+        "equivalent": false,
+        "decision": "REJECT"
+      },
+      {
+        "left_id": 1,
+        "right_id": 2,
+        "equivalent": false,
+        "decision": "REJECT"
+      },
+      {
+        "left_id": 3,
+        "right_id": 4,
+        "equivalent": true,
+        "decision": "UNCERTAIN"
+      },
+      {
+        "left_id": 5,
+        "right_id": 6,
+        "equivalent": false,
+        "decision": "REJECT"
+      },
+      {
+        "left_id": 5,
+        "right_id": 7,
+        "equivalent": true,
+        "decision": "REJECT"
+      },
+      {
+        "left_id": 3,
+        "right_id": 5,
+        "equivalent": false,
+        "decision": "REJECT"
+      },
+      {
+        "left_id": 8,
+        "right_id": 9,
+        "equivalent": true,
+        "decision": "ACCEPT"
+      },
+      {
+        "left_id": 10,
+        "right_id": 11,
+        "equivalent": true,
+        "decision": "ACCEPT"
+      },
+      {
+        "left_id": 10,
+        "right_id": 12,
+        "equivalent": true,
+        "decision": "ACCEPT"
+      },
+      {
+        "left_id": 13,
+        "right_id": 14,
+        "equivalent": false,
+        "decision": "REJECT"
+      },
+      {
+        "left_id": 15,
+        "right_id": 16,
+        "equivalent": true,
+        "decision": "ACCEPT"
+      },
+      {
+        "left_id": 15,
+        "right_id": 17,
+        "equivalent": false,
+        "decision": "REJECT"
+      },
+      {
+        "left_id": 0,
+        "right_id": 18,
+        "equivalent": false,
+        "decision": "REJECT"
+      },
+      {
+        "left_id": 0,
+        "right_id": 19,
+        "equivalent": false,
+        "decision": "NOT_RETRIEVED"
+      }
+    ]
+  },
+  "benchmark_sha256": "0a271ff00978c62852a2f2743614c4d1275fc0ce5077d6a6cf7b1baa828da564"
+}
