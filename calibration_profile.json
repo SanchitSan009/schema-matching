@@ -1,6 +1,45 @@
 {
-  "version": "empirical-bands-v1",
-  "signature": "7efbf94f3953dac600a055eedab1c97268abde6e998818d87f3576eaf35135ff",
+  "version": "empirical-bands-v2",
+  "signature": "fdd503bd2ada9356640b6ad8a1808541addfb4104b88a3f7f9dc039859b4ad12",
+  "pipeline_configuration": {
+    "classifier": {
+      "model": "gemini-2.5-flash",
+      "prompt_sha256": "b2973e9b4d2f9892bc6e3387732e582c9b52f0a38df2959ca019c5325a0803ba",
+      "temperature": 0
+    },
+    "policy": "relation-led-v1",
+    "thresholds": {
+      "base_min": 0.9,
+      "qualifier_min": 0.85,
+      "lexical_min": 0.8
+    },
+    "embedding": {
+      "backend": "gemini",
+      "model": "gemini-embedding-001",
+      "input_format": "base-conditioned-qualifiers-v1",
+      "task": "SEMANTIC_SIMILARITY"
+    },
+    "weights": {
+      "base": 0.25,
+      "qualifier": 0.65,
+      "lexical": 0.1
+    },
+    "parser_model": null,
+    "parser_mode": "manual_decomposition",
+    "retrieval_settings": {
+      "threshold": 0.9,
+      "top_k": 5,
+      "embedding": {
+        "backend": "gemini",
+        "model": "gemini-embedding-001",
+        "input_format": "bare-base-v1",
+        "task": "SEMANTIC_SIMILARITY"
+      },
+      "retrieval_version": null,
+      "representation": null
+    },
+    "evidence_version": null
+  },
   "score_edges": [
     0.0,
     0.8,
@@ -8,7 +47,7 @@
     0.95,
     1.00000001
   ],
-  "created_at": "2026-09-15T09:48:41.226288+00:00",
+  "created_at": "2026-09-16T05:00:10.215490+00:00",
   "min_samples": 20,
   "target_precision": 0.9,
   "interval_confidence": 0.95,
@@ -16,68 +55,97 @@
     "ACCEPT|equivalent_relation_with_support|score_bin_2": {
       "count": 2,
       "correct": 2,
+      "empirical_accuracy": 1.0,
       "empirical_correctness": 1.0,
       "correctness_interval": [
         0.3423802275066532,
         1.0
       ],
+      "wilson_lower_bound": 0.3423802275066532,
+      "eligible": false,
       "eligible_for_high_confidence": false
     },
     "REJECT|contrasting_qualifiers|score_bin_3": {
       "count": 3,
       "correct": 3,
+      "empirical_accuracy": 1.0,
       "empirical_correctness": 1.0,
       "correctness_interval": [
         0.4385029682449546,
         1.0
       ],
+      "wilson_lower_bound": 0.4385029682449546,
+      "eligible": false,
       "eligible_for_high_confidence": false
     },
     "REJECT|contrasting_qualifiers|score_bin_2": {
       "count": 1,
       "correct": 1,
+      "empirical_accuracy": 1.0,
       "empirical_correctness": 1.0,
       "correctness_interval": [
         0.20654931437723745,
         1.0
       ],
+      "wilson_lower_bound": 0.20654931437723745,
+      "eligible": false,
       "eligible_for_high_confidence": false
     },
     "REJECT|related_but_different_qualifiers|score_bin_3": {
       "count": 2,
       "correct": 1,
+      "empirical_accuracy": 0.5,
       "empirical_correctness": 0.5,
       "correctness_interval": [
         0.09453120573423074,
         0.9054687942657693
       ],
+      "wilson_lower_bound": 0.09453120573423074,
+      "eligible": false,
       "eligible_for_high_confidence": false
     },
     "REJECT|related_but_different_qualifiers|score_bin_2": {
       "count": 2,
       "correct": 2,
+      "empirical_accuracy": 1.0,
       "empirical_correctness": 1.0,
       "correctness_interval": [
         0.3423802275066532,
         1.0
       ],
+      "wilson_lower_bound": 0.3423802275066532,
+      "eligible": false,
       "eligible_for_high_confidence": false
     },
     "ACCEPT|equivalent_relation_with_support|score_bin_3": {
       "count": 3,
       "correct": 3,
+      "empirical_accuracy": 1.0,
       "empirical_correctness": 1.0,
       "correctness_interval": [
         0.4385029682449546,
         1.0
       ],
+      "wilson_lower_bound": 0.4385029682449546,
+      "eligible": false,
       "eligible_for_high_confidence": false
     }
+  },
+  "bucket_size_diagnostics": {
+    "bucket_count": 6,
+    "total_binned": 13,
+    "min_bucket_size": 1,
+    "max_bucket_size": 3,
+    "buckets_below_min_samples": 6,
+    "minimum_all_correct_samples_for_target": 35,
+    "target_feasible_at_min_samples": false,
+    "note": "Decision-rule plus score-bin buckets may fragment calibration data; inspect these sizes before changing bins."
   },
   "labeled_count": 15,
   "not_retrieved": 1,
   "uncertain_decisions": 1,
   "high_confidence_bin_count": 0,
   "labels_sha256": "80c4a16ec8096349b556f7a930870415d84d4f299e5beb7b65a07dc8196998eb",
+  "refit_requirement": "Use reviewed examples produced by the exact production parser, model, prompt, retrieval, and evidence configuration recorded by this signature.",
   "limitation": "Empirical development-data reliability, not an independently validated individual probability. Correlated labels and domain shift weaken coverage."
 }

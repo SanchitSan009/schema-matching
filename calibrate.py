@@ -15,18 +15,24 @@ from normalize import ROOT
 HERE = Path(__file__).resolve().parent
 BANDS = ("HIGH_CONFIDENCE_MATCH", "HIGH_CONFIDENCE_NON_MATCH", "UNCERTAIN")
 SCORE_EDGES = [0.0, 0.8, 0.9, 0.95, 1.00000001]
+PROFILE_VERSION = "empirical-bands-v2"
+
+
+def pipeline_configuration(report):
+    """Return only production pipeline configuration, never dataset context."""
+    scoring = report.get("scoring_provenance", {})
+    retrieval = scoring.get("retrieval", {})
+    return dict(classifier=report.get("classifier"), policy=report.get("decision_policy"),
+                thresholds=report.get("support_thresholds"),
+                embedding=scoring.get("qualifier_embedding"), weights=scoring.get("weights"),
+                parser_model=scoring.get("parser_model"),
+                parser_mode=scoring.get("evaluation_mode"),
+                retrieval_settings={k: retrieval.get(k) for k in ("threshold", "top_k", "embedding", "retrieval_version", "representation")},
+                evidence_version=report.get("evidence_version"))
 
 
 def signature(report):
-    scoring = report.get("scoring_provenance", {})
-    retrieval = scoring.get("retrieval", {})
-    settings = dict(classifier=report.get("classifier"), policy=report.get("decision_policy"),
-                    thresholds=report.get("support_thresholds"), context=report.get("context", ""),
-                    embedding=scoring.get("qualifier_embedding"), weights=scoring.get("weights"),
-                    parser_model=retrieval.get("parser_model"),
-                    retrieval_settings={k: retrieval.get(k) for k in ("threshold", "top_k", "embedding", "retrieval_version", "representation")},
-                    evidence_version=report.get("evidence_version"))
-    return hashlib.sha256(json.dumps(settings, sort_keys=True).encode()).hexdigest()
+    return hashlib.sha256(json.dumps(pipeline_configuration(report), sort_keys=True).encode()).hexdigest()
 
 
 def checked_pairs(report):
@@ -64,6 +70,16 @@ def wilson(successes, count, confidence=0.95):
     return [max(0.0, center - half), min(1.0, center + half)]
 
 
+def minimum_perfect_sample_size(target_precision, confidence):
+    """Smallest all-correct bucket whose Wilson lower bound passes the gate."""
+    if target_precision == 1:
+        return None
+    count = 1
+    while wilson(count, count, confidence)[0] < target_precision:
+        count += 1
+    return count
+
+
 def fit_profile(report, benchmark, min_samples=20, target_precision=0.9, confidence=0.95):
     if type(min_samples) is not int or min_samples < 1 or not 0 < target_precision <= 1 or not 0 < confidence < 1:
         raise ValueError("invalid calibration settings")
@@ -91,45 +107,91 @@ def fit_profile(report, benchmark, min_samples=20, target_precision=0.9, confide
     if not seen:
         raise ValueError("calibration labels must be nonempty")
     for entry in bins.values():
-        entry["empirical_correctness"] = entry["correct"] / entry["count"]
+        entry["empirical_accuracy"] = entry["correct"] / entry["count"]
+        # Retain the old name for consumers of v1-shaped diagnostics.
+        entry["empirical_correctness"] = entry["empirical_accuracy"]
         entry["correctness_interval"] = wilson(entry["correct"], entry["count"], confidence)
-        entry["eligible_for_high_confidence"] = entry["count"] >= min_samples and entry["correctness_interval"][0] >= target_precision
-    return dict(version="empirical-bands-v1", signature=signature(report), score_edges=SCORE_EDGES,
+        entry["wilson_lower_bound"] = entry["correctness_interval"][0]
+        entry["eligible"] = entry["count"] >= min_samples and entry["wilson_lower_bound"] >= target_precision
+        entry["eligible_for_high_confidence"] = entry["eligible"]
+    bucket_counts = [entry["count"] for entry in bins.values()]
+    perfect_needed = minimum_perfect_sample_size(target_precision, confidence)
+    return dict(version=PROFILE_VERSION, signature=signature(report),
+                pipeline_configuration=pipeline_configuration(report), score_edges=SCORE_EDGES,
                 created_at=datetime.now(timezone.utc).isoformat(), min_samples=min_samples,
                 target_precision=target_precision, interval_confidence=confidence, bins=bins,
+                bucket_size_diagnostics=dict(bucket_count=len(bins), total_binned=sum(bucket_counts),
+                    min_bucket_size=min(bucket_counts, default=0), max_bucket_size=max(bucket_counts, default=0),
+                    buckets_below_min_samples=sum(n < min_samples for n in bucket_counts),
+                    minimum_all_correct_samples_for_target=perfect_needed,
+                    target_feasible_at_min_samples=wilson(min_samples, min_samples, confidence)[0] >= target_precision,
+                    note="Decision-rule plus score-bin buckets may fragment calibration data; inspect these sizes before changing bins."),
                 labeled_count=len(seen), not_retrieved=misses, uncertain_decisions=uncertain,
-                high_confidence_bin_count=sum(b["eligible_for_high_confidence"] for b in bins.values()),
+                high_confidence_bin_count=sum(b["eligible"] for b in bins.values()),
                 labels_sha256=hashlib.sha256(json.dumps(benchmark, sort_keys=True).encode()).hexdigest(),
+                refit_requirement="Use reviewed examples produced by the exact production parser, model, prompt, retrieval, and evidence configuration recorded by this signature.",
                 limitation="Empirical development-data reliability, not an independently validated individual probability. Correlated labels and domain shift weaken coverage.")
 
 
 def confidence_report(report, profile=None):
     pairs = checked_pairs(report)
-    if profile is not None and (profile.get("version") != "empirical-bands-v1" or profile.get("score_edges") != SCORE_EDGES):
+    if profile is not None and (profile.get("version") != PROFILE_VERSION or profile.get("score_edges") != SCORE_EDGES):
         raise ValueError("unsupported calibration profile")
     compatible = profile is not None and profile.get("signature") == signature(report)
     results = []
     for pair in pairs:
         entry = profile["bins"].get(bucket(pair)) if compatible else None
-        columns = [report["columns"][pair["left_id"]], report["columns"][pair["right_id"]]]
-        ambiguous = any(c.get("ambiguous", True) for c in columns)
-        mismatch = bool(columns[0]["qualifiers"]) != bool(columns[1]["qualifiers"])
-        relation = pair.get("relation") or {}
-        semantic_uncertainty = (relation.get("base_relation") == "UNCERTAIN" or
-                                (relation.get("relation") == "UNCERTAIN" and relation.get("base_relation") != "INCOMPATIBLE"))
-        band, reason = "UNCERTAIN", "insufficient_calibration_evidence"
-        if pair["decision"] == "UNCERTAIN" or ambiguous or mismatch or semantic_uncertainty:
-            reason = "semantic_or_scope_uncertainty"
+        semantic_uncertainty = pair["decision"] == "UNCERTAIN"
+        semantic_status = "UNCERTAIN" if semantic_uncertainty else "DETERMINATE"
+        calibration_status, calibration_reason = "UNCERTAIN", "insufficient_calibration_evidence"
+        band = "UNCERTAIN"
+        if semantic_uncertainty:
+            calibration_status = "NOT_APPLICABLE"
+            calibration_reason = "not_applicable_to_semantically_uncertain_decision"
         elif not compatible:
-            reason = "missing_or_incompatible_calibration_profile"
+            calibration_reason = "missing_or_incompatible_calibration_profile"
         elif entry and entry["count"] >= profile["min_samples"] and wilson(entry["correct"], entry["count"], profile["interval_confidence"])[0] >= profile["target_precision"]:
+            calibration_status = "RELIABLE"
             band = "HIGH_CONFIDENCE_MATCH" if pair["decision"] == "ACCEPT" else "HIGH_CONFIDENCE_NON_MATCH"
-            reason = "empirical_reliability_lower_bound_passed"
-        results.append(dict(pair, confidence_band=band, confidence_reason=reason, calibration_evidence=entry))
+            calibration_reason = "empirical_reliability_lower_bound_passed"
+        results.append(dict(pair, semantic_status=semantic_status,
+                            semantic_uncertainty=semantic_uncertainty,
+                            calibration_status=calibration_status,
+                            calibration_uncertainty=calibration_status == "UNCERTAIN",
+                            confidence_band=band, confidence_reason=calibration_reason,
+                            calibration_reason=calibration_reason, calibration_evidence=entry))
     return dict(stage="confidence_bands", columns=report["columns"], pairs=results,
                 calibration_profile=profile, profile_compatible=compatible,
                 counts=dict(Counter(p["confidence_band"] for p in results)),
                 source_signature=signature(report))
+
+
+def semantic_bypass_report(report):
+    """Map semantic decisions directly to clustering bands without calibration."""
+    mapping = {
+        "ACCEPT": "HIGH_CONFIDENCE_MATCH",
+        "REJECT": "HIGH_CONFIDENCE_NON_MATCH",
+        "UNCERTAIN": "UNCERTAIN",
+    }
+    results = []
+    for pair in checked_pairs(report):
+        uncertain = pair["decision"] == "UNCERTAIN"
+        results.append(dict(
+            pair,
+            semantic_status="UNCERTAIN" if uncertain else "DETERMINATE",
+            semantic_uncertainty=uncertain,
+            calibration_status="BYPASSED",
+            calibration_uncertainty=False,
+            confidence_band=mapping[pair["decision"]],
+            confidence_reason="semantic_decision_bypass",
+            calibration_reason="calibration_explicitly_bypassed",
+            calibration_evidence=None,
+        ))
+    return dict(stage="semantic_bypass_bands", columns=report["columns"], pairs=results,
+                calibration_profile=None, profile_compatible=None, bypassed=True,
+                counts=dict(Counter(p["confidence_band"] for p in results)),
+                source_signature=signature(report),
+                warning="Semantic decisions were promoted without empirical calibration.")
 
 
 def main():
@@ -147,12 +209,17 @@ def main():
     if args.mode == "fit":
         result = fit_profile(report, json.loads(args.labels.read_text()), args.min_samples, args.target_precision)
         output = args.profile
-        summary = {k: result[k] for k in ("labeled_count", "high_confidence_bin_count")}
+        summary = {k: result[k] for k in ("labeled_count", "high_confidence_bin_count", "bucket_size_diagnostics")}
     else:
         result = confidence_report(report, json.loads(args.profile.read_text()))
         output, summary = args.output, result["counts"]
     output.write_text(json.dumps(result, indent=2) + "\n")
     print(json.dumps(summary))
+    if args.mode == "fit":
+        for name, entry in sorted(result["bins"].items()):
+            print(json.dumps(dict(bucket=name, count=entry["count"], correct=entry["correct"],
+                                  empirical_accuracy=entry["empirical_accuracy"],
+                                  wilson_lower_bound=entry["wilson_lower_bound"], eligible=entry["eligible"])))
     print(f"Full results: {output}")
 
 

@@ -1,0 +1,85 @@
+C001: voltage, raw_voltage
+C002: colour, color
+C003: overall_length, total_length
+C004: overall_width, total_width
+C005: overall_height, total_height
+C006: part_number, part_no
+C007: serial_number, serial_no
+C008: model_number, model_no
+C009: revision_number, revision_no
+C010: input_voltage, incoming_voltage
+C011: output_voltage, outgoing_voltage
+C012: input_current, incoming_current
+C013: output_current, outgoing_current
+C014: rated_voltage, nominal_voltage
+C015: rated_current, nominal_current
+C016: maximum_voltage, max_voltage
+C017: minimum_voltage, min_voltage
+C018: maximum_current, max_current
+C019: minimum_current, min_current
+C020: ambient_temperature, ambient_temp
+C021: operating_temperature, operating_temp
+C022: storage_temperature, storage_temp
+C023: housing_material, enclosure_material
+C024: insulation_material, insulator_material
+C025: supply_frequency, line_frequency
+C026: rated_power, power_rating
+C027: efficiency_percent, efficiency_pct
+C028: datasheet_url, data_sheet_url
+C029: manufactured_by, made_by
+C030: temperature_unit, temp_unit
+C031: input_power, incoming_power, power_input
+C032: output_power, outgoing_power, power_output
+C033: rated_torque, nominal_torque, torque_rating
+C034: maximum_torque, max_torque, torque_max
+C035: minimum_torque, min_torque, torque_min
+C036: switching_frequency, switch_frequency, switching_freq
+C037: resonant_frequency, resonance_frequency, resonant_freq
+C038: rotational_speed, rotation_speed, rot_speed
+C039: outer_diameter, outside_diameter, od
+C040: inner_diameter, inside_diameter, id_diameter
+C041: cable_length, cable_len, length_cable
+C042: mounting_hole_diameter, mount_hole_diameter, mounting_hole_dia
+C043: pole_count, number_of_poles, poles_qty
+C044: phase_count, number_of_phases, phases_qty
+C045: channel_count, number_of_channels, channels_qty
+C046: pin_count, number_of_pins, pins_qty
+C047: connector_type, connector_kind, connector_category
+C048: terminal_type, termination_type, terminal_kind
+C049: protection_rating, ip_rating, ingress_protection_rating
+C050: operating_pressure, working_pressure, service_pressure
+C051: maximum_pressure, max_pressure, pressure_max
+C052: minimum_pressure, min_pressure, pressure_min
+C053: flow_rate, volumetric_flow, volume_flow_rate
+C054: maximum_flow_rate, max_flow_rate, flow_rate_max
+C055: response_time, reaction_time, response_duration
+C056: cycle_time, cycle_duration, time_per_cycle
+C057: product_name, item_name, product_title
+C058: manufacturer_name, maker_name, producer_name
+C059: product_identifier, product_id, item_id
+C060: voltage_unit, volt_unit, unit_voltage
+C061: supplier_id, supplier_identifier, vendor_id, vendor_identifier
+C062: manufacturer_id, manufacturer_identifier, maker_id, maker_identifier
+C063: lot_number, lot_no, lot_identifier, lot_id
+C064: manufacture_date, manufacturing_date, date_of_manufacture, mfg_date
+C065: expiry_date, expiration_date, exp_date, date_of_expiry
+C066: production_date, produced_date, date_produced, prod_date
+C067: created_timestamp, creation_timestamp, created_at, date_created
+C068: updated_timestamp, modification_timestamp, updated_at, last_modified
+C069: minimum_operating_temperature, min_operating_temperature, operating_temp_min, min_operating_temp
+C070: maximum_operating_temperature, max_operating_temperature, operating_temp_max, max_operating_temp
+C071: minimum_storage_temperature, min_storage_temperature, storage_temp_min, min_storage_temp
+C072: maximum_storage_temperature, max_storage_temperature, storage_temp_max, max_storage_temp
+C073: supply_voltage, power_supply_voltage, voltage_supply, supply_voltage_value
+C074: package_length, packaged_length, packing_length, length_packaged
+C075: package_width, packaged_width, packing_width, width_packaged
+C076: package_height, packaged_height, packing_height, height_packaged
+C077: package_weight, packaged_weight, shipping_weight, shipment_weight
+C078: gross_weight, total_gross_weight, weight_gross, gross_wt
+C079: net_weight, product_weight, item_weight, weight_net
+C080: surface_finish, finish_type, surface_finish_type, finish_surface
+C081: mounting_type, mount_type, mounting_method, installation_mount
+C082: operating_mode, operation_mode, mode_of_operation, work_mode
+C083: wheel_position, tyre_position, tire_position, wheel_location
+C084: wire_color, wire_colour, conductor_color, conductor_colour
+C085: material_grade, material_grade_code, grade_material, material_grd

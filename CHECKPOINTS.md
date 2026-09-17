@@ -64,7 +64,10 @@ Each output retains original and normalized names, base, qualifiers, an ambiguit
 flag, and a brief reason. Compound bases and compound qualifiers are permitted.
 Response validation checks IDs, required fields, and exact source-word coverage.
 Malformed responses fail explicitly; they are never replaced with rule-based guesses.
-Empty names are rejected. Inputs are batched in groups of at most 20.
+Empty names are rejected. Uncached inputs are deduplicated and batched in groups
+of at most 50 (configurable with `SCHEMA_DECOMPOSITION_BATCH_SIZE`). Cache entries
+are per name/context rather than per batch, successful items are committed after
+every request, and only omitted or malformed items are retried.
 
 Annotation convention: preserve source wording, including abbreviations, and
 partition all normalized words exactly once. Do not canonicalize synonyms yet.
@@ -76,7 +79,7 @@ flags are model judgments, not calibrated probabilities.
 ```
 
 The script loads the project root `.env` regardless of the working directory.
-It uses `GEMINI_API_KEY` and defaults to `gemini-2.5-flash`, matching the project's
+It uses `GEMINI_API_KEY` and defaults to `gemini-3.6-flash`, matching the currently
 existing model. Override using `SCHEMA_MATCHING_MODEL` in `.env` or `--model`.
 This command sends column names to Gemini and requires network access.
 Dependencies are recorded in `requirements.txt` and already available in `.venv`.
@@ -146,7 +149,7 @@ retained when either base retrieves the other above the threshold. These are
 provisional Gemini retrieval settings, not equivalence probabilities. Different
 models need separate threshold evaluation. Exact-base groups bypass top-k limits.
 
-The default backend is `gemini` with `gemini-embedding-001`, using the root `.env`
+The default backend is `gemini` with `gemini-embedding-2`, using the root `.env`
 and `GEMINI_API_KEY`. This makes the current implementation runnable with existing
 dependencies. `SCHEMA_EMBEDDING_BACKEND` and `SCHEMA_EMBEDDING_MODEL` can configure
 defaults; `--backend` and `--embedding-model` override them.
@@ -396,7 +399,7 @@ calibration, and clustering remain outstanding.
 domain dictionary, or benchmark labels in the prompt. It compares complete
 qualifier lists conditioned on both base properties and optional factual schema
 context. It returns `EQUIVALENT`, `CONTRASTING`, `RELATED_BUT_DIFFERENT`, or
-`UNCERTAIN`, with an explanation. It separately judges bases as `COMPATIBLE`,
+`UNCERTAIN`. It separately judges bases as `COMPATIBLE`,
 `INCOMPATIBLE`, or `UNCERTAIN` to avoid treating related properties as identical.
 
 ```bash
@@ -404,13 +407,19 @@ context. It returns `EQUIVALENT`, `CONTRASTING`, `RELATED_BUT_DIFFERENT`, or
 ```
 
 The root `.env` supplies `GEMINI_API_KEY`; `SCHEMA_RELATION_MODEL` or `--model`
-overrides the default `gemini-2.5-flash`. Batches contain at most ten unique pairs.
+overrides the default `gemini-3.6-flash`. Batches contain at most 50 unique pairs
+(configurable with `SCHEMA_RELATION_BATCH_SIZE`) and group pairs with shared base
+properties/context so those fields are transmitted once per group. Model responses
+contain labels only, avoiding explanation-token overhead. Structurally identical
+attributes are resolved locally.
 SQLite caching in `.cache/relations.sqlite3` keys judgments by model, prompt/schema
 hash, bases, qualifier lists, and context. Canonical side ordering makes reversed
 requests share a judgment. This enforces consistent ordering, rather than proving
 the model itself is invariant to order. `--fresh` bypasses cached judgments.
 Results include source, generation timestamp, model and prompt provenance.
-Malformed responses fail explicitly and never fall back to accepting a pair.
+Valid items are cached and committed after every request; only omitted or malformed
+items are retried. Persistent malformed responses fail explicitly and never fall
+back to accepting a pair.
 
 ## Checkpoint 9 — Evaluate relation classification
 
@@ -426,7 +435,7 @@ evaluation data, not universally valid domain assertions.
 `evaluate_relations.py` reports accuracy separately by stratum and expected class,
 a four-class confusion matrix, base-relation accuracy, hard negatives called
 equivalent, and uncertain cases forced to equivalent. Every expected/actual result
-and explanation is retained in `relation_benchmark_report.json`. Evaluation uses
+is retained in `relation_benchmark_report.json`. Evaluation uses
 fresh LLM calls by default; `--reuse-cache` reuses stored judgments. Only each
 case's input fields go to the classifier; labels and strata stay in the evaluator.
 No benchmark-based prompt tuning or training is performed.
@@ -535,7 +544,10 @@ interval. This replaces treating the raw weighted score as a probability.
 
 Defaults require at least 20 observations in the bin AND a correctness interval
 lower bound of at least 0.90 before assigning a high-confidence band. The bound
-is stricter than sample count alone (even 20/20 correct is insufficient). The
+is stricter than sample count alone (even 20/20 correct is insufficient, and the
+profile reports the minimum perfect-bucket size needed). Every fitted bucket logs
+count, correct, empirical accuracy, Wilson lower bound, and eligibility. Aggregate
+bucket-size diagnostics make rule-plus-score-bin fragmentation visible. The
 profile reports its assumptions and provenance. The interval describes bin-level
 accuracy under sampling assumptions, not a guaranteed individual probability.
 Correlated labels, model drift and domain shift can invalidate that interpretation;
@@ -558,13 +570,22 @@ separately. Duplicate labels are rejected. This calibrates outputs, not the LLM.
 
 This writes `confidence_report.json` with `HIGH_CONFIDENCE_MATCH`,
 `HIGH_CONFIDENCE_NON_MATCH`, or `UNCERTAIN` per pair, plus supporting bin evidence
-and the reason for abstention. ACCEPT/REJECT decisions gain their respective high
-band only when the evidence gate passes. Semantic/decomposition/scope ambiguity
-remains uncertain. Missing/insufficient calibration evidence also remains uncertain.
-Profile compatibility checks classifier/prompt, policy, thresholds, context,
-embedding settings, weights, and recorded parser/retrieval settings. Incompatible
+and the reason for abstention. Semantic status (the upstream decision) and
+calibration status (historical reliability) are separate fields. Calibration does
+not re-judge qualifiers, decomposition ambiguity, relations, or other semantics;
+an upstream `UNCERTAIN` is semantic uncertainty, while missing/insufficient evidence
+is calibration uncertainty. In particular, qualifier-presence mismatch is not an
+automatic calibration veto. ACCEPT/REJECT decisions gain their respective high
+band only when the evidence gate passes. Profile compatibility checks only pipeline
+configuration: classifier/model/prompt provenance, policy, thresholds, embedding
+settings, weights, parser/retrieval settings, and evidence version. Dataset context
+is deliberately excluded. Incompatible
 profiles cause abstention rather than silent reuse. No automatic rule-only
 fallback labels a pair as high confidence.
+
+Calibration must be refit from reviewed examples generated by the exact same
+parser, model, prompt, retrieval, and evidence setup used in production; the
+configuration signature enforces this when those settings are recorded upstream.
 
 ## Checkpoint 12 — Cluster confirmed matches
 

@@ -8,7 +8,7 @@ from embeddings import BaseEmbedder
 from score import CONTEXT_FORMAT, score_candidates
 from relations import RelationClassifier
 from decide import decide_report
-from calibrate import confidence_report
+from calibrate import confidence_report, semantic_bypass_report
 from cluster_confirmed import cluster_confirmed
 from schema_context import enrich_records, csv_records, metadata, profile_values
 
@@ -32,7 +32,8 @@ def prepare_records(records, parser):
 
 
 def pipeline(records, parser=None, embedder=None, classifier=None, top_k=15,
-             representation="full_name", method="auto", stop_after="clusters", calibration=None):
+             representation="full_name", method="auto", stop_after="clusters", calibration=None,
+             relation_cache_only=False, semantic_bypass=False, base_gate=True):
     parser, embedder = parser or Parser(), embedder or BaseEmbedder()
     items = prepare_records(records, parser)
     candidates = generate_candidates(items, embedder, top_k=top_k, representation=representation, search_method=method)
@@ -41,11 +42,13 @@ def pipeline(records, parser=None, embedder=None, classifier=None, top_k=15,
         return candidates
     qualifier_embedder = BaseEmbedder(embedder.backend, embedder.model, embedder.cache, input_format=CONTEXT_FORMAT)
     scores = score_candidates(candidates, qualifier_embedder)
-    decisions = decide_report(scores, classifier or RelationClassifier())
+    decisions = decide_report(scores, classifier or RelationClassifier(), cache_only=relation_cache_only, base_gate=base_gate)
     decisions["evidence_version"] = "schema-values-v1"
     if stop_after == "decisions":
         return decisions
-    bands = confidence_report(decisions, calibration)
+    if semantic_bypass and calibration is not None:
+        raise ValueError("semantic bypass and calibration are mutually exclusive")
+    bands = semantic_bypass_report(decisions) if semantic_bypass else confidence_report(decisions, calibration)
     result = cluster_confirmed(bands)
     result["confidence"] = bands
     return result
@@ -63,10 +66,18 @@ def main():
     cli.add_argument("--search", choices=["auto", "exact", "hnsw"], default="auto")
     cli.add_argument("--stop-after", choices=["retrieval", "decisions", "clusters"], default="clusters")
     cli.add_argument("--calibration", type=Path)
+    cli.add_argument("--semantic-bypass", action="store_true",
+                     help="Promote semantic ACCEPT/REJECT decisions directly to clustering bands")
+    cli.add_argument("--relation-cache-only", action="store_true",
+                     help="Use cached semantic relations and mark uncached pairs uncertain")
+    cli.add_argument("--bypass-base-gate", action="store_true",
+                     help="Ignore the base compatibility gate so all candidates reach semantic classification")
     cli.add_argument("--output", type=Path, default=HERE / "pipeline_report.json")
     args = cli.parse_args()
     if args.top_k < 1 or args.column is not None and args.csv is None:
         cli.error("invalid top-k or CSV column option")
+    if args.semantic_bypass and args.calibration:
+        cli.error("--semantic-bypass cannot be combined with --calibration")
     if args.schema:
         payload = json.loads(args.schema.read_text())
         records = payload if isinstance(payload, list) else payload["columns"]
@@ -80,7 +91,9 @@ def main():
         cli.error("input must contain columns")
     calibration = json.loads(args.calibration.read_text()) if args.calibration else None
     result = pipeline(records, top_k=args.top_k, representation=args.representation, method=args.search,
-                      stop_after=args.stop_after, calibration=calibration)
+                      stop_after=args.stop_after, calibration=calibration,
+                      relation_cache_only=args.relation_cache_only,
+                      semantic_bypass=args.semantic_bypass, base_gate=not args.bypass_base_gate)
     args.output.write_text(json.dumps(result, indent=2) + "\n")
     print(f"Results: {args.output}")
 

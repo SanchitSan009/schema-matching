@@ -32,7 +32,7 @@ class BaseEmbedder:
         if self.backend not in {"gemini", "sentence-transformers"}:
             raise ValueError("unsupported embedding backend")
         self.model = model or os.getenv("SCHEMA_EMBEDDING_MODEL") or (
-            "gemini-embedding-001" if self.backend == "gemini" else "BAAI/bge-m3")
+            "gemini-embedding-2" if self.backend == "gemini" else "BAAI/bge-m3")
         self.cache = Path(cache) if cache is not None else HERE / ".cache" / "bases.sqlite3"
         # Isolate cache entries across providers/models/input and task conventions.
         self.settings = dict(backend=self.backend, model=self.model,
@@ -52,10 +52,13 @@ class BaseEmbedder:
                 self._client = genai.Client(api_key=key,
                     http_options=types.HttpOptions(timeout=60000))
             from google.genai.errors import APIError
+            # Gemini Embedding 2 aggregates a list of raw strings into one vector.
+            # Separate Content objects request one vector per input instead.
+            contents = [types.Content(parts=[types.Part.from_text(text=text)]) for text in texts]
             for attempt in range(4):
                 try:
                     response = self._client.models.embed_content(
-                        model=self.model, contents=texts,
+                        model=self.model, contents=contents,
                         config=types.EmbedContentConfig(task_type="SEMANTIC_SIMILARITY"))
                     break
                 except APIError as exc:

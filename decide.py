@@ -24,7 +24,7 @@ def validate_support(support):
         raise ValueError("support thresholds must be finite values in [0, 1]")
 
 
-def decide_pair(signals, relation, ambiguous=False, presence_mismatch=False, support=None):
+def decide_pair(signals, relation, ambiguous=False, presence_mismatch=False, support=None, base_gate=True):
     support = DEFAULT_SUPPORT if support is None else support
     validate_support(support)
     if set(signals) != {"base", "qualifier", "lexical"} or any(
@@ -36,7 +36,7 @@ def decide_pair(signals, relation, ambiguous=False, presence_mismatch=False, sup
     def result(decision, rule):
         return dict(decision=decision, decision_rule=rule)
 
-    if signals["base"] < support["base_min"]:
+    if base_gate and signals["base"] < support["base_min"]:
         return result("REJECT", "base_below_compatibility_gate")
     if relation is None:
         return result("UNCERTAIN", "relation_not_available")
@@ -49,14 +49,18 @@ def decide_pair(signals, relation, ambiguous=False, presence_mismatch=False, sup
         return result("REJECT", "related_but_different_qualifiers")
     if relation["base_relation"] == "UNCERTAIN" or relation["relation"] == "UNCERTAIN":
         return result("UNCERTAIN", "semantic_relation_unresolved")
-    if ambiguous or presence_mismatch:
+    if ambiguous:
+        return result("UNCERTAIN", "decomposition_or_scope_needs_review")
+    if relation["relation"] == "COMPATIBLE_VARIANT":
+        return result("UNCERTAIN", "compatible_variant_requires_review")
+    if presence_mismatch:
         return result("UNCERTAIN", "decomposition_or_scope_needs_review")
     if signals["qualifier"] >= support["qualifier_min"] or signals["lexical"] >= support["lexical_min"]:
         return result("ACCEPT", "equivalent_relation_with_support")
     return result("UNCERTAIN", "equivalent_relation_without_enough_support")
 
 
-def decide_report(scored, classifier, context="", support=None, fresh=False):
+def decide_report(scored, classifier, context="", support=None, fresh=False, cache_only=False, base_gate=True):
     from schema_context import value_evidence
     support = dict(DEFAULT_SUPPORT if support is None else support)
     validate_support(support)
@@ -74,7 +78,7 @@ def decide_report(scored, classifier, context="", support=None, fresh=False):
         left, right = columns[i], columns[j]
         ambiguous = left["ambiguous"] or right["ambiguous"]
         missing = bool(left["qualifiers"]) != bool(right["qualifiers"])
-        preliminary = decide_pair(pair["signals"], None, ambiguous, missing, support)
+        preliminary = decide_pair(pair["signals"], None, ambiguous, missing, support, base_gate)
         evidence = value_evidence(left, right)
         pair = dict(pair, value_evidence=evidence)
         plans.append((pair, left, right, ambiguous, missing, preliminary))
@@ -87,14 +91,15 @@ def decide_report(scored, classifier, context="", support=None, fresh=False):
             if evidence["available"] or evidence["units"] != "unknown":
                 request["value_evidence"] = evidence
             requests.append(request)
-    predictions = classifier.classify(requests, fresh=fresh)
+    predictions = (classifier.classify(requests, fresh=fresh, cache_only=True) if cache_only
+                   else classifier.classify(requests, fresh=fresh))
     if len(predictions) != len(requests):
         raise ValueError("classifier omitted pair predictions")
     relations = dict(zip(eligible, predictions))
     decisions = []
     for idx, (pair, left, right, ambiguous, missing, preliminary) in enumerate(plans):
         relation = relations.get(idx)
-        final = decide_pair(pair["signals"], relation, ambiguous, missing, support)
+        final = decide_pair(pair["signals"], relation, ambiguous, missing, support, base_gate)
         if final["decision"] == "ACCEPT" and pair["value_evidence"]["requires_review"]:
             final = dict(decision="UNCERTAIN", decision_rule="value_type_or_units_need_review")
         decisions.append(dict(pair, left=left["original"], right=right["original"],
@@ -103,6 +108,9 @@ def decide_report(scored, classifier, context="", support=None, fresh=False):
                 classifier=classifier.settings, context=context, support_thresholds=support,
                 decision_policy="relation-led-v1", counts=dict(Counter(r["decision"] for r in decisions)),
                 pair_count=len(decisions), classified_pairs=len(requests),
+                relation_cache_only=cache_only,
+                missing_cached_relations=sum(
+                    (r.get("relation") or {}).get("source") == "missing_cache" for r in decisions),
                 scoring_provenance={k: v for k, v in scored.items() if k not in {"columns", "scored_candidates", "evaluation"}},
                 columns=scored["columns"], decisions=decisions,
                 limitation="Pair decisions only. No clustering, calibrated probabilities, or automatic stronger-model escalation.")
@@ -120,6 +128,8 @@ def main():
     cli.add_argument("--context", default="", help="Optional factual schema description")
     cli.add_argument("--fresh", action="store_true", help="Ignore cached relation judgments")
     cli.add_argument("--base-min", type=float, default=DEFAULT_SUPPORT["base_min"])
+    cli.add_argument("--bypass-base-gate", action="store_true",
+                     help="Ignore the base compatibility gate so all candidates reach semantic classification")
     cli.add_argument("--qualifier-min", type=float, default=DEFAULT_SUPPORT["qualifier_min"])
     cli.add_argument("--lexical-min", type=float, default=DEFAULT_SUPPORT["lexical_min"])
     cli.add_argument("--output", type=Path, default=HERE / "decision_report.json")
@@ -148,7 +158,8 @@ def main():
         candidates["parser_model"] = parser.model
         qualifier_embedder = BaseEmbedder(base_embedder.backend, base_embedder.model, args.cache, input_format=CONTEXT_FORMAT)
         scored = score_candidates(candidates, qualifier_embedder)
-    result = decide_report(scored, RelationClassifier(args.relation_model), args.context, support, args.fresh)
+    result = decide_report(scored, RelationClassifier(args.relation_model), args.context, support, args.fresh,
+                           False, args.bypass_base_gate)
     args.output.write_text(json.dumps(result, indent=2) + "\n")
     print(json.dumps(result["counts"]))
     print(f"Full results: {args.output}")

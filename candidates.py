@@ -61,7 +61,7 @@ def checked_items(items):
     return result
 
 
-def generate_candidates(items, embedder, threshold=0.90, top_k=15, max_pairs=100000,
+def generate_candidates(items, embedder, threshold=0.88, top_k=15, max_pairs=100000,
                         representation="base", search_method="auto"):
     from retrieval import neighbors
     if not -1 <= threshold <= 1 or top_k < 1 or max_pairs < 1 or representation not in {"base", "full_name"}:
@@ -88,11 +88,9 @@ def generate_candidates(items, embedder, threshold=0.90, top_k=15, max_pairs=100
         left, right = items[i], items[j]
         exact = left["base"] == right["base"]
         base_score = 1.0 if exact else float(np.clip(base_vectors[left["base"]] @ base_vectors[right["base"]], -1, 1))
-        if base_score < threshold:
-            continue
         pairs.append(dict(left_id=i, right_id=j, left=left["original"], right=right["original"],
             base_similarity=base_score, retrieval_similarity=retrieval_score,
-            retrieval_reason="exact_base" if exact else "semantic_base",
+            retrieval_reason="exact_base" if exact else "full_name",
             decomposition_ambiguous=left["ambiguous"] or right["ambiguous"]))
     total = len(items) * (len(items) - 1) // 2
     return dict(stage="candidate_retrieval_only", timestamp=datetime.now(timezone.utc).isoformat(),
@@ -127,8 +125,8 @@ def read_csv_names(path, column=None):
 def add_retrieval_options(cli):
     cli.add_argument("--backend", choices=["gemini", "sentence-transformers"])
     cli.add_argument("--embedding-model")
-    cli.add_argument("--threshold", type=float, default=0.90,
-                     help="Cosine cutoff; 0.90 is a provisional Gemini setting, tune per model")
+    cli.add_argument("--threshold", type=float, default=0.88,
+                     help="Cosine cutoff; 0.88 is the evaluated Gemini retrieval setting")
     cli.add_argument("--top-k", type=int, default=15)
     cli.add_argument("--max-pairs", type=int, default=100000)
     cli.add_argument("--cache", type=Path)
